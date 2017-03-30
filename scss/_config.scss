@@ -1,0 +1,62 @@
+// ------------------------------------------------- //
+// Projects configuration variables                  //
+// ------------------------------------------------- //
+
+// Susy configuration
+@import "bower_components/susy/sass/susy";
+$susy: (
+	columns: 12,
+	gutters: 30px/65px,
+	container: 1110px,
+);
+
+// Typography Variables
+// -------------------------------------------------
+
+// Project base font family
+// ==================================
+$montserrat:          'Montserrat', sans-serif;
+$source:              'Source Sans Pro', sans-serif;
+// ==================================
+
+// Basic Typography
+$base-font-size:       14px;
+$base-line-height:     21px;
+$font-size:            $base-font-size !default;
+$browser-font-size:    16px !default;
+
+// Body type
+$body-font-family:     $source !default;
+$body-font-weight:     400 !default;
+$body-font-style:      normal !default;
+
+// Heading type
+$heading-font-family:  $source !default;
+$heading-font-weight:  700 !default;
+$heading-font-style:   normal !default;
+
+// Color Variables
+// -------------------------------------------------
+
+// Project base color
+// ==================================
+$black:         #000 !default;
+$white:         #fff !default;
+$blue:          #42A5F5 !default;
+$dark_grey:     #5a5b5c !default;
+// ===================================
+
+// Base colors
+$body-bg-color:        $white !default;
+$border-color:         rgba( 0, 0, 0, .08 ) !default;
+$selection-bg-color:   $blue !default;
+$selection-font-color: $white !default;
+
+// Typography colors
+$body-font-color:      $dark_grey !default;
+$heading-font-color:   $black !default;
+
+// Link colors
+$link-color:           $blue !default;
+$link-hover-color:     $body-font-color !default;
+$link-visited-color:   darken($link-color, 5%) !default;
