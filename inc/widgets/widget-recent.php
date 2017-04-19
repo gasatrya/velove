@@ -21,9 +21,9 @@ class Velove_Recent_Widget extends WP_Widget {
 
 		// Create the widget.
 		parent::__construct(
-			'velove-recent-posts',                             // $this->id_base
+			'velove-recent-posts',                           // $this->id_base
 			esc_html__( 'Velove - Recent Posts', 'velove' ), // $this->name
-			$widget_ops                                          // $this->widget_options
+			$widget_ops                                      // $this->widget_options
 		);
 
 		$this->alt_option_name = 'widget_recent_entries_thumbnail';
@@ -48,7 +48,7 @@ class Velove_Recent_Widget extends WP_Widget {
 		// Set up default value
 		$title     = ( ! empty( $instance['title'] ) ) ? $instance['title'] : '';
 		$number    = ( ! empty( $instance['number'] ) ) ? absint( $instance['number'] ) : 5;
-		$show_date = isset( $instance['show_date'] ) ? $instance['show_date'] : false;
+		$show_date = isset( $instance['show_date'] ) ? $instance['show_date'] : true;
 
 		// Output the theme's $before_widget wrapper.
 		echo $args['before_widget'];
@@ -119,7 +119,7 @@ class Velove_Recent_Widget extends WP_Widget {
 		$instance              = $old_instance;
 		$instance['title']     = sanitize_text_field( $new_instance['title'] );
 		$instance['number']    = (int) $new_instance['number'];
-		$instance['show_date'] = isset( $new_instance['show_date'] ) ? (bool) $new_instance['show_date'] : false;
+		$instance['show_date'] = isset( $new_instance['show_date'] ) ? (bool) $new_instance['show_date'] : true;
 		return $instance;
 	}
 
@@ -134,7 +134,7 @@ class Velove_Recent_Widget extends WP_Widget {
 	public function form( $instance ) {
 		$title     = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : esc_html__( 'Recent Posts', 'velove' );
 		$number    = isset( $instance['number'] ) ? absint( $instance['number'] ) : 5;
-		$show_date = isset( $instance['show_date'] ) ? (bool) $instance['show_date'] : false;
+		$show_date = isset( $instance['show_date'] ) ? (bool) $instance['show_date'] : true;
 	?>
 
 		<p>

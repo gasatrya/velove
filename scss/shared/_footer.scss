@@ -1,0 +1,28 @@
+.site-info {
+	margin: 70px 0 35px;
+}
+
+.copyright {
+	color: $grey-dark-2;
+	font-size: 14px;
+
+	a {
+		font-weight: 400;
+	}
+}
+
+.info-left {
+	@include span( 6 of 12 );
+}
+
+.info-right {
+	@include span( 6 of 12 last );
+	text-align: right;
+
+	.to-top {
+		font-size: 14px;
+		font-weight: 400;
+		text-transform: uppercase;
+		color: $grey-dark-2;
+	}
+}

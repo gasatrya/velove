@@ -1,0 +1,90 @@
+.archive,
+.search {
+
+	.grid {
+
+		.entry {
+			width: span( 4 of 12 );
+			margin-right: gutter();
+			margin-bottom: gutter() * 1.5;
+		}
+
+		.archive-thumbnail {
+			position: relative;
+		}
+
+		.entry-category {
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: -6px;
+			display: inline-block;
+			text-align: center;
+
+			a {
+				color: $palm-dark;
+				background-color: $white;
+				padding: 0 10px;
+				display: inline-block;
+				font-size: 14px;
+				text-transform: uppercase;
+			}
+		}
+
+		.entry-title {
+			font-size: 24px;
+			line-height: 1.3;
+			margin-top: 18px;
+			margin-bottom: 8px;
+		}
+
+		.entry-meta {
+			text-transform: lowercase;
+			font-style: italic;
+			font-size: 14px;
+
+			a {
+				text-transform: uppercase;
+				font-style: normal;
+				color: $grey-dark-2;
+			}
+		}
+
+	}
+
+	.pagination {
+		border-top: 0;
+		padding-top: 0;
+	}
+
+}
+
+.author .bio {
+	width: 40%;
+	margin: 0 auto;
+
+	.avatar {
+		border-radius: 50%;
+		float: left;
+		margin-right: 1.5em;
+	}
+
+	.description {
+		text-align: left;
+	}
+
+	.bio-name {
+		font-family: $source;
+		font-size: 36px;
+		letter-spacing: ( 100 * 36 / 1000 ) + px;
+		margin: 0;
+		text-transform: uppercase;
+	}
+
+	.bio-text {
+		color: $grey-dark-2;
+		font-style: italic;
+		margin-bottom: 0;
+	}
+
+}

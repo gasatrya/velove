@@ -61,14 +61,16 @@ function velove_theme_setup() {
 	add_theme_support( 'post-thumbnails' );
 
 	// Declare image sizes.
-	// add_image_size( 'velove-thumbnail-landscape', 520, 330, true );
-	// add_image_size( 'velove-thumbnail-square', 520, 520, true );
+	add_image_size( 'velove-featured', 600, 480, true );
+	add_image_size( 'velove-post', 698, 479, true );
+	add_image_size( 'velove-most', 318, 350, true );
+	add_image_size( 'velove-archive', 350, 9999 );
+	add_image_size( 'velove-post-pagination', 350, 250, true );
 
 	// Register custom navigation menu.
 	register_nav_menus(
 		array(
 			'primary'  => esc_html__( 'Primary Location', 'velove' ),
-			'footer'   => esc_html__( 'Footer Location', 'velove' ),
 			'social'   => esc_html__( 'Social Links', 'velove' )
 		)
 	);
@@ -129,10 +131,6 @@ function velove_widgets_init() {
 	require trailingslashit( get_template_directory() ) . 'inc/widgets/widget-random.php';
 	register_widget( 'Velove_Random_Widget' );
 
-	// Register video widget.
-	require trailingslashit( get_template_directory() ) . 'inc/widgets/widget-video.php';
-	register_widget( 'Velove_Video_Widget' );
-
 }
 add_action( 'widgets_init', 'velove_widgets_init' );
 
@@ -158,37 +156,13 @@ function velove_sidebars_init() {
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Footer 1', 'velove' ),
-			'id'            => 'footer-1',
-			'description'   => esc_html__( 'The footer sidebar 1st column.', 'velove' ),
-			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</aside>',
-			'before_title'  => '<h3 class="widget-title">',
-			'after_title'   => '</h3>',
-		)
-	);
-
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Footer 2', 'velove' ),
-			'id'            => 'footer-2',
-			'description'   => esc_html__( 'The footer sidebar 2nd column.', 'velove' ),
-			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</aside>',
-			'before_title'  => '<h3 class="widget-title">',
-			'after_title'   => '</h3>',
-		)
-	);
-
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Footer 3', 'velove' ),
-			'id'            => 'footer-3',
-			'description'   => esc_html__( 'The footer sidebar 3rd column.', 'velove' ),
-			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</aside>',
-			'before_title'  => '<h3 class="widget-title">',
-			'after_title'   => '</h3>',
+			'name'          => esc_html__( 'Instagram', 'velove' ),
+			'id'            => 'instagram',
+			'description'   => esc_html__( 'Instagram section that appears on footer.', 'velove' ),
+			'before_widget' => '<div id="%1$s" class="instagram-widget %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3 class="instagram-title"><span>',
+			'after_title'   => '</span></h3>',
 		)
 	);
 
@@ -209,10 +183,10 @@ function velove_fonts_url() {
 
 	/*
 	 * Translators: If there are characters in your language that are not supported
-	 * by Montserrat, translate this to 'off'. Do not translate into your own language.
+	 * by Playfair Display, translate this to 'off'. Do not translate into your own language.
 	 */
-	if ( 'off' !== _x( 'on', 'Montserrat font: on or off', 'velove' ) ) {
-		$fonts[] = 'Montserrat:400,700';
+	if ( 'off' !== _x( 'on', 'Playfair Display font: on or off', 'velove' ) ) {
+		$fonts[] = 'Playfair Display:700,900';
 	}
 
 	/*
@@ -220,7 +194,7 @@ function velove_fonts_url() {
 	 * by Source Sans Pro, translate this to 'off'. Do not translate into your own language.
 	 */
 	if ( 'off' !== _x( 'on', 'Source Sans Pro font: on or off', 'velove' ) ) {
-		$fonts[] = 'Source Sans Pro:400,400i,700,700i,900,900i';
+		$fonts[] = 'Source Sans Pro:400,400i,700,700i,900';
 	}
 
 	/*
@@ -279,3 +253,7 @@ require trailingslashit( get_template_directory() ) . 'inc/customizer.php';
  */
 require trailingslashit( get_template_directory() ) . 'inc/jetpack.php';
 
+/**
+ * Custom like function
+ */
+require trailingslashit( get_template_directory() ) . 'inc/like.php';

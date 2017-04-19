@@ -5,7 +5,6 @@
 
 // Loads the customizer settings
 require trailingslashit( get_template_directory() ) . 'inc/customizer/general.php';
-require trailingslashit( get_template_directory() ) . 'inc/customizer/topbar.php';
 require trailingslashit( get_template_directory() ) . 'inc/customizer/header.php';
 
 /**
@@ -179,16 +178,6 @@ function velove_sanitize_thumbnail_style( $ratio ) {
 		$ratio = 'landscape';
 	}
 	return $ratio;
-}
-
-/**
- * Sanitize the Top Bar style value.
- */
-function velove_sanitize_topbar_style( $style ) {
-	if ( ! in_array( $style, array( 'left_info', 'right_info' ) ) ) {
-		$style = 'left_info';
-	}
-	return $style;
 }
 
 /**

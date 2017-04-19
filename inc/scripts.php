@@ -9,7 +9,7 @@
 function velove_enqueue() {
 
 	// Load plugins stylesheet
-	wp_enqueue_style( 'velove-plugins-style', trailingslashit( get_template_directory_uri() ) . 'assets/css/plugins.min.css' );
+	// wp_enqueue_style( 'velove-plugins-style', trailingslashit( get_template_directory_uri() ) . 'assets/css/plugins.min.css' );
 
 	// Fonts
 	wp_enqueue_style( 'velove-fonts', velove_fonts_url() );
@@ -21,10 +21,13 @@ function velove_enqueue() {
 		wp_enqueue_style( 'velove-style', get_stylesheet_uri() );
 
 		// Load custom js plugins.
-		wp_enqueue_script( 'velove-plugins', trailingslashit( get_template_directory_uri() ) . 'assets/js/plugins.min.js', array( 'jquery' ), null, true );
+		wp_enqueue_script( 'velove-plugins', trailingslashit( get_template_directory_uri() ) . 'assets/js/plugins.min.js', array( 'jquery', 'masonry' ), null, true );
 
 		// Load custom js methods.
-		wp_enqueue_script( 'velove-main', trailingslashit( get_template_directory_uri() ) . 'assets/js/main.js', array( 'jquery' ), null, true );
+		wp_enqueue_script( 'velove-main', trailingslashit( get_template_directory_uri() ) . 'assets/js/main.js', array( 'jquery', 'masonry' ), null, true );
+
+		// Script handle
+		$script_handle = 'velove-main';
 
 	} else {
 
@@ -32,9 +35,21 @@ function velove_enqueue() {
 		wp_enqueue_style( 'velove-style', trailingslashit( get_template_directory_uri() ) . 'style.min.css' );
 
 		// Load custom js plugins.
-		wp_enqueue_script( 'velove-scripts', trailingslashit( get_template_directory_uri() ) . 'assets/js/velove.min.js', array( 'jquery' ), null, true );
+		wp_enqueue_script( 'velove-scripts', trailingslashit( get_template_directory_uri() ) . 'assets/js/velove.min.js', array( 'jquery', 'masonry' ), null, true );
+
+		// Script handle
+		$script_handle = 'velove-scripts';
 
 	}
+
+	// Pass var to js
+	wp_localize_script( $script_handle, 'velove',
+		array(
+			'site_url'   => trailingslashit( get_template_directory_uri() ),
+			'ajaxurl'    => admin_url( 'admin-ajax.php' ),
+			'rated'      => esc_html__( 'You already like this', 'velove' )
+		)
+	);
 
 	/**
 	 * js / no-js script.
@@ -60,6 +75,7 @@ function velove_enqueue() {
 	// Fontello for IE7
 	wp_enqueue_style( 'velove-fontello', trailingslashit( get_template_directory_uri() ) . 'assets/css/fontello-ie7.css' );
 	wp_style_add_data( 'velove-fontello', 'conditional', 'IE 7' );
+
 
 }
 add_action( 'wp_enqueue_scripts', 'velove_enqueue' );

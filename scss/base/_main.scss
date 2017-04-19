@@ -20,6 +20,9 @@ body {
 	line-height: ( $base-line-height / $font-size ) * 1em;
 	color: $body-font-color;
 	background: $body-bg-color;
+	margin: 0;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 /**

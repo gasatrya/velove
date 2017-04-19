@@ -22,6 +22,7 @@ module.exports = function ( grunt ) {
 				},
 				files: {
 					'jquery.fitvids.js': 'fitvids/jquery.fitvids.js',
+					'readingTime.js': 'reading-time/src/readingTime.js',
 				}
 			},
 			js: {
@@ -259,6 +260,7 @@ module.exports = function ( grunt ) {
 			]
 		},
 
+		// .pot generator
 		makepot: {
 			target: {
 				options: {
@@ -290,7 +292,45 @@ module.exports = function ( grunt ) {
 					}
 				}
 			}
-		}
+		},
+
+		// SVG sprite generator
+		// svg_sprite: {
+		// 	basic: {
+
+		// 		// Target
+		// 		expand: true,
+		// 		cwd: 'assets/svg',
+		// 		src: ['**/*.svg'],
+		// 		dest: '.',
+
+		// 		// Target options
+		// 		options: {
+		// 			mode: {
+		// 				css: {
+		// 					dest: '.',
+		// 					prefix: ".%s",
+		// 					dimensions: true,
+		// 					sprite: 'assets/svg/icons-sprite.svg',
+		// 					render: {
+		// 						scss: true,
+		// 						scss: {
+		// 							dest: 'scss/base/_icons.scss'
+		// 						}
+		// 					}
+		// 				}
+		// 			},
+		// 			shape: {
+		// 				id: {
+		// 					generator: "icon-%s" // CSS classes will have this prefix
+		// 				}
+		// 			}
+
+		// 		}
+
+		// 	}
+
+		// }
 
 	} );
 
@@ -298,7 +338,7 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( 'default', [
 		'bowercopy',
 		'uglify:dev',
-		'cssmin:prod',
+		// 'cssmin:prod',
 		'sass:dev'
 	] );
 
@@ -325,3 +365,4 @@ module.exports = function ( grunt ) {
 	] );
 
 };
+//

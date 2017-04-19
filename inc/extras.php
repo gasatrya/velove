@@ -5,6 +5,16 @@
  */
 
 /**
+ * Add a pingback url auto-discovery header for singularly identifiable articles.
+ */
+function velove_pingback_header() {
+	if ( is_singular() && pings_open() ) {
+		echo '<link rel="pingback" href="', bloginfo( 'pingback_url' ), '">';
+	}
+}
+add_action( 'wp_head', 'velove_pingback_header' );
+
+/**
  * Adds custom classes to the array of body classes.
  */
 function velove_body_classes( $classes ) {
@@ -17,6 +27,11 @@ function velove_body_classes( $classes ) {
 	// Adds a class if a post or page has featured image.
 	if ( has_post_thumbnail() ) {
 		$classes[] = 'has-featured-image';
+	}
+
+	// Adds a class for full-width page.
+	if ( is_404() || is_archive() || is_search() || is_attachment() ) {
+		$classes[] = 'full-width-layout';
 	}
 
 	return $classes;
@@ -58,6 +73,14 @@ function velove_excerpt_more( $more ) {
 add_filter( 'excerpt_more', 'velove_excerpt_more' );
 
 /**
+ * Filter the except length to 20 words.
+ */
+function velove_custom_excerpt_length( $length ) {
+	return 28;
+}
+add_filter( 'excerpt_length', 'velove_custom_excerpt_length', 999 );
+
+/**
  * Extend archive title
  */
 function velove_extend_archive_title( $title ) {
@@ -83,3 +106,15 @@ function velove_customize_tag_cloud( $args ) {
 	return $args;
 }
 add_filter( 'widget_tag_cloud_args', 'velove_customize_tag_cloud' );
+
+/**
+ * Disable Subtitles in home and archive views.
+ */
+function velove_subtitles_mod_supported_views() {
+
+	if ( is_home() || is_front_page() || is_archive() ) {
+		return false;
+	}
+
+}
+add_filter( 'subtitle_view_supported', 'velove_subtitles_mod_supported_views' );

@@ -57,18 +57,6 @@ function velove_general_customize_register( $wp_customize ) {
 		'type'              => 'checkbox'
 	) );
 
-	// Register Page title setting
-	$wp_customize->add_setting( 'velove_page_title', array(
-		'default'           => 1,
-		'sanitize_callback' => 'velove_sanitize_checkbox',
-	) );
-	$wp_customize->add_control( 'velove_page_title', array(
-		'label'             => esc_html__( 'Pages: Show page title', 'velove' ),
-		'section'           => 'velove_general',
-		'priority'          => 7,
-		'type'              => 'checkbox'
-	) );
-
 	// Register Page featured image setting
 	$wp_customize->add_setting( 'velove_page_featured_image', array(
 		'default'           => 0,

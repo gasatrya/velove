@@ -1,15 +1,18 @@
 {
-	"name": "velove",
-	"version": "1.0.0",
-	"ignore": [
-		"**/.*",
-		"node_modules",
-		"bower_components"
-	],
-	"dependencies": {
-		"html5shiv": "~3.7.3",
-		"fitvids": "~1.2.0",
-		"normalize.css": "~6.0.0",
-		"susy": "~2.2.12"
-	}
+  "name": "velove",
+  "version": "1.0.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "html5shiv": "~3.7.3",
+    "fitvids": "~1.2.0",
+    "normalize.css": "~6.0.0",
+    "susy": "~2.2.12"
+  },
+  "devDependencies": {
+    "reading-time": "^1.0.0"
+  }
 }

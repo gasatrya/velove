@@ -1,4 +1,4 @@
-// @charset "utf-8";
+@charset "utf-8";
 /*!
  * Theme Name: Velove
  * Theme URI: https://beautimour.com/themes/velove/
@@ -34,14 +34,17 @@
  * - SHARED
  * - TYPOGRAPHY
  * - FORMS
+ * - ICONS
  *
  * PAGES
  * - HOMEPAGE
+ * - 404
+ * - ARCHIVE
  *
  * SECTIONS
  * - HEADER
  * - NAVIGATIONS
- * - SIDEBAR
+ * - MODULES
  * - FOOTER
  * - COMMENT
  *
@@ -79,6 +82,11 @@
 @import "base/form";
 
 /*------------------------------------*
+	$ICONS
+*------------------------------------*/
+@import "base/icons";
+
+/*------------------------------------*
 	$HEADER
 *------------------------------------*/
 @import "shared/header";
@@ -94,9 +102,9 @@
 @import "shared/content";
 
 /*------------------------------------*
-	$SIDEBAR
+	$MODULES
 *------------------------------------*/
-@import "shared/sidebar";
+@import "shared/modules";
 
 /*------------------------------------*
 	$FOOTER
@@ -112,3 +120,13 @@
 	$HOMEPAGE
 *------------------------------------*/
 @import "pages/homepage";
+
+/*------------------------------------*
+	$404
+*------------------------------------*/
+@import "pages/404";
+
+/*------------------------------------*
+	$ARCHIVE
+*------------------------------------*/
+@import "pages/archive";

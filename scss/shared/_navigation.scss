@@ -1,0 +1,154 @@
+.main-navigation {
+	@include span( 10 of 12 last );
+	line-height: 35px;
+}
+
+.menu-primary-items {
+	@extend %reset-list;
+	text-align: right;
+
+	li {
+		position: relative;
+		display: block;
+
+		@include susy-media( 769px ) {
+			display: inline-block;
+			margin-right: 40px;
+		}
+
+		&:hover {
+			> .sub-menu {
+				display: block;
+				animation: submenuShow 200ms ease-in-out both;
+			}
+		}
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+
+	a {
+		font-size: 12px;
+		text-transform: uppercase;
+		transition: none;
+
+		&:hover {
+			border-bottom: 2px solid $palm_dark;
+		}
+	}
+
+	.sub-menu {
+		@extend %reset-list;
+		padding: 5px 0;
+		text-align: left;
+		border-top: 0;
+		transition: opacity ease-in-out 1s;
+
+		@include susy-media( 769px ) {
+			position: absolute;
+			z-index: 9999;
+			top: 100%;
+			left: 0;
+			display: none;
+			min-width: 180px;
+			background-color: $white;
+			box-shadow: 0 0 7px rgba( $black, .1 );
+		}
+
+		ul {
+			top: 0;
+			left: 100%;
+		}
+
+		li {
+			display: block;
+			padding: 0 20px;
+			border-bottom: 0;
+
+			@include susy-media( 769px ) {
+				border-bottom: 1px solid rgba( $black, .05 );
+				margin-right: 0;
+			}
+
+			&:last-child {
+				border-bottom: 0;
+			}
+
+			&.menu-item-has-children {
+				@include susy-media( 769px ) {
+					&::after {
+						top: 14px;
+						right: 10px;
+						content: "\e80b";
+					}
+					&:hover {
+						&::after {
+							content: "\e80c";
+						}
+					}
+				}
+			}
+
+			a {
+				padding-right: 0;
+				margin-right: 0;
+			}
+
+		}
+
+		a {
+			font-size: 14px;
+			line-height: 1.5;
+			font-weight: 400;
+			display: block;
+			padding: 6px 0;
+			text-transform: capitalize;
+
+			&:hover {
+				border-bottom: 0;
+			}
+		}
+
+	}
+}
+
+/**
+ * Mobile Menu
+ */
+.menu-toggle {
+	line-height: 1.5;
+
+	&:hover,
+	&:focus {
+		background-image: none;
+	}
+
+	&:active {
+		box-shadow: none;
+	}
+}
+
+.menu-toggle,
+.main-navigation.toggled ul {
+	display: block;
+	width: 100%;
+}
+
+@include susy-media( 768px ) {
+	.menu-toggle {
+		display: none;
+	}
+	.main-navigation ul {
+		display: block;
+	}
+}
+
+@keyframes submenuShow {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}

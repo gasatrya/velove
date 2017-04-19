@@ -1,0 +1,20 @@
+.container {
+	@include container;
+}
+
+.content-area {
+	@include susy-media( 801px ) {
+		@include span( 8 of 12 );
+	}
+
+	.full-width-layout & {
+		@include full;
+	}
+}
+
+.widget-area {
+	@include susy-media( 801px ) {
+		@include span( 4 of 12 last );
+		@include prefix( 5.7% );
+	}
+}

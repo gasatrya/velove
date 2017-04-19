@@ -19,6 +19,12 @@ function velove_register_plugins() {
 			'required' => false,
 		),
 
+		array(
+			'name'     => 'Subtitles',
+			'slug'     => 'subtitles',
+			'required' => false,
+		),
+
 	);
 
 	$config = array(

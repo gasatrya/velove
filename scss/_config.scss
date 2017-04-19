@@ -15,13 +15,13 @@ $susy: (
 
 // Project base font family
 // ==================================
-$montserrat:          'Montserrat', sans-serif;
-$source:              'Source Sans Pro', sans-serif;
+$playfair:          'Playfair Display', serif;
+$source:            'Source Sans Pro', sans-serif;
 // ==================================
 
 // Basic Typography
-$base-font-size:       14px;
-$base-line-height:     21px;
+$base-font-size:       16px;
+$base-line-height:     24px;
 $font-size:            $base-font-size !default;
 $browser-font-size:    16px !default;
 
@@ -31,8 +31,8 @@ $body-font-weight:     400 !default;
 $body-font-style:      normal !default;
 
 // Heading type
-$heading-font-family:  $source !default;
-$heading-font-weight:  700 !default;
+$heading-font-family:  $playfair !default;
+$heading-font-weight:  900 !default;
 $heading-font-style:   normal !default;
 
 // Color Variables
@@ -41,22 +41,27 @@ $heading-font-style:   normal !default;
 // Project base color
 // ==================================
 $black:         #000 !default;
+$black-light:   #232323 !default;
 $white:         #fff !default;
-$blue:          #42A5F5 !default;
-$dark_grey:     #5a5b5c !default;
+$palm:          #fbf1eb !default;
+$palm-dark:     #f7c8b3 !default;
+$grey:          #eee !default;
+$grey-dark:     #cdcdcd !default;
+$grey-dark-2:   #a3a3a3 !default;
+$grey-darker:   #858585 !default;
 // ===================================
 
 // Base colors
 $body-bg-color:        $white !default;
-$border-color:         rgba( 0, 0, 0, .08 ) !default;
-$selection-bg-color:   $blue !default;
-$selection-font-color: $white !default;
+$border-color:         $grey !default;
+$selection-bg-color:   $palm !default;
+$selection-font-color: $black !default;
 
 // Typography colors
-$body-font-color:      $dark_grey !default;
-$heading-font-color:   $black !default;
+$body-font-color:      $black-light !default;
+$heading-font-color:   $black-light !default;
 
 // Link colors
-$link-color:           $blue !default;
-$link-hover-color:     $body-font-color !default;
-$link-visited-color:   darken($link-color, 5%) !default;
+$link-color:           $black !default;
+$link-hover-color:     $palm-dark !default;
+$link-visited-color:   $black !default;

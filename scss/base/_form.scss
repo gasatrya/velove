@@ -24,8 +24,24 @@ textarea {
 	height: 2.5em;
 	padding: .5em .6em;
 	vertical-align: middle;
-	border: 1px solid $border-color;
-	background-color: #fafafa;
+	border: none;
+	background-color: $palm;
+
+	&::-webkit-input-placeholder {
+		font-family: $source;
+	}
+
+	&::-moz-placeholder {
+		font-family: $source;
+	}
+
+	&:-ms-input-placeholder {
+		font-family: $source;
+	}
+
+	&:-moz-placeholder {
+		font-family: $source;
+	}
 }
 
 textarea {
@@ -71,9 +87,9 @@ input[type="tel"]:focus,
 input[type="color"]:focus,
 select:focus,
 textarea:focus {
-	border-color: lighten( $black, 70% );
 	outline: 0;
 	background-color: $white;
+	border: 1px solid $palm;
 }
 
 /*
@@ -190,7 +206,7 @@ input[type="submit"],
 	color: $white; /* rgba not supported (IE 8) */
 	border: 1px solid darken($white, 5%);  /*IE 6/7/8*/
 	border: none rgba(0, 0, 0, 0);  /*IE9 + everything else*/
-	background-color: $blue;
+	background-color: $black;
 	display: inline-block;
 	&:visited {
 		color: $white;
@@ -250,15 +266,3 @@ input[type="submit"]::-moz-focus-inner {
 	border: 0;
 }
 
-.button-minimal {
-	padding: .45em 1em;
-	color: $blue;
-	border: 3px solid $blue;
-	background: transparent;
-	&:hover {
-		background: $blue;
-	}
-	&:visited {
-		color: $blue;
-	}
-}
