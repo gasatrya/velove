@@ -1,25 +1,36 @@
 .site-header {
 	@extend %clearfix;
-	margin-top: 43px;
-	// margin-bottom: 50px;
 	padding-bottom: 94px;
 	border-bottom: 1px solid $border-color;
 
-	// .home &,
-	// .error404 &,
-	// .archive &,
-	// .search & {
-	// 	margin-bottom: 0;
-	// }
-}
+	.framed-container & {
+		margin-top: 43px;
+	}
 
-.site-navigation {
-	@extend %clearfix;
-	margin-bottom: 108px;
+	.home &,
+	.archive &,
+	.attachment & {
+		border-bottom: 0;
+	}
+
+	.header-style-three & {
+		padding-top: 80px;
+	}
+
 }
 
 .site-branding {
 	@include span( 4 of 12 );
+
+	.header-style-two &,
+	.header-style-three & {
+		@include full;
+		text-align: center;
+
+		.site-title {
+			margin-bottom: 2px;
+		}
+	}
 
 	.site-title {
 		font-size: 72px;

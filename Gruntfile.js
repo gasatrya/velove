@@ -87,11 +87,11 @@ module.exports = function ( grunt ) {
 		sass: {
 			dev: {
 				options: {
-					outputStyle: 'nested',
+					outputStyle: 'expanded',
 					sourceMap: true
 				},
 				files: {
-					'style.css': 'scss/style.scss'
+					'style.css': 'scss/style.scss',
 				}
 			},
 			prod: {
@@ -103,6 +103,19 @@ module.exports = function ( grunt ) {
 					'style.min.css': 'scss/style.scss',
 					'assets/css/editor-style.css': 'scss/editor-style.scss'
 				}
+			},
+			color: {
+				options: {
+					outputStyle: 'expanded',
+					sourceMap: false
+				},
+				files: [{
+					expand: true,
+					cwd: 'scss/colors/',
+					src: ['*.scss'],
+					dest: 'assets/css/color/',
+					ext: '.css'
+				}]
 			}
 		},
 
@@ -167,6 +180,7 @@ module.exports = function ( grunt ) {
 				files: [ 'scss/**/*.scss' ],
 				tasks: [
 					'sass:dev',
+					'sass:color',
 					'autoprefixer:dev',
 				]
 			},

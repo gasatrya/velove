@@ -3,33 +3,93 @@
  * Velove Theme Customizer
  */
 
+// Loads custom control
+require trailingslashit( get_template_directory() ) . 'inc/customizer/controls/custom-text-control.php';
+
 // Loads the customizer settings
 require trailingslashit( get_template_directory() ) . 'inc/customizer/general.php';
+require trailingslashit( get_template_directory() ) . 'inc/customizer/post.php';
+require trailingslashit( get_template_directory() ) . 'inc/customizer/page.php';
+require trailingslashit( get_template_directory() ) . 'inc/customizer/most-posts.php';
+require trailingslashit( get_template_directory() ) . 'inc/customizer/colors.php';
 require trailingslashit( get_template_directory() ) . 'inc/customizer/header.php';
+require trailingslashit( get_template_directory() ) . 'inc/customizer/fonts.php';
+require trailingslashit( get_template_directory() ) . 'inc/customizer/layouts.php';
 
 /**
  * Custom customizer functions.
  */
 function velove_customize_functions( $wp_customize ) {
 
-	// Register new panel: Velove Options
-	$wp_customize->add_panel( 'velove_options', array(
-		'title'       => esc_html__( 'Velove Options', 'velove' ),
-		'description' => esc_html__( 'This panel is used for customizing the Velove theme.', 'velove' ),
-		'priority'    => 130,
+	// Register new panel: Appearance
+	$wp_customize->add_panel( 'velove_appearance', array(
+		'title'       => esc_html__( 'Appearance', 'velove' ),
+		'priority'    => 30,
 	) );
 
-	// Live preview of Site Title
-	$wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
+	// Register new panel: Theme Options
+	$wp_customize->add_panel( 'velove_options', array(
+		'title'       => esc_html__( 'Theme Options', 'velove' ),
+		'description' => esc_html__( 'This panel is used for customizing the Velove theme.', 'velove' ),
+		'priority'    => 150,
+	) );
+
+	// Live preview of Site Title and Description
+	$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
+	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 
 	// Enable selective refresh to the Site Title
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial( 'blogname', array(
-			'selector'            => '.site-title a',
-			'container_inclusive' => false,
-			'render_callback'     => 'velove_customize_partial_blogname',
+			'selector'         => '.site-title a',
+			'settings'         => array( 'blogname' ),
+			'render_callback'  => function() {
+				return get_bloginfo( 'name', 'display' );
+			}
 		) );
 	}
+
+	// Enable selective refresh to the Site Description
+	if ( isset( $wp_customize->selective_refresh ) ) {
+		$wp_customize->selective_refresh->add_partial( 'blogdescription', array(
+			'selector'         => '.site-description',
+			'settings'         => array( 'blogdescription' ),
+			'render_callback'  => function() {
+				return get_bloginfo( 'description', 'display' );
+			}
+		) );
+	}
+
+	// Move the Colors section.
+	$wp_customize->get_section( 'colors' )->panel    = 'velove_appearance';
+	$wp_customize->get_section( 'colors' )->priority = 1;
+
+	// Move the Theme Layout section.
+	$wp_customize->get_control( 'theme-layout-control' )->section    = 'velove_layouts';
+	$wp_customize->get_control( 'theme-layout-control' )->priority = 3;
+
+	// Move the Background Image section.
+	$wp_customize->get_section( 'background_image' )->panel    = 'velove_appearance';
+	$wp_customize->get_section( 'background_image' )->priority = 7;
+
+	// Move the Static Front Page section.
+	$wp_customize->get_section( 'static_front_page' )->panel    = 'velove_appearance';
+	$wp_customize->get_section( 'static_front_page' )->priority = 9;
+
+	// Move the Additional CSS section.
+	$wp_customize->get_section( 'custom_css' )->panel    = 'velove_appearance';
+	$wp_customize->get_section( 'custom_css' )->priority = 11;
+
+	// Move background color to background image section.
+	$wp_customize->get_section( 'background_image' )->title = esc_html__( 'Background', 'velove' );
+	$wp_customize->get_control( 'background_color' )->section = 'background_image';
+
+	// Change the color section description.
+	$wp_customize->get_section( 'colors' )->description = esc_html__( 'If you don\'t like the predefined colors, you can choose the color you want from the color picker.', 'velove' );
+
+	// Move the header image to header section
+	$wp_customize->get_control( 'header_image' )->section  = 'velove_header';
+	$wp_customize->get_control( 'header_image' )->priority = 3;
 
 }
 add_action( 'customize_register', 'velove_customize_functions', 99 );
@@ -45,54 +105,116 @@ add_action( 'customize_preview_init', 'velove_customize_preview_js' );
 /**
  * Custom styles.
  */
-function velove_custom_styles() {
+function velove_custom_css() {
 
 	// Set up empty variable.
 	$css = '';
 
-	/**
-	 * Top Bar
-	 */
-	$topbar_bg     = get_theme_mod( 'velove_topbar_bg', '#fafafa' );
-	$topbar_color  = get_theme_mod( 'velove_topbar_color', '#8d8e8f' );
-	$topbar_social = get_theme_mod( 'velove_topbar_social_color', '#8d8e8f' );
+	// Get the customizer value.
+	$color        = get_theme_mod( 'velove_accent_color', '#fbf1eb' );
+	$heading_font = get_theme_mod( 'velove_heading_font_family', '\'Playfair Display\', serif' );
+	$body_font    = get_theme_mod( 'velove_body_font_family', '\'Source Sans Pro\', sans-serif' );
 
-	if ( $topbar_bg !== '#fafafa' ) {
-		$css = '.topbar { background-color: ' . sanitize_hex_color( $topbar_bg ) . ' }';
-	}
-	if ( $topbar_color !== '#8d8e8f' ) {
-		$css = '.topbar { color: ' . sanitize_hex_color( $topbar_color ) . ' }';
-	}
-	if ( $topbar_social !== '#8d8e8f' ) {
-		$css = '.social-links a { color: ' . sanitize_hex_color( $topbar_social ) . ' }';
+	// Adjust color.
+	$simple_color_adjuster = new Simple_Color_Adjuster;
+	$darken_color = $simple_color_adjuster->darken( $color, 15 );
+
+	if ( $color != '#fbf1eb' ) {
+		$css .= '
+		a:hover,
+		a:visited:hover,
+		.archive .grid .entry-category a,
+		.search .grid .entry-category a,
+		.archive .grid .entry-meta a:hover,
+		.search .grid .entry-meta a:hover,
+		.social-links a:hover {
+			color: ' . sanitize_hex_color( $darken_color ) . ';
+		}
+
+		.after-header,
+		.content .thumbnail-link:hover .entry-title span,
+		.widget_tag_cloud a,
+		input[type="text"],
+		input[type="password"],
+		input[type="email"],
+		input[type="url"],
+		input[type="date"],
+		input[type="month"],
+		input[type="time"],
+		input[type="datetime"],
+		input[type="datetime-local"],
+		input[type="week"],
+		input[type="number"],
+		input[type="search"],
+		input[type="tel"],
+		input[type="color"],
+		select,
+		textarea,
+		.social-links,
+		.instagram-widget .instagram-title span,
+		.author-bio,
+		.tag-links a,
+		.comment-reply-link,
+		.author-badge,
+		.attachment .after-header {
+			background-color: ' . sanitize_hex_color( $color ) . ';
+		}
+
+		.widget_tag_cloud a:hover,
+		.tag-links a:hover {
+			background-color: ' . sanitize_hex_color( $darken_color ) . ';
+			color: #000;
+		}
+
+		.menu-primary-items a:hover {
+			border-color: ' . sanitize_hex_color( $darken_color ) . ';
+		}
+
+		.widget::before,
+		.widget::after,
+		input[type="text"]:focus,
+		input[type="password"]:focus,
+		input[type="email"]:focus,
+		input[type="url"]:focus,
+		input[type="date"]:focus,
+		input[type="month"]:focus,
+		input[type="time"]:focus,
+		input[type="datetime"]:focus,
+		input[type="datetime-local"]:focus,
+		input[type="week"]:focus,
+		input[type="number"]:focus,
+		input[type="search"]:focus,
+		input[type="tel"]:focus,
+		input[type="color"]:focus,
+		select:focus,
+		textarea:focus,
+		.bypostauthor .comment-body .comment-wrapper {
+			border-color: ' . sanitize_hex_color( $color ) . ';
+		}
+		';
 	}
 
-	/**
-	 * Header
-	 */
-	$header_bg           = get_theme_mod( 'velove_header_bg', '#fff' );
-	$header_color        = get_theme_mod( 'velove_header_title_color', '#000' );
-	$header_menu_color   = get_theme_mod( 'velove_header_menu_color', '#5a5b5c' );
-	$header_border_color = get_theme_mod( 'velove_header_border_color', '#f1f1f1' );
+	if ( $heading_font != '\'Playfair Display\', serif' ) {
+		$css .= '
+			h1, h2, h3, h4, h5, h6 {
+				font-family: ' . wp_kses_post( $heading_font ) . ';
+			}
+		';
+	}
 
-	if ( $header_bg !== '#fff' ) {
-		$css = '.site-header { background-color: ' . sanitize_hex_color( $header_bg ) . ' }';
-	}
-	if ( $header_color !== '#000' ) {
-		$css = '.site-header { color: ' . sanitize_hex_color( $header_color ) . ' }';
-	}
-	if ( $header_menu_color !== '#5a5b5c' ) {
-		$css = '.menu-primary-items a, .menu-primary-items li.menu-item-has-children:after { color: ' . sanitize_hex_color( $header_menu_color ) . ' }';
-	}
-	if ( $header_border_color !== '#f1f1f1' ) {
-		$css = '.logo-center .main-navigation { border-color: ' . sanitize_hex_color( $header_border_color ) . ' }';
+	if ( $body_font != '\'Source Sans Pro\', sans-serif' ) {
+		$css .= '
+			body, .site-branding .site-description, .featured .featured-title, .widget .widget-title, .most-content .most-content-title, .instagram-widget .instagram-title, .author-bio .name {
+				font-family: ' . wp_kses_post( $body_font ) . ';
+			}
+		';
 	}
 
 	// Print the custom style
 	wp_add_inline_style( 'velove-style', $css );
 
 }
-add_action( 'wp_enqueue_scripts', 'velove_custom_styles' );
+add_action( 'wp_enqueue_scripts', 'velove_custom_css' );
 
 /**
  * Custom RSS feed url.
@@ -127,7 +249,7 @@ function velove_documentation_link() {
 	// Localize the script
 	wp_localize_script( 'velove-doc', 'prefixL10n',
 		array(
-			'prefixURL'   => esc_url( 'http://docs.6hourcreative.com/velove/' ),
+			'prefixURL'   => esc_url( 'http://docs.beautimour.com/velove/' ),
 			'prefixLabel' => esc_html__( 'Documentation', 'velove' ),
 		)
 	);
@@ -136,19 +258,7 @@ function velove_documentation_link() {
 add_action( 'customize_controls_enqueue_scripts', 'velove_documentation_link' );
 
 /**
- * Render the site title for the selective refresh partial.
- *
- * Taken from Twenty Sixteen 1.2
- */
-function velove_customize_partial_blogname() {
-	bloginfo( 'name' );
-}
-
-/**
  * Sanitize the checkbox.
- *
- * @param boolean $input.
- * @return boolean (true|false).
  */
 function velove_sanitize_checkbox( $input ) {
 	if ( 1 == $input ) {
@@ -159,7 +269,7 @@ function velove_sanitize_checkbox( $input ) {
 }
 
 /**
- * Sanitize the Footer Credits
+ * Sanitize the footer credits value.
  */
 function velove_sanitize_textarea( $text ) {
 	if ( current_user_can( 'unfiltered_html' ) ) {
@@ -171,21 +281,70 @@ function velove_sanitize_textarea( $text ) {
 }
 
 /**
- * Sanitize the Grid Thumbnail Aspect Ratio value.
+ * Sanitize the pagination type value.
  */
-function velove_sanitize_thumbnail_style( $ratio ) {
-	if ( ! in_array( $ratio, array( 'landscape', 'square' ) ) ) {
-		$ratio = 'landscape';
+function velove_sanitize_pagination_type( $type ) {
+	if ( ! in_array( $type, array( 'number', 'traditional' ) ) ) {
+		$type = 'number';
 	}
-	return $ratio;
+	return $type;
 }
 
 /**
- * Sanitize the Header style value.
+ * Sanitize the container style value.
  */
-function velove_sanitize_header_style( $style ) {
-	if ( ! in_array( $style, array( 'left', 'right', 'center' ) ) ) {
-		$style = 'left';
+function velove_sanitize_container_style( $style ) {
+	if ( ! in_array( $style, array( 'fullwidth', 'boxed', 'framed' ) ) ) {
+		$style = 'fullwidth';
 	}
 	return $style;
+}
+
+/**
+ * Sanitize most posts query value.
+ */
+function velove_sanitize_most_posts_query( $query ) {
+	if ( ! in_array( $query, array( 'loved', 'recent', 'popular', 'random' ) ) ) {
+		$query = 'loved';
+	}
+	return $query;
+}
+
+/**
+ * Sanitize predefined color value.
+ */
+function velove_sanitize_predefined_colors( $color ) {
+	if ( ! in_array( $color, array( 'default', 'pink', 'purple', 'blue', 'green' ) ) ) {
+		$color = 'default';
+	}
+	return $color;
+}
+
+/**
+ * Sanitize header style value.
+ */
+function velove_sanitize_header_style( $style ) {
+	if ( ! in_array( $style, array( 'default', 'style_2', 'style_3' ) ) ) {
+		$style = 'default';
+	}
+	return $style;
+}
+
+/**
+ * Sanitize blog layouts value.
+ */
+function velove_sanitize_blog_layouts( $layout ) {
+	if ( ! in_array( $layout,
+			array(
+				'default',
+				'left-sidebar',
+				'full-width',
+				'full-width-narrow',
+				'grid-two'
+			)
+		)
+	) {
+		$layout = 'default';
+	}
+	return $layout;
 }

@@ -4,12 +4,7 @@
 
 	<div class="content">
 
-		<?php if ( has_post_thumbnail() ) : ?>
-			<a class="thumbnail-link" href="<?php the_permalink(); ?>">
-				<?php the_post_thumbnail( 'velove-post', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title() ) ) ); ?>
-				<?php the_title( '<h2 class="entry-title"><span>', '</span></h2>' ); ?>
-			</a>
-		<?php endif; ?>
+		<?php velove_post_thumbnail(); ?>
 
 		<div class="content-text">
 

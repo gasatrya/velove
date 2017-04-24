@@ -85,6 +85,10 @@ if ( ! function_exists( 'velove_post_thumbnail' ) ) :
  * Display an optional post thumbnail.
  */
 function velove_post_thumbnail() {
+
+	// Get the customizer data.
+	$layout = get_theme_mod( 'velove_blog_layouts', 'default' );
+
 	if ( post_password_required() || is_attachment() || ! has_post_thumbnail() || has_post_format() ) {
 		return;
 	}
@@ -92,21 +96,13 @@ function velove_post_thumbnail() {
 
 	<a class="thumbnail-link" href="<?php the_permalink(); ?>">
 		<?php
-			if ( is_page_template( 'page-templates/front-page.php' ) || is_page_template( 'page-templates/grid-page.php' ) ) {
-				$ratio = get_theme_mod( 'velove_thumbnail_style' );
-				switch ( $ratio ) {
-					case 'square':
-						the_post_thumbnail( 'velove-thumbnail-square' );
-						break;
-					default :
-						the_post_thumbnail( 'velove-thumbnail-landscape' );
-				}
-			} elseif ( is_page_template( 'page-templates/full-width-page.php' ) ) {
-				the_post_thumbnail( 'velove-featured-full' );
+			if ( $layout == 'full-width' ) {
+				the_post_thumbnail( 'velove-post-full', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title() ) ) );
 			} else {
-				the_post_thumbnail( 'velove-featured' );
+				the_post_thumbnail( 'velove-post', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title() ) ) );
 			}
 		?>
+		<?php the_title( '<h2 class="entry-title"><span>', '</span></h2>' ); ?>
 	</a>
 
 <?php
@@ -160,6 +156,17 @@ if ( ! function_exists( 'velove_before_footer_content' ) ) :
  */
 function velove_before_footer_content() {
 
+	// Get the data from Customizer
+	$enable = get_theme_mod( 'velove_most_content_enable', 1 );
+	$title  = get_theme_mod( 'velove_most_content_title', esc_html__( 'Most Loved Posts', 'velove' ) );
+	$query  = get_theme_mod( 'velove_most_content_query', 'loved' );
+	$limit  = get_theme_mod( 'velove_most_content_number', 3 );
+
+	// Check if it enable.
+	if ( !$enable ) {
+		return;
+	}
+
 	// Hide on 404 page.
 	if ( is_404() ) {
 		return;
@@ -169,19 +176,30 @@ function velove_before_footer_content() {
 	<div class="most-content">
 		<div class="container">
 
-			<h3 class="most-content-title"><span>Most Loved Posts</span></h3>
+			<h3 class="most-content-title"><span><?php echo wp_kses_post( $title ); ?></span></h3>
 
 			<?php
-				$query = array(
+				$args = array(
 					'post_type'      => 'post',
-					'posts_per_page' => 3,
+					'posts_per_page' => absint( $limit ),
 					'post__not_in'   => get_option( 'sticky_posts' ),
 				);
 
-				// Allow dev to filter the query.
-				$query = apply_filters( 'velove_most_content_args', $query );
+				if ( $query == 'loved' ) {
+					$args['meta_key'] = '_velove_likes';
+					$args['orderby']  = 'meta_value_num';
+				} elseif ( $query == 'popular' ) {
+					$args['orderby']  = 'comment_count';
+				} elseif ( $query == 'random' ) {
+					$args['orderby']  = 'rand';
+				} else {
+					$args['orderby']  = 'date';
+				}
 
-				$most = new WP_Query( $query );
+				// Allow dev to filter the query.
+				$posts_query = apply_filters( 'velove_most_content_args', $args );
+
+				$most = new WP_Query( $posts_query );
 
 				if ( $most->have_posts() ) :
 			?>
@@ -208,6 +226,13 @@ if ( ! function_exists( 'velove_post_share' ) ) :
  * @since 1.0.0
  */
 function velove_post_share() {
+
+	// Get the data from Customizer
+	$enable = get_theme_mod( 'velove_post_share', 1 );
+	if ( !$enable ) {
+		return;
+	}
+
 	?>
 		<div class="entry-share">
 			<?php echo velove_do_likes(); ?>
@@ -251,6 +276,7 @@ function velove_post_author_box() {
 	$instagram = get_the_author_meta( 'instagram' );
 	$pinterest = get_the_author_meta( 'pinterest' );
 	$linkedin  = get_the_author_meta( 'linkedin' );
+	$dribbble  = get_the_author_meta( 'dribbble' );
 ?>
 
 	<div class="author-bio">
@@ -263,25 +289,28 @@ function velove_post_author_box() {
 
 			<p class="bio"><?php echo stripslashes( get_the_author_meta( 'description' ) ); ?></p>
 
-			<?php if ( $twitter || $facebook || $gplus || $instagram || $pinterest || $linkedin ) : ?>
+			<?php if ( $twitter || $facebook || $gplus || $instagram || $pinterest || $linkedin || $dribbble ) : ?>
 				<div class="author-social-links">
 					<?php if ( $twitter ) { ?>
-						<a href="//twitter.com/<?php echo esc_attr( $twitter ) ?>"><i class="fa fa-twitter"></i></a>
+						<a href="<?php echo esc_url( $twitter ); ?>"><i class="icon-twitter"></i></a>
 					<?php } ?>
 					<?php if ( $facebook ) { ?>
-						<a href="<?php echo esc_url( $facebook ); ?>"><i class="fa fa-facebook-square"></i></a>
+						<a href="<?php echo esc_url( $facebook ); ?>"><i class="icon-facebook"></i></a>
 					<?php } ?>
 					<?php if ( $gplus ) { ?>
-						<a href="<?php echo esc_url( $gplus ); ?>"><i class="fa fa-google-plus"></i></a>
+						<a href="<?php echo esc_url( $gplus ); ?>"><i class="icon-gplus"></i></a>
 					<?php } ?>
 					<?php if ( $instagram ) { ?>
-						<a href="<?php echo esc_url( $instagram ); ?>"><i class="fa fa-instagram"></i></a>
+						<a href="<?php echo esc_url( $instagram ); ?>"><i class="icon-instagram"></i></a>
 					<?php } ?>
 					<?php if ( $pinterest ) { ?>
-						<a href="<?php echo esc_url( $pinterest ); ?>"><i class="fa fa-pinterest"></i></a>
+						<a href="<?php echo esc_url( $pinterest ); ?>"><i class="icon-pinterest"></i></a>
 					<?php } ?>
 					<?php if ( $linkedin ) { ?>
-						<a href="<?php echo esc_url( $linkedin ); ?>"><i class="fa fa-linkedin-square"></i></a>
+						<a href="<?php echo esc_url( $linkedin ); ?>"><i class="icon-linkedin"></i></a>
+					<?php } ?>
+					<?php if ( $dribbble ) { ?>
+						<a href="<?php echo esc_url( $dribbble ); ?>"><i class="icon-dribbble"></i></a>
 					<?php } ?>
 				</div>
 			<?php endif; ?>
@@ -450,7 +479,8 @@ if ( ! function_exists( 'velove_footer_text' ) ) :
 function velove_footer_text() {
 
 	// Get the customizer data
-	$footer_text = '&copy; Copyright ' . date( 'Y' ) . ' - <a href="' . esc_url( home_url() ) . '">' . esc_attr( get_bloginfo( 'name' ) ) . '</a>. All Rights Reserved. <br /> Designed & Developed by <a href="https://beautimour.com/">Beautimour</a>';
+	$default = '&copy; Copyright ' . date( 'Y' ) . ' - <a href="' . esc_url( home_url() ) . '">' . esc_attr( get_bloginfo( 'name' ) ) . '</a>. All Rights Reserved. <br /> Designed & Developed by <a href="https://beautimour.com/">Beautimour</a>';
+	$footer_text = get_theme_mod( 'velove_footer_text', $default );
 
 	// Display the data
 	echo '<p class="copyright">' . wp_kses_post( $footer_text ) . '</p>';

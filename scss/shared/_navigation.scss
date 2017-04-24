@@ -1,6 +1,22 @@
+.site-navigation {
+	@extend %clearfix;
+	margin-bottom: 108px;
+	padding-top: 43px;
+
+	.header-style-three & {
+		padding-top: 0;
+		border-bottom: 1px solid $border-color;
+		margin-bottom: 0;
+	}
+}
+
 .main-navigation {
 	@include span( 10 of 12 last );
 	line-height: 35px;
+
+	.header-style-three & {
+		line-height: 40px;
+	}
 }
 
 .menu-primary-items {

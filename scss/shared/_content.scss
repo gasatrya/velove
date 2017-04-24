@@ -5,6 +5,10 @@
 	.single & {
 		margin-bottom: 120px;
 	}
+
+	.page & {
+		margin-bottom: 40px;
+	}
 }
 
 .page-header {
@@ -177,6 +181,10 @@
 
 .thumbnail-link {
 	display: block;
+
+	.page & {
+		margin-bottom: 24px;
+	}
 
 	img {
 		display: block;

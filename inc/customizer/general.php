@@ -15,95 +15,73 @@ function velove_general_customize_register( $wp_customize ) {
 		'priority' => 1
 	) );
 
-	// Register Custom RSS setting
+	// Register container setting
+	$wp_customize->add_setting( 'velove_container_style', array(
+		'default'           => 'fullwidth',
+		'sanitize_callback' => 'velove_sanitize_container_style',
+	) );
+	$wp_customize->add_control( 'velove_container_style', array(
+		'label'             => esc_html__( 'Container', 'velove' ),
+		'section'           => 'velove_general',
+		'priority'          => 1,
+		'type'              => 'radio',
+		'choices'           => array(
+			'fullwidth' => esc_html__( 'Full Width', 'velove' ),
+			'boxed'     => esc_html__( 'Boxed', 'velove' ),
+			'framed'    => esc_html__( 'Framed', 'velove' )
+		)
+	) );
+
+	// Register pagination setting
+	$wp_customize->add_setting( 'velove_posts_pagination', array(
+		'default'           => 'number',
+		'sanitize_callback' => 'velove_sanitize_pagination_type',
+	) );
+	$wp_customize->add_control( 'velove_posts_pagination', array(
+		'label'             => esc_html__( 'Pagination type', 'velove' ),
+		'section'           => 'velove_general',
+		'priority'          => 3,
+		'type'              => 'radio',
+		'choices'           => array(
+			'number'      => esc_html__( 'Number', 'velove' ),
+			'traditional' => esc_html__( 'Older / Newer', 'velove' )
+		)
+	) );
+
+	// Register custom RSS setting
 	$wp_customize->add_setting( 'velove_custom_rss', array(
 		'default'           => '',
 		'sanitize_callback' => 'esc_url_raw',
 	) );
 	$wp_customize->add_control( 'velove_custom_rss', array(
 		'label'             => esc_html__( 'Custom RSS', 'velove' ),
-		'description'       => esc_html__( 'If you use 3rd party RSS service, place the URL here to change the default WordPress RSS URL.', 'velove' ),
+		'description'       => esc_html__( 'Replace the default WordPress RSS URL.', 'velove' ),
 		'section'           => 'velove_general',
-		'priority'          => 1,
+		'priority'          => 5,
 		'type'              => 'url'
 	) );
 
-	// Register Thumbnail Aspect Ratio setting
-	$wp_customize->add_setting( 'velove_thumbnail_style', array(
-		'default'           => 'landscape',
-		'sanitize_callback' => 'velove_sanitize_thumbnail_style',
+	// Register footer text setting
+	$wp_customize->add_setting( 'velove_footer_text', array(
+		'sanitize_callback' => 'velove_sanitize_textarea',
+		'default'           => '&copy; Copyright ' . date( 'Y' ) . ' - <a href="' . esc_url( home_url() ) . '">' . esc_attr( get_bloginfo( 'name' ) ) . '</a>. All Rights Reserved. <br /> Designed & Developed by <a href="https://beautimour.com/">Beautimour</a>',
+		'transport'         => 'postMessage',
 	) );
-	$wp_customize->add_control( 'velove_thumbnail_style', array(
-		'label'             => esc_html__( 'Thumbnail Aspect Ratio', 'velove' ),
-		'description'       => esc_html__( 'Applied to front-page and grid page template.', 'velove' ),
+	$wp_customize->add_control( 'velove_footer_text', array(
+		'label'             => esc_html__( 'Footer Text', 'velove' ),
 		'section'           => 'velove_general',
-		'priority'          => 3,
-		'type'              => 'radio',
-		'choices'           => array(
-			'landscape' => esc_html__( 'Landscape (4:3)', 'velove' ),
-			'square'    => esc_html__( 'Square (1:1)', 'velove' ),
-		)
+		'priority'          => 7,
+		'type'              => 'textarea'
 	) );
-
-	// Register Page comment manager setting
-	$wp_customize->add_setting( 'velove_page_comment', array(
-		'default'           => 1,
-		'sanitize_callback' => 'velove_sanitize_checkbox',
-	) );
-	$wp_customize->add_control( 'velove_page_comment', array(
-		'label'             => esc_html__( 'Pages: Enable comment on Pages', 'velove' ),
-		'section'           => 'velove_general',
-		'priority'          => 5,
-		'type'              => 'checkbox'
-	) );
-
-	// Register Page featured image setting
-	$wp_customize->add_setting( 'velove_page_featured_image', array(
-		'default'           => 0,
-		'sanitize_callback' => 'velove_sanitize_checkbox',
-	) );
-	$wp_customize->add_control( 'velove_page_featured_image', array(
-		'label'             => esc_html__( 'Pages: Show page featured image', 'velove' ),
-		'section'           => 'velove_general',
-		'priority'          => 9,
-		'type'              => 'checkbox'
-	) );
-
-	// Register Post comment manager setting
-	$wp_customize->add_setting( 'velove_post_comment', array(
-		'default'           => 1,
-		'sanitize_callback' => 'velove_sanitize_checkbox',
-	) );
-	$wp_customize->add_control( 'velove_post_comment', array(
-		'label'             => esc_html__( 'Posts: Enable comment on Posts', 'velove' ),
-		'section'           => 'velove_general',
-		'priority'          => 11,
-		'type'              => 'checkbox'
-	) );
-
-	// Register Author Box setting
-	$wp_customize->add_setting( 'velove_author_box', array(
-		'default'           => 1,
-		'sanitize_callback' => 'velove_sanitize_checkbox',
-	) );
-	$wp_customize->add_control( 'velove_author_box', array(
-		'label'             => esc_html__( 'Posts: Show author box', 'velove' ),
-		'section'           => 'velove_general',
-		'priority'          => 13,
-		'type'              => 'checkbox'
-	) );
-
-	// Register Next & Prev post setting
-	$wp_customize->add_setting( 'velove_next_prev_post', array(
-		'default'           => 1,
-		'sanitize_callback' => 'velove_sanitize_checkbox',
-	) );
-	$wp_customize->add_control( 'velove_next_prev_post', array(
-		'label'             => esc_html__( 'Posts: Show next & prev post', 'velove' ),
-		'section'           => 'velove_general',
-		'priority'          => 15,
-		'type'              => 'checkbox'
-	) );
+	if ( isset( $wp_customize->selective_refresh ) ) {
+		$wp_customize->selective_refresh->add_partial( 'velove_footer_text', array(
+			'selector'         => '.copyright',
+			'settings'         => array( 'velove_footer_text' ),
+			'render_callback'  => function() {
+				return velove_sanitize_textarea( get_theme_mod( 'velove_footer_text' ) );
+			}
+		) );
+	}
 
 }
 add_action( 'customize_register', 'velove_general_customize_register' );

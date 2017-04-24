@@ -42,6 +42,10 @@ function velove_enqueue() {
 
 	}
 
+	// Predefined colors
+	$color = get_theme_mod( 'velove_predefined_colors', 'default' );
+	wp_enqueue_style( 'velove-color', trailingslashit( get_template_directory_uri() ) . 'assets/css/color/' . $color . '.css', array(), null );
+
 	// Pass var to js
 	wp_localize_script( $script_handle, 'velove',
 		array(

@@ -29,9 +29,28 @@ function velove_body_classes( $classes ) {
 		$classes[] = 'has-featured-image';
 	}
 
-	// Adds a class for full-width page.
-	if ( is_404() || is_archive() || is_search() || is_attachment() ) {
-		$classes[] = 'full-width-layout';
+	// Adds a class for the container style.
+	$container = get_theme_mod( 'velove_container_style', 'fullwidth' );
+	if ( $container == 'fullwidth' ) {
+		$classes[] = 'full-width-container';
+	} elseif ( $container == 'boxed' ) {
+		$classes[] = 'boxed-container';
+	} else {
+		$classes[] = 'framed-container';
+	}
+
+	// Adds a class for the header style.
+	$header = get_theme_mod( 'velove_header_style', 'default' );
+	if ( $header == 'style_2' ) {
+		$classes[] = 'header-style-two';
+	} elseif ( $header == 'style_3' ) {
+		$classes[] = 'header-style-three';
+	}
+
+	// Adds a class for the blog layouts.
+	$blog_layout = get_theme_mod( 'velove_blog_layouts', 'default' );
+	if ( is_home() ) {
+		$classes[] = 'layout-' . sanitize_html_class( $blog_layout );
 	}
 
 	return $classes;
@@ -118,3 +137,24 @@ function velove_subtitles_mod_supported_views() {
 
 }
 add_filter( 'subtitle_view_supported', 'velove_subtitles_mod_supported_views' );
+
+/**
+ * Modifies the theme layout.
+ */
+function velove_mod_theme_layout( $layout ) {
+
+	if ( !velove_is_beautimour_kit_activated() ) {
+		return;
+	}
+
+	// Change the layout to Full Width.
+	if ( is_404() || is_archive() || is_search() || is_attachment() ) {
+		$post_layout = get_post_layout( get_queried_object_id() );
+		if ( 'default' == $post_layout ) {
+			$layout = 'full-width';
+		}
+	}
+
+	return $layout;
+}
+add_filter( 'theme_mod_theme_layout', 'velove_mod_theme_layout', 15 );

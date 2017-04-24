@@ -35,8 +35,6 @@ add_action( 'after_setup_theme', 'velove_content_width', 0 );
 if ( ! function_exists( 'velove_theme_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
- *
- * @since  1.0.0
  */
 function velove_theme_setup() {
 
@@ -63,6 +61,7 @@ function velove_theme_setup() {
 	// Declare image sizes.
 	add_image_size( 'velove-featured', 600, 480, true );
 	add_image_size( 'velove-post', 698, 479, true );
+	add_image_size( 'velove-post-full', 1078, 479, true );
 	add_image_size( 'velove-most', 318, 350, true );
 	add_image_size( 'velove-archive', 350, 9999 );
 	add_image_size( 'velove-post-pagination', 350, 250, true );
@@ -85,7 +84,7 @@ function velove_theme_setup() {
 
 	// Setup the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'velove_custom_background_args', array(
-		'default-color' => 'ffffff'
+		'default-color' => 'f5f5f5'
 	) ) );
 
 	// Enable support for Custom Logo
@@ -106,6 +105,17 @@ function velove_theme_setup() {
 	 * See http://codex.wordpress.org/Excerpt
 	 */
 	add_post_type_support( 'page', 'excerpt' );
+
+	// Enable layouts extensions.
+	add_theme_support( 'theme-layouts',
+		array(
+			'full-width'        => esc_html__( 'Full width', 'velove' ),
+			'full-width-narrow' => esc_html__( 'Full width narrow', 'velove' ),
+			'right-sidebar'     => esc_html__( 'Right sidebar', 'velove' ),
+			'left-sidebar'      => esc_html__( 'Left sidebar', 'velove' )
+		),
+		array( 'customize' => true, 'default' => 'right-sidebar' )
+	);
 
 }
 endif; // velove_theme_setup
@@ -148,9 +158,9 @@ function velove_sidebars_init() {
 			'id'            => 'primary',
 			'description'   => esc_html__( 'Main sidebar that appears on the right.', 'velove' ),
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</aside>',
+			'after_widget'  => '</div></aside>',
 			'before_title'  => '<h3 class="widget-title">',
-			'after_title'   => '</h3>',
+			'after_title'   => '</h3><div class="widget-wrapper">',
 		)
 	);
 
@@ -171,57 +181,38 @@ add_action( 'widgets_init', 'velove_sidebars_init' );
 
 /**
  * Register Google fonts.
- *
- * @since  1.0.0
- * @return string
  */
 function velove_fonts_url() {
 
+	// Get the customizer data
+	$heading_font = get_theme_mod( 'velove_heading_font', 'Playfair+Display:700,900' );
+	$body_font    = get_theme_mod( 'velove_body_font', 'Source+Sans+Pro:400,400i,700,700i,900' );
+
+	// Important variable
 	$fonts_url = '';
 	$fonts     = array();
-	$subsets   = 'latin,latin-ext';
-
-	/*
-	 * Translators: If there are characters in your language that are not supported
-	 * by Playfair Display, translate this to 'off'. Do not translate into your own language.
-	 */
-	if ( 'off' !== _x( 'on', 'Playfair Display font: on or off', 'velove' ) ) {
-		$fonts[] = 'Playfair Display:700,900';
-	}
-
-	/*
-	 * Translators: If there are characters in your language that are not supported
-	 * by Source Sans Pro, translate this to 'off'. Do not translate into your own language.
-	 */
-	if ( 'off' !== _x( 'on', 'Source Sans Pro font: on or off', 'velove' ) ) {
-		$fonts[] = 'Source Sans Pro:400,400i,700,700i,900';
-	}
-
-	/*
-	 * Translators: To add an additional character subset specific to your language,
-	 * translate this to 'greek', 'cyrillic', 'devanagari' or 'vietnamese'. Do not translate into your own language.
-	 */
-	$subset = _x( 'no-subset', 'Add new subset (greek, cyrillic, devanagari, vietnamese)', 'velove' );
-
-	if ( 'cyrillic' == $subset ) {
-		$subsets .= ',cyrillic,cyrillic-ext';
-	} elseif ( 'greek' == $subset ) {
-		$subsets .= ',greek,greek-ext';
-	} elseif ( 'devanagari' == $subset ) {
-		$subsets .= ',devanagari';
-	} elseif ( 'vietnamese' == $subset ) {
-		$subsets .= ',vietnamese';
-	}
+	$fonts[]   = esc_attr( str_replace( '+', ' ', $heading_font ) );
+	$fonts[]   = esc_attr( str_replace( '+', ' ', $body_font ) );
 
 	if ( $fonts ) {
 		$fonts_url = add_query_arg( array(
 			'family' => urlencode( implode( '|', $fonts ) ),
-			'subset' => urlencode( $subsets ),
 		), 'https://fonts.googleapis.com/css' );
 	}
 
 	return $fonts_url;
 }
+
+if ( ! function_exists( 'velove_is_beautimour_kit_activated' ) ) :
+/**
+ * Query WooCommerce activation
+ *
+ * @since  1.0.0
+ */
+function velove_is_beautimour_kit_activated() {
+	return class_exists( 'Beautimour_Kit' ) ? true : false;
+}
+endif;
 
 /**
  * Custom template tags for this theme.
@@ -257,3 +248,8 @@ require trailingslashit( get_template_directory() ) . 'inc/jetpack.php';
  * Custom like function
  */
 require trailingslashit( get_template_directory() ) . 'inc/like.php';
+
+/**
+ * Custom color adjuster function
+ */
+require trailingslashit( get_template_directory() ) . 'inc/extensions/simple-color-adjuster.php';

@@ -1,13 +1,14 @@
 <?php
 // Get the customizer value.
-$title = get_theme_mod( 'velove_page_title', 1 );
-$image = get_theme_mod( 'velove_page_featured_image', 0 );
+$enable_page_thumbnail = get_theme_mod( 'velove_page_thumbnail', 0 );
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php if ( $image ) : ?>
-		<?php velove_post_thumbnail(); ?>
+	<?php if ( $enable_page_thumbnail && has_post_thumbnail() ) : ?>
+		<a class="thumbnail-link" href="<?php the_permalink(); ?>">
+			<?php the_post_thumbnail( 'velove-post', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title() ) ) ); ?>
+		</a>
 	<?php endif; ?>
 
 	<div class="entry-content">
@@ -20,6 +21,6 @@ $image = get_theme_mod( 'velove_page_featured_image', 0 );
 		?>
 	</div><!-- .entry-content -->
 
-	<?php edit_post_link( esc_html__( 'Edit', 'velove' ), '<footer class="entry-footer"><span class="edit-link">', '</span></footer>' ); ?>
+	<?php edit_post_link( esc_html__( 'Edit', 'velove' ), '<span class="edit-link">', '</span>' ); ?>
 
 </article><!-- #post-## -->

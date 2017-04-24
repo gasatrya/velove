@@ -1,0 +1,70 @@
+a:hover,
+a:visited:hover,
+.archive .grid .entry-category a,
+.search .grid .entry-category a,
+.archive .grid .entry-meta a:hover,
+.search .grid .entry-meta a:hover,
+.social-links a:hover {
+  color: #dcbff8;
+}
+
+.after-header,
+.content .thumbnail-link:hover .entry-title span,
+.widget_tag_cloud a,
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="url"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="week"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+select,
+textarea,
+.social-links,
+.instagram-widget .instagram-title span,
+.author-bio,
+.tag-links a,
+.comment-reply-link,
+.author-badge,
+.attachment .after-header {
+  background-color: #f5edfd;
+}
+
+.widget_tag_cloud a:hover,
+.tag-links a:hover {
+  background-color: #dcbff8;
+  color: #000;
+}
+
+.menu-primary-items a:hover {
+  border-color: #dcbff8;
+}
+
+.widget::before,
+.widget::after,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+select:focus,
+textarea:focus,
+.bypostauthor .comment-body .comment-wrapper {
+  border-color: #f5edfd;
+}

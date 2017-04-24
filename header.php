@@ -12,10 +12,11 @@
 
 <div id="page" class="site">
 
-	<header id="masthead" class="site-header">
-		<div class="container">
+	<div class="page-wrapper">
 
-			<div class="site-navigation">
+		<div class="site-navigation">
+			<div class="container">
+
 				<?php get_search_form(); // Loads the searchform.php ?>
 
 				<?php if ( has_nav_menu ( 'primary' ) ) : ?>
@@ -30,13 +31,18 @@
 						); ?>
 					</nav>
 				<?php endif; ?>
-			</div><!-- .navigation -->
 
-			<?php velove_site_branding(); ?>
+			</div>
+		</div><!-- .navigation -->
 
-		</div><!-- .container -->
-	</header><!-- #masthead -->
+		<header id="masthead" class="site-header">
+			<div class="container">
 
-	<?php velove_after_header_content(); ?>
+				<?php velove_site_branding(); ?>
 
-	<div id="content" class="site-content">
+			</div><!-- .container -->
+		</header><!-- #masthead -->
+
+		<?php velove_after_header_content(); ?>
+
+		<div id="content" class="site-content">

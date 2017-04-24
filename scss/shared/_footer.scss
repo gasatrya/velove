@@ -1,5 +1,9 @@
 .site-info {
-	margin: 70px 0 35px;
+	padding: 70px 0 35px;
+
+	.framed-container & {
+		margin-bottom: 35px;
+	}
 }
 
 .copyright {
