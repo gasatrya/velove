@@ -98,6 +98,20 @@ function velove_post_thumbnail() {
 		<?php
 			if ( $layout == 'full-width' ) {
 				the_post_thumbnail( 'velove-post-full', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title() ) ) );
+			} elseif (
+				$layout == 'grid-two-right-sidebar' ||
+				$layout == 'grid-two-left-sidebar' ||
+				$layout == 'grid-three' ||
+				$layout == 'grid-four'
+			) {
+				the_post_thumbnail( 'velove-post-small', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title() ) ) );
+			} elseif (
+				$layout == 'masonry-two-right-sidebar' ||
+				$layout == 'masonry-two-left-sidebar' ||
+				$layout == 'masonry-three' ||
+				$layout == 'masonry-four'
+			) {
+				the_post_thumbnail( 'velove-archive', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title() ) ) );
 			} else {
 				the_post_thumbnail( 'velove-post', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title() ) ) );
 			}
@@ -353,7 +367,7 @@ function velove_next_prev_post() {
 				<span class="prev-label"><?php esc_html_e( 'Previous Post', 'velove' ); ?></span>
 				<?php if ( has_post_thumbnail( $prev->ID ) ) : ?>
 					<a class="thumbnail-link" href="<?php echo esc_url( get_permalink( $prev->ID ) ); ?>">
-						<?php echo get_the_post_thumbnail( $prev->ID, 'velove-post-pagination', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title( $prev->ID ) ) ) ) ?>
+						<?php echo get_the_post_thumbnail( $prev->ID, 'velove-post-small', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title( $prev->ID ) ) ) ) ?>
 						<?php the_title( '<div class="post-title"><span>', '</span></div>' ); ?>
 					</a>
 				<?php endif; ?>
@@ -367,7 +381,7 @@ function velove_next_prev_post() {
 				<span class="next-label"><?php esc_html_e( 'Next Post', 'velove' ); ?></span>
 				<?php if ( has_post_thumbnail( $next->ID ) ) : ?>
 					<a class="thumbnail-link" href="<?php echo esc_url( get_permalink( $next->ID ) ); ?>">
-						<?php echo get_the_post_thumbnail( $next->ID, 'velove-post-pagination', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title( $next->ID ) ) ) ) ?>
+						<?php echo get_the_post_thumbnail( $next->ID, 'velove-post-small', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title( $next->ID ) ) ) ) ?>
 						<?php the_title( '<div class="post-title"><span>', '</span></div>' ); ?>
 					</a>
 				<?php endif; ?>

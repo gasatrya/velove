@@ -61,10 +61,10 @@ function velove_theme_setup() {
 	// Declare image sizes.
 	add_image_size( 'velove-featured', 600, 480, true );
 	add_image_size( 'velove-post', 698, 479, true );
+	add_image_size( 'velove-post-small', 350, 250, true );
 	add_image_size( 'velove-post-full', 1078, 479, true );
 	add_image_size( 'velove-most', 318, 350, true );
 	add_image_size( 'velove-archive', 350, 9999 );
-	add_image_size( 'velove-post-pagination', 350, 250, true );
 
 	// Register custom navigation menu.
 	register_nav_menus(

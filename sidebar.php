@@ -13,7 +13,18 @@ if ( velove_is_beautimour_kit_activated() && current_theme_supports( 'theme-layo
 
 // Hide on full-width layout ( home page )
 if ( is_home() ) {
-	if ( in_array( get_theme_mod( 'velove_blog_layouts' ), array( 'full-width', 'full-width-narrow' ) ) ) {
+	if (
+		in_array( get_theme_mod( 'velove_blog_layouts' ),
+			array(
+				'full-width',
+				'full-width-narrow',
+				'grid-three',
+				'grid-four',
+				'masonry-three',
+				'masonry-four',
+			)
+		)
+	) {
 		return;
 	}
 }

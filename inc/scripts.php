@@ -47,11 +47,13 @@ function velove_enqueue() {
 	wp_enqueue_style( 'velove-color', trailingslashit( get_template_directory_uri() ) . 'assets/css/color/' . $color . '.css', array(), null );
 
 	// Pass var to js
+	$layout = get_theme_mod( 'velove_blog_layouts', 'default' );
 	wp_localize_script( $script_handle, 'velove',
 		array(
-			'site_url'   => trailingslashit( get_template_directory_uri() ),
-			'ajaxurl'    => admin_url( 'admin-ajax.php' ),
-			'rated'      => esc_html__( 'You already like this', 'velove' )
+			'site_url'      => trailingslashit( get_template_directory_uri() ),
+			'ajaxurl'       => admin_url( 'admin-ajax.php' ),
+			'rated'         => esc_html__( 'You already like this', 'velove' ),
+			'isMasonryFour' => ( $layout == 'masonry-four' ) ? true : false
 		)
 	);
 

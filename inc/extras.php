@@ -51,6 +51,22 @@ function velove_body_classes( $classes ) {
 	$blog_layout = get_theme_mod( 'velove_blog_layouts', 'default' );
 	if ( is_home() ) {
 		$classes[] = 'layout-' . sanitize_html_class( $blog_layout );
+
+		if (
+			$blog_layout == 'grid-two-left-sidebar' ||
+			$blog_layout == 'masonry-two-left-sidebar'
+		) {
+			$classes[] = 'layout-left-sidebar';
+		}
+
+		if (
+			$blog_layout == 'grid-three' ||
+			$blog_layout == 'grid-four' ||
+			$blog_layout == 'masonry-three' ||
+			$blog_layout == 'masonry-four'
+		) {
+			$classes[] = 'layout-full-width';
+		}
 	}
 
 	return $classes;

@@ -1,15 +1,23 @@
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" data-file="<?php the_permalink(); ?>" data-target="article" <?php post_class(); ?>>
 
-	<?php velove_post_thumbnail(); ?>
+	<div class="content">
 
-	<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+		<?php velove_post_thumbnail(); ?>
 
-	<div class="entry-summary">
-		<?php the_excerpt(); ?>
+		<div class="content-text">
+
+			<div class="entry-meta"><?php velove_entry_meta(); ?></div>
+
+			<div class="entry-summary">
+				<?php the_excerpt(); ?>
+			</div>
+
+			<span class="more-link-wrapper">
+				<a href="<?php the_permalink(); ?>" class="more-link"><?php esc_html_e( 'Read More', 'velove' ); ?></a>
+			</span>
+
+		</div>
+
 	</div>
-
-	<span class="more-link-wrapper">
-		<a href="<?php the_permalink(); ?>" class="more-link"><?php esc_html_e( 'Read More', 'velove' ); ?></a>
-	</span>
 
 </article><!-- #post-## -->

@@ -340,7 +340,14 @@ function velove_sanitize_blog_layouts( $layout ) {
 				'left-sidebar',
 				'full-width',
 				'full-width-narrow',
-				'grid-two'
+				'grid-two-right-sidebar',
+				'grid-two-left-sidebar',
+				'grid-three',
+				'grid-four',
+				'masonry-two-right-sidebar',
+				'masonry-two-left-sidebar',
+				'masonry-three',
+				'masonry-four',
 			)
 		)
 	) {

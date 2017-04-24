@@ -35,10 +35,21 @@
 				return false;
 			} );
 
-		// Masonry layout
+		// Masonry layout for archive page
 		$( '.grid' ).masonry( {
 			itemSelector: '.entry',
 			columnWidth: 350,
+			gutter: 30
+		} );
+
+		// Masonry layout for home page
+		var colWidth = 350;
+		if ( velove.isMasonryFour ) {
+			colWidth = 255;
+		}
+		$( '.masonry-wrapper' ).masonry( {
+			itemSelector: '.entry',
+			columnWidth: colWidth,
 			gutter: 30
 		} );
 
