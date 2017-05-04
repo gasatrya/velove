@@ -7,14 +7,15 @@
 require trailingslashit( get_template_directory() ) . 'inc/customizer/controls/custom-text-control.php';
 
 // Loads the customizer settings
-require trailingslashit( get_template_directory() ) . 'inc/customizer/general.php';
-require trailingslashit( get_template_directory() ) . 'inc/customizer/post.php';
-require trailingslashit( get_template_directory() ) . 'inc/customizer/page.php';
-require trailingslashit( get_template_directory() ) . 'inc/customizer/most-posts.php';
 require trailingslashit( get_template_directory() ) . 'inc/customizer/colors.php';
 require trailingslashit( get_template_directory() ) . 'inc/customizer/header.php';
 require trailingslashit( get_template_directory() ) . 'inc/customizer/fonts.php';
 require trailingslashit( get_template_directory() ) . 'inc/customizer/layouts.php';
+require trailingslashit( get_template_directory() ) . 'inc/customizer/general.php';
+require trailingslashit( get_template_directory() ) . 'inc/customizer/post.php';
+require trailingslashit( get_template_directory() ) . 'inc/customizer/page.php';
+require trailingslashit( get_template_directory() ) . 'inc/customizer/most-posts.php';
+require trailingslashit( get_template_directory() ) . 'inc/customizer/featured-posts.php';
 
 /**
  * Custom customizer functions.
@@ -24,7 +25,7 @@ function velove_customize_functions( $wp_customize ) {
 	// Register new panel: Appearance
 	$wp_customize->add_panel( 'velove_appearance', array(
 		'title'       => esc_html__( 'Appearance', 'velove' ),
-		'priority'    => 30,
+		'priority'    => 145,
 	) );
 
 	// Register new panel: Theme Options
@@ -67,6 +68,9 @@ function velove_customize_functions( $wp_customize ) {
 	// Move the Theme Layout section.
 	$wp_customize->get_control( 'theme-layout-control' )->section    = 'velove_layouts';
 	$wp_customize->get_control( 'theme-layout-control' )->priority = 3;
+	$wp_customize->get_control( 'theme-layout-control' )->active_callback = function() {
+		return is_page() || is_single();
+	};
 
 	// Move the Background Image section.
 	$wp_customize->get_section( 'background_image' )->panel    = 'velove_appearance';
@@ -348,6 +352,10 @@ function velove_sanitize_blog_layouts( $layout ) {
 				'masonry-two-left-sidebar',
 				'masonry-three',
 				'masonry-four',
+				'list-right-sidebar',
+				'list-left-sidebar',
+				'list-full-width',
+				'list-full-width-narrow',
 			)
 		)
 	) {

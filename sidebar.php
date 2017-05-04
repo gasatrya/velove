@@ -22,6 +22,8 @@ if ( is_home() ) {
 				'grid-four',
 				'masonry-three',
 				'masonry-four',
+				'list-full-width',
+				'list-full-width-narrow',
 			)
 		)
 	) {

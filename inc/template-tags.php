@@ -171,10 +171,10 @@ if ( ! function_exists( 'velove_before_footer_content' ) ) :
 function velove_before_footer_content() {
 
 	// Get the data from Customizer
-	$enable = get_theme_mod( 'velove_most_content_enable', 1 );
-	$title  = get_theme_mod( 'velove_most_content_title', esc_html__( 'Most Loved Posts', 'velove' ) );
-	$query  = get_theme_mod( 'velove_most_content_query', 'loved' );
-	$limit  = get_theme_mod( 'velove_most_content_number', 3 );
+	$enable = get_theme_mod( 'velove_most_posts_enable', 1 );
+	$title  = get_theme_mod( 'velove_most_posts_title', esc_html__( 'Most Loved Posts', 'velove' ) );
+	$query  = get_theme_mod( 'velove_most_posts_query', 'loved' );
+	$limit  = get_theme_mod( 'velove_most_posts_number', 3 );
 
 	// Check if it enable.
 	if ( !$enable ) {
@@ -194,9 +194,9 @@ function velove_before_footer_content() {
 
 			<?php
 				$args = array(
-					'post_type'      => 'post',
-					'posts_per_page' => absint( $limit ),
-					'post__not_in'   => get_option( 'sticky_posts' ),
+					'post_type'           => 'post',
+					'posts_per_page'      => absint( $limit ),
+					'ignore_sticky_posts' => 1
 				);
 
 				if ( $query == 'loved' ) {
@@ -211,7 +211,7 @@ function velove_before_footer_content() {
 				}
 
 				// Allow dev to filter the query.
-				$posts_query = apply_filters( 'velove_most_content_args', $args );
+				$posts_query = apply_filters( 'velove_most_posts_args', $args );
 
 				$most = new WP_Query( $posts_query );
 

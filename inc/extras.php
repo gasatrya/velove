@@ -54,7 +54,8 @@ function velove_body_classes( $classes ) {
 
 		if (
 			$blog_layout == 'grid-two-left-sidebar' ||
-			$blog_layout == 'masonry-two-left-sidebar'
+			$blog_layout == 'masonry-two-left-sidebar' ||
+			$blog_layout == 'list-left-sidebar'
 		) {
 			$classes[] = 'layout-left-sidebar';
 		}
@@ -63,9 +64,14 @@ function velove_body_classes( $classes ) {
 			$blog_layout == 'grid-three' ||
 			$blog_layout == 'grid-four' ||
 			$blog_layout == 'masonry-three' ||
-			$blog_layout == 'masonry-four'
+			$blog_layout == 'masonry-four' ||
+			$blog_layout == 'list-full-width'
 		) {
 			$classes[] = 'layout-full-width';
+		}
+
+		if ( $blog_layout == 'list-full-width-narrow' ) {
+			$classes[] = 'layout-full-width-narrow';
 		}
 	}
 

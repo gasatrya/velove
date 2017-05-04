@@ -177,3 +177,52 @@
 
 	}
 }
+
+.layout-list-right-sidebar,
+.layout-list-left-sidebar,
+.layout-list-full-width,
+.layout-list-full-width-narrow {
+
+	.content-area {
+
+		.content {
+
+			.thumbnail-link {
+				margin-bottom: 0;
+				@include span( 3 of 8 );
+
+				&:hover {
+					.entry-title {
+						span {
+							background-color: transparent;
+							color: $palm-dark;
+						}
+					}
+				}
+			}
+
+			.entry-title {
+				font-size: 24px;
+				position: relative;
+				bottom: auto;
+				width: auto;
+				left: auto;
+				margin: 0 0 18px;
+				line-height: 1.4;
+
+				span {
+					padding: 0;
+					background-color: transparent;
+				}
+			}
+
+		}
+
+	}
+
+	.content-text {
+		padding-left: 0;
+		overflow: hidden;
+	}
+
+}

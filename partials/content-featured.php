@@ -1,24 +1,35 @@
 <?php
-// Get the options value
-// $enable = get_theme_mod( 'velove_featured_posts_enable', 1 );
-// $tag    = get_theme_mod( 'velove_featured_posts_tag' );
-// $order  = get_theme_mod( 'velove_featured_posts_orderby', 'date' );
+// Get the customizer data
+$enable = get_theme_mod( 'velove_featured_posts_enable', 1 );
+$title  = get_theme_mod( 'velove_featured_posts_title', esc_html__( 'Featured', 'velove' ) );
 
-// if ( !$enable ) {
-// 	return;
-// }
+// Return early if disabled
+if ( !$enable ) {
+	return;
+}
 
-// if ( !$tag ) {
-// 	return;
-// }
+// Get the tag id
+$name = get_theme_mod( 'velove_featured_posts_tag', 'featured' );
+if ( $name ) {
+	$term = get_term_by( 'name', $name, 'post_tag' );
+}
 
+// Main post query
 $query = array(
-	'post_type'      => 'post',
-	'posts_per_page' => 1,
-	// 'orderby'        => $order,
-	'post__not_in'   => get_option( 'sticky_posts' ),
-	// 'tag_id'         => $tag
+	'post_type'           => 'post',
+	'posts_per_page'      => 1,
+	'ignore_sticky_posts' => 1
 );
+
+// Get the sticky post ids
+$sticky = get_option( 'sticky_posts' );
+
+// Adds the custom arguments to the main query
+if ( $term ) {
+	$query['tag_id'] = $term->term_id;
+} else {
+	$query['post__in'] = $sticky;
+}
 
 // Allow dev to filter the query.
 $query = apply_filters( 'velove_featured_posts_args', $query );
@@ -33,7 +44,7 @@ $featured = new WP_Query( $query );
 
 			<article id="post-<?php the_ID(); ?>" data-file="<?php the_permalink(); ?>" data-target="article" <?php post_class(); ?>>
 
-					<h3 class="featured-title"><?php esc_html_e( 'Featured', 'velove' ); ?></h3>
+					<h3 class="featured-title"><?php echo wp_kses_post( $title ); ?></h3>
 
 					<?php while ( $featured->have_posts() ) : $featured->the_post(); ?>
 

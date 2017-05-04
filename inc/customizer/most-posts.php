@@ -45,7 +45,7 @@ function velove_most_posts_customize_register( $wp_customize ) {
 			'selector'         => '.most-content-title',
 			'settings'         => array( 'velove_most_posts_title' ),
 			'render_callback'  => function() {
-				return '<span>' . velove_sanitize_textarea( get_theme_mod( 'velove_most_posts_title' ) ) . '</span>';
+				return '<span>' . esc_attr( get_theme_mod( 'velove_most_posts_title' ) ) . '</span>';
 			}
 		) );
 	}

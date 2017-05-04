@@ -33,6 +33,13 @@ get_header(); ?>
 							$layout == 'masonry-four'
 						) : ?>
 							<?php get_template_part( 'partials/content', 'grid' ); ?>
+						<?php elseif (
+							$layout == 'list-right-sidebar' ||
+							$layout == 'list-left-sidebar' ||
+							$layout == 'list-full-width' ||
+							$layout == 'list-full-width-narrow'
+						) : ?>
+							<?php get_template_part( 'partials/content', 'list' ); ?>
 						<?php else : ?>
 							<?php get_template_part( 'partials/content' ); ?>
 						<?php endif; ?>

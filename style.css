@@ -669,6 +669,53 @@ template {
   clear: left;
 }
 
+.layout-list-right-sidebar .content-area .content .thumbnail-link,
+.layout-list-left-sidebar .content-area .content .thumbnail-link,
+.layout-list-full-width .content-area .content .thumbnail-link,
+.layout-list-full-width-narrow .content-area .content .thumbnail-link {
+  margin-bottom: 0;
+  width: 34.9315068493%;
+  float: left;
+  margin-right: 4.1095890411%;
+}
+
+.layout-list-right-sidebar .content-area .content .thumbnail-link:hover .entry-title span,
+.layout-list-left-sidebar .content-area .content .thumbnail-link:hover .entry-title span,
+.layout-list-full-width .content-area .content .thumbnail-link:hover .entry-title span,
+.layout-list-full-width-narrow .content-area .content .thumbnail-link:hover .entry-title span {
+  background-color: transparent;
+  color: #f7c8b3;
+}
+
+.layout-list-right-sidebar .content-area .content .entry-title,
+.layout-list-left-sidebar .content-area .content .entry-title,
+.layout-list-full-width .content-area .content .entry-title,
+.layout-list-full-width-narrow .content-area .content .entry-title {
+  font-size: 24px;
+  position: relative;
+  bottom: auto;
+  width: auto;
+  left: auto;
+  margin: 0 0 18px;
+  line-height: 1.4;
+}
+
+.layout-list-right-sidebar .content-area .content .entry-title span,
+.layout-list-left-sidebar .content-area .content .entry-title span,
+.layout-list-full-width .content-area .content .entry-title span,
+.layout-list-full-width-narrow .content-area .content .entry-title span {
+  padding: 0;
+  background-color: transparent;
+}
+
+.layout-list-right-sidebar .content-text,
+.layout-list-left-sidebar .content-text,
+.layout-list-full-width .content-text,
+.layout-list-full-width-narrow .content-text {
+  padding-left: 0;
+  overflow: hidden;
+}
+
 /*------------------------------------*
 	$MAIN
 *------------------------------------*/

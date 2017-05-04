@@ -205,9 +205,7 @@ function velove_fonts_url() {
 
 if ( ! function_exists( 'velove_is_beautimour_kit_activated' ) ) :
 /**
- * Query WooCommerce activation
- *
- * @since  1.0.0
+ * Beautimour Kit plugin activatin checker.
  */
 function velove_is_beautimour_kit_activated() {
 	return class_exists( 'Beautimour_Kit' ) ? true : false;

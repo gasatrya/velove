@@ -25,6 +25,7 @@ function velove_layouts_customize_register( $wp_customize ) {
 		'section'           => 'velove_layouts',
 		'priority'          => 1,
 		'type'              => 'radio',
+		'active_callback'   => 'is_home',
 		'choices'           => array(
 			'default'                   => esc_html__( 'Standard right sidebar', 'velove' ),
 			'left-sidebar'              => esc_html__( 'Standard left sidebar', 'velove' ),
@@ -38,7 +39,11 @@ function velove_layouts_customize_register( $wp_customize ) {
 			'masonry-two-left-sidebar'  => esc_html__( 'Masonry two columns left sidebar', 'velove' ),
 			'masonry-three'             => esc_html__( 'Masonry three columns', 'velove' ),
 			'masonry-four'              => esc_html__( 'Masonry four columns', 'velove' ),
-		)
+			'list-right-sidebar'        => esc_html__( 'List right sidebar', 'velove' ),
+			'list-left-sidebar'         => esc_html__( 'List left sidebar', 'velove' ),
+			'list-full-width'           => esc_html__( 'List full width', 'velove' ),
+			'list-full-width-narrow'    => esc_html__( 'List full width narrow', 'velove' ),
+		),
 	) );
 
 }
