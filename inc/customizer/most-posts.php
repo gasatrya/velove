@@ -71,7 +71,7 @@ function velove_most_posts_customize_register( $wp_customize ) {
 	// Register number setting
 	$wp_customize->add_setting( 'velove_most_posts_number', array(
 		'default'           => 3,
-		'sanitize_callback' => 'esc_attr',
+		'sanitize_callback' => 'absint',
 	) );
 	$wp_customize->add_control( 'velove_most_posts_number', array(
 		'label'             => esc_html__( 'Number', 'velove' ),
