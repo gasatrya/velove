@@ -47,7 +47,7 @@
 /*------------------------------------*
 	$NORMALIZE
 *------------------------------------*/
-/*! normalize.css v6.0.0 | MIT License | github.com/necolas/normalize.css */
+/*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
 /**
@@ -66,6 +66,13 @@ html {
 
 /* Sections
    ========================================================================== */
+/**
+ * Remove the margin in all browsers (opinionated).
+ */
+body {
+  margin: 0;
+}
+
 /**
  * Add the correct display in IE 9-.
  */
@@ -263,14 +270,22 @@ svg:not(:root) {
 /* Forms
    ========================================================================== */
 /**
- * Remove the margin in Firefox and Safari.
+ * 1. Change the font styles in all browsers (opinionated).
+ * 2. Remove the margin in Firefox and Safari.
  */
 button,
 input,
 optgroup,
 select,
 textarea {
+  font-family: sans-serif;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  line-height: 1.15;
+  /* 1 */
   margin: 0;
+  /* 2 */
 }
 
 /**
@@ -325,6 +340,13 @@ button:-moz-focusring,
 [type="reset"]:-moz-focusring,
 [type="submit"]:-moz-focusring {
   outline: 1px dotted ButtonText;
+}
+
+/**
+ * Correct the padding in Firefox.
+ */
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
 }
 
 /**
@@ -486,12 +508,19 @@ template {
   max-width: 1110px;
   margin-left: auto;
   margin-right: auto;
+  padding: 0 30px;
 }
 
 .container:after {
   content: " ";
   display: block;
   clear: both;
+}
+
+@media (min-width: 1170px) {
+  .container {
+    padding: 0;
+  }
 }
 
 @media (min-width: 801px) {
@@ -529,6 +558,12 @@ template {
     width: 31.5315315315%;
     float: right;
     margin-right: 0;
+    padding-left: 2.7%;
+  }
+}
+
+@media (min-width: 1025px) {
+  .widget-area {
     padding-left: 5.7%;
   }
 }
@@ -2454,8 +2489,13 @@ input[type="submit"]::-moz-focus-inner {
 .after-header {
   background-color: #fbf1eb;
   height: 100%;
-  max-height: 505px;
   margin-bottom: 90px;
+}
+
+@media (min-width: 800px) {
+  .after-header {
+    max-height: 505px;
+  }
 }
 
 .home .after-header {
@@ -2504,17 +2544,28 @@ input[type="submit"]::-moz-focus-inner {
   top: -21px;
 }
 
-.featured .thumbnail-link {
-  width: 57.2072072072%;
-  float: left;
-  margin-right: 2.7027027027%;
+@media (min-width: 800px) {
+  .featured .thumbnail-link {
+    width: 57.2072072072%;
+    float: left;
+    margin-right: 2.7027027027%;
+  }
+}
+
+.featured .thumbnail-link img {
+  width: 100%;
 }
 
 .featured .featured-content {
-  width: 40.0900900901%;
-  float: right;
-  margin-right: 0;
   padding-top: 48px;
+}
+
+@media (min-width: 800px) {
+  .featured .featured-content {
+    width: 40.0900900901%;
+    float: right;
+    margin-right: 0;
+  }
 }
 
 .featured .featured-content .entry-title {
@@ -2664,12 +2715,13 @@ input[type="submit"]::-moz-focus-inner {
   margin-bottom: 25px;
 }
 
-.widget.null-instagram-feed li:nth-child(2n) {
-  margin-right: 0;
-}
-
-.widget.null-instagram-feed li:last-child, .widget.null-instagram-feed li:nth-last-child(2) {
-  margin-bottom: 0;
+@media (min-width: 801px) {
+  .widget.null-instagram-feed li:nth-child(2n) {
+    margin-right: 0;
+  }
+  .widget.null-instagram-feed li:last-child, .widget.null-instagram-feed li:nth-last-child(2) {
+    margin-bottom: 0;
+  }
 }
 
 .widget.null-instagram-feed li::before {
@@ -2840,7 +2892,13 @@ input[type="submit"]::-moz-focus-inner {
 .most .content .entry-meta {
   float: left;
   margin-bottom: 0;
-  margin-left: 63px;
+  margin-left: 83px;
+}
+
+@media (min-width: 1110px) {
+  .most .content .entry-meta {
+    margin-left: 63px;
+  }
 }
 
 .most .content .center-align {
@@ -2879,7 +2937,20 @@ input[type="submit"]::-moz-focus-inner {
 .social-links li {
   display: inline-block;
   padding: 0;
-  margin-right: 80px;
+  margin-right: 60px;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 801px) {
+  .social-links li {
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 1170px) {
+  .social-links li {
+    margin-right: 80px;
+  }
 }
 
 .social-links li:last-child {

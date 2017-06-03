@@ -79,8 +79,11 @@
 .after-header {
 	background-color: $palm;
 	height: 100%;
-	max-height: 505px;
 	margin-bottom: 90px;
+
+	@include susy-media( 800px ) {
+		max-height: 505px;
+	}
 
 	.home & {
 		margin-bottom: 142px;
@@ -136,12 +139,23 @@
 	}
 
 	.thumbnail-link {
-		@include span( 7 of 12 );
+
+		@include susy-media( 800px ) {
+			@include span( 7 of 12 );
+		}
+
+		img {
+			width: 100%;
+		}
+
 	}
 
 	.featured-content {
-		@include span( 5 of 12 last );
 		padding-top: 48px;
+
+		@include susy-media( 800px ) {
+			@include span( 5 of 12 last );
+		}
 
 		.entry-title {
 			font-size: 48px;
@@ -315,13 +329,15 @@
 		margin-right: 25px;
 		margin-bottom: 25px;
 
-		&:nth-child( 2n ) {
-			margin-right: 0;
-		}
+		@include susy-media( 801px ) {
+			&:nth-child( 2n ) {
+				margin-right: 0;
+			}
 
-		&:last-child,
-		&:nth-last-child(2) {
-			margin-bottom: 0;
+			&:last-child,
+			&:nth-last-child(2) {
+				margin-bottom: 0;
+			}
 		}
 
 		&::before {
@@ -519,7 +535,11 @@
 		.entry-meta {
 			float: left;
 			margin-bottom: 0;
-			margin-left: 63px;
+			margin-left: 83px;
+
+			@include susy-media( 1110px ) {
+				margin-left: 63px;
+			}
 		}
 
 		.center-align {
@@ -560,7 +580,16 @@
 	li {
 		display: inline-block;
 		padding: 0;
-		margin-right: 80px;
+		margin-right: 60px;
+		margin-bottom: 20px;
+
+		@include susy-media( 801px ) {
+			margin-bottom: 0;
+		}
+
+		@include susy-media( 1170px ) {
+			margin-right: 80px;
+		}
 
 		&:last-child {
 			margin-right: 0;

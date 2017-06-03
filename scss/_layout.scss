@@ -20,6 +20,11 @@
 
 .container {
 	@include container;
+	padding: 0 30px;
+
+	@include susy-media( 1170px ) {
+		padding: 0;
+	}
 }
 
 .content-area {
@@ -46,8 +51,13 @@
 }
 
 .widget-area {
+
 	@include susy-media( 801px ) {
 		@include span( 4 of 12 last );
+		@include prefix( 2.7% );
+	}
+
+	@include susy-media( 1025px ) {
 		@include prefix( 5.7% );
 	}
 
