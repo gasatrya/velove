@@ -12,17 +12,33 @@
 }
 
 .page-header {
-	width: 45%;
+	width: 90%;
 	margin: 0 auto;
+
+	@include susy-media(800px) {
+		width: 60%;
+	}
+
+	@include susy-media(1170px) {
+		width: 45%;
+	}
 }
 
 .page-title {
 
 	.page &,
 	.single & {
-		font-size: 48px;
+		font-size: 28px;
 		text-transform: uppercase;
 		margin: 25px 0 8px;
+
+		@include susy-media(400px) {
+			font-size: 38px;
+		}
+
+		@include susy-media(500px) {
+			font-size: 48px;
+		}
 	}
 
 	.single & {
@@ -43,6 +59,11 @@
 	margin-bottom: 20px;
 	text-transform: uppercase;
 	color: $grey-dark-2;
+	text-align: center;
+
+	@include susy-media(400px) {
+		text-align: inherit;
+	}
 
 	.seperator {
 		display: inline-block;
@@ -77,17 +98,33 @@
 }
 
 .cat-links {
-	float: right;
+	display: block;
+
+	@include susy-media(400px) {
+		float: right;
+		display: inline-block;
+	}
 }
 
 .entry-footer {
 	@extend %clearfix;
 	border-top: 2px solid $black;
 	padding-top: 20px;
+	text-align: center;
+
+	@include susy-media(500px) {
+		text-align: inherit;
+	}
 }
 
 .tag-links {
-	@include span( 4 of 8 );
+	margin-bottom: 12px;
+	display: block;
+
+	@include susy-media(500px) {
+		@include span( 4 of 8 );
+		margin-bottom: 0;
+	}
 
 	a {
 		font-weight: 400;
@@ -110,8 +147,11 @@
 }
 
 .entry-share {
-	@include span( 4 of 8 last );
-	text-align: right;
+
+	@include susy-media(500px) {
+		@include span( 4 of 8 last );
+		text-align: right;
+	}
 
 	.entry-like {
 		display: inline-block;
@@ -154,6 +194,12 @@
 	float: left;
 	margin-right: 8px;
 	text-transform: uppercase;
+	line-height: 1;
+	display: none;
+
+	@include susy-media(600px) {
+		display: block;
+	}
 
 	a {
 		color: $grey-dark;
@@ -196,7 +242,11 @@
 
 	.thumbnail-link {
 		position: relative;
-		margin-bottom: 35px;
+		margin-bottom: 24px;
+
+		@include susy-media(600px) {
+			margin-bottom: 35px;
+		}
 
 		&:hover {
 			.entry-title {
@@ -206,28 +256,62 @@
 				}
 			}
 		}
+
+		img {
+			margin-bottom: 24px;
+
+			@include susy-media(600px) {
+				margin-bottom: 0;
+			}
+		}
 	}
 
 	.entry-title {
-		font-size: 48px;
-		line-height: 1.2;
-		position: absolute;
-		bottom: 32px;
-		left: 0;
+		font-size: 30px;
+		line-height: 1.1;
 		margin: 0;
-		width: 80%;
+
+		@include susy-media(600px) {
+			position: absolute;
+			bottom: 32px;
+			left: 0;
+			width: 80%;
+			font-size: 40px;
+		}
+
+		@include susy-media(801px) {
+			font-size: 48px;
+			line-height: 1.2;
+		}
 
 		span {
 			background-color: $white;
-			padding: 10px 10px 10px 63px;
+			padding: 10px 0 10px 0;
 			display: block;
 			transition: all 200ms ease-in-out 0s;
+
+			@include susy-media(600px) {
+				padding-left: 33px;
+				padding-right: 10px;
+			}
+
+			@include susy-media(801px) {
+				padding-left: 63px;
+			}
 		}
 	}
 }
 
 .content-text {
-	padding-left: 63px;
+	padding-left: 0;
+
+	@include susy-media(600px) {
+		padding-left: 33px;
+	}
+
+	@include susy-media(801px) {
+		padding-left: 63px;
+	}
 }
 
 .entry-content {

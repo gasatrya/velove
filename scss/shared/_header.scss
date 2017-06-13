@@ -20,7 +20,12 @@
 }
 
 .site-branding {
-	@include span( 4 of 12 );
+	text-align: center;
+
+	@include susy-media(601px) {
+		@include span( 4 of 12 );
+		text-align: left;
+	}
 
 	.header-style-two &,
 	.header-style-three & {
@@ -33,10 +38,14 @@
 	}
 
 	.site-title {
-		font-size: 72px;
+		font-size: 60px;
 		font-weight: 700;
 		text-transform: uppercase;
 		margin: 0 0 15px;
+
+		@include susy-media(400px) {
+			font-size: 72px;
+		}
 
 		a {
 			font-weight: 700;

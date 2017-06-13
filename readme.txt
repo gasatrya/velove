@@ -7,15 +7,16 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
-Velove is a modern responsive business and corporate theme that helps you to create a strong–yet beautiful–online presence for your business.
+Velove is minimal yet elegant WordPress blog theme. Velove comes with great features you will love:
 
 * Responsive layout.
-* Front Page Template.
-* Full Width Page Template
-* Full Width Narrow Page Template
-* Grid Page Template
-* 6 Custom Widgets
-* Jetpack.me compatibility for Infinite Scroll, Responsive Videos, Social Sharing, Related Posts.
+* Unique layout
+* 4 post/page layouts
+* 5 Predefined skins
+* Fonts manager
+* 16 blog layouts
+* Instagram integration
+* Jetpack compatibility.
 * The GPL v2.0 or later license. :) Use it to make something cool.
 
 == Installation ==
@@ -26,7 +27,7 @@ Velove is a modern responsive business and corporate theme that helps you to cre
 
 == Copyright ==
 
-Velove WordPress Theme, Copyright 2016 https://beautimour.com/
+Velove WordPress Theme, Copyright 2017 https://beautimour.com/
 Velove is distributed under the terms of the GNU GPL
 
 This program is free software: you can redistribute it and/or modify
@@ -49,10 +50,6 @@ Susy v2.2.12, Copyright (c) 2015, Miriam Eric Suzanne
 Licenses:
 Source: http://susy.oddbird.net/
 
-Font Awesome icon font, Copyright http://fontawesome.io
-License: Font - SIL OFL 1.1, CSS - MIT License
-Source: http://fontawesome.io
-
 HTML5 Shiv v3.7.0, Copyright 2014 Alexander Farkas
 Licenses: MIT/GPL2
 Source: https://github.com/aFarkas/html5shiv
@@ -61,17 +58,9 @@ FitVids v1.1, Copyright 2013, Chris Coyier - http://css-tricks.com + Dave Rupert
 Licenses: WTFPL
 Source: https://github.com/davatron5000/FitVids.js/
 
-Slicknav v1.0.7, Copyright (c) 2016 Josh Cope
-Licenses: MIT
-Source: http://slicknav.com
-
-jQuery Inview v1.1.2, Copyright (C) 2004 Sam Hocevar
-Licenses:
-Source: https://github.com/protonet/jquery.inview
-
-Image used in demo: https://unsplash.com/collections/312299/restaurant-and-cafe, licensed under Creative Commons Zero(http://creativecommons.org/publicdomain/zero/1.0/)
+Image used in demo: https://unsplash.com/, licensed under Creative Commons Zero(http://creativecommons.org/publicdomain/zero/1.0/)
 
 == Changelog ==
 
-1.0.0 - August 25, 2016
+1.0.0 - June 30, 2017
 * Initial release

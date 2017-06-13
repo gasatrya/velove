@@ -10,6 +10,8 @@
 						<?php wp_nav_menu(
 							array(
 								'theme_location'  => 'social',
+								'link_before'     => '<span class="social-name">',
+								'link_after'      => '</span>',
 								'depth'           => 1,
 								'container'       => '',
 							)

@@ -1,7 +1,11 @@
 .site-navigation {
 	@extend %clearfix;
-	margin-bottom: 108px;
+	margin-bottom: 80px;
 	padding-top: 43px;
+
+	@include susy-media(400px) {
+		margin-bottom: 108px;
+	}
 
 	.header-style-three & {
 		padding-top: 0;
@@ -11,8 +15,16 @@
 }
 
 .main-navigation {
-	@include span( 10 of 12 last );
+	@include span( 12 of 12 last );
 	line-height: 35px;
+
+	@include susy-media(400px) {
+		@include span( 8 of 12 last );
+	}
+
+	@include susy-media(801px) {
+		@include span( 10 of 12 last );
+	}
 
 	.header-style-three & {
 		line-height: 40px;
@@ -22,6 +34,11 @@
 .menu-primary-items {
 	@extend %reset-list;
 	text-align: right;
+	display: none;
+
+	@include susy-media( 769px ) {
+		display: block;
+	}
 
 	li {
 		position: relative;
@@ -45,9 +62,16 @@
 	}
 
 	a {
-		font-size: 12px;
+		font-size: 14px;
 		text-transform: uppercase;
 		transition: none;
+		display: block;
+		color: $white;
+
+		@include susy-media(801px) {
+			color: $black;
+			font-size: 12px;
+		}
 
 		&:hover {
 			border-bottom: 2px solid $palm_dark;
@@ -145,16 +169,60 @@
 	}
 }
 
-.menu-toggle,
-.main-navigation.toggled ul {
-	display: block;
+.main-navigation.toggled > ul {
 	width: 100%;
+
+	@include susy-media(768px) {
+		width: 40%;
+	}
+
+	@include susy-media(max-width 801px) {
+		display: block;
+		clear: both;
+		background-color: $black;
+		float: right;
+		padding: 20px;
+	}
+
+	ul {
+		text-align: right;
+
+		li {
+			padding-right: 0;
+		}
+
+		a {
+			position: relative;
+			&::after {
+				content: "\00af";
+				display: inline-block;
+				color: #fff;
+				font-size: 30px;
+				line-height: 0;
+				vertical-align: text-bottom;
+				padding-left: 10px;
+			}
+		}
+	}
 }
 
-@include susy-media( 768px ) {
+.menu-toggle {
+	display: block;
+	float: right;
+	font-weight: 700;
+	text-transform: uppercase;
+	width: 100%;
+
+	@include susy-media(400px) {
+		width: auto;
+	}
+}
+
+@include susy-media( 769px ) {
 	.menu-toggle {
 		display: none;
 	}
+
 	.main-navigation ul {
 		display: block;
 	}

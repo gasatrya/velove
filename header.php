@@ -26,7 +26,8 @@
 							array(
 								'theme_location'  => 'primary',
 								'menu_id'         => 'menu-primary-items',
-								'menu_class'      => 'menu-primary-items'
+								'menu_class'      => 'menu-primary-items',
+								'container'       => false
 							)
 						); ?>
 					</nav>
