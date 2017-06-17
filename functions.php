@@ -253,3 +253,8 @@ require trailingslashit( get_template_directory() ) . 'inc/like.php';
  * Custom color adjuster function
  */
 require trailingslashit( get_template_directory() ) . 'inc/extensions/simple-color-adjuster.php';
+
+/**
+ * Demo importer
+ */
+require trailingslashit( get_template_directory() ) . 'inc/demo/demo-importer.php';

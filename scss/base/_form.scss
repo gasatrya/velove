@@ -26,6 +26,7 @@ textarea {
 	vertical-align: middle;
 	border: none;
 	background-color: $palm;
+	font-size: 14px;
 
 	&::-webkit-input-placeholder {
 		font-family: $source;
@@ -46,6 +47,7 @@ textarea {
 
 textarea {
 	height: auto;
+	width: 100%;
 }
 
 /*
