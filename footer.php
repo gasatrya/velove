@@ -4,21 +4,21 @@
 
 		<footer id="colophon" class="site-footer">
 
-			<div class="social-links">
-				<div class="container">
-					<?php if ( has_nav_menu ( 'social' ) ) : ?>
-						<?php wp_nav_menu(
-							array(
-								'theme_location'  => 'social',
-								'link_before'     => '<span class="social-name">',
-								'link_after'      => '</span>',
-								'depth'           => 1,
-								'container'       => '',
-							)
-						); ?>
-					<?php endif; ?>
+			<?php if ( has_nav_menu ( 'social' ) ) : ?>
+				<div class="social-links">
+					<div class="container">
+							<?php wp_nav_menu(
+								array(
+									'theme_location'  => 'social',
+									'link_before'     => '<span class="social-name">',
+									'link_after'      => '</span>',
+									'depth'           => 1,
+									'container'       => '',
+								)
+							); ?>
+					</div>
 				</div>
-			</div>
+			<?php endif; ?>
 
 			<?php dynamic_sidebar( 'instagram' ); ?>
 

@@ -25,6 +25,18 @@ function velove_register_plugins() {
 			'required' => false,
 		),
 
+		array(
+			'name'     => 'MailChimp for WordPress',
+			'slug'     => 'mailchimp-for-wp',
+			'required' => false,
+		),
+
+		array(
+			'name'     => 'WP Instagram widget',
+			'slug'     => 'wp-instagram-widget',
+			'required' => false,
+		),
+
 	);
 
 	$config = array(

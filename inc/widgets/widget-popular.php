@@ -46,7 +46,7 @@ class Velove_Popular_Widget extends WP_Widget {
 		}
 
 		// Set up default value
-		$title     = ( ! empty( $instance['title'] ) ) ? $instance['title'] : '';
+		$title     = ( ! empty( $instance['title'] ) ) ? $instance['title'] : esc_html__( 'Popular Posts', 'velove' );
 		$number    = ( ! empty( $instance['number'] ) ) ? absint( $instance['number'] ) : 5;
 		$show_date = isset( $instance['show_date'] ) ? $instance['show_date'] : true;
 

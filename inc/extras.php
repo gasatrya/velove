@@ -180,3 +180,16 @@ function velove_mod_theme_layout( $layout ) {
 	return $layout;
 }
 add_filter( 'theme_mod_theme_layout', 'velove_mod_theme_layout', 15 );
+
+/**
+ * Remove theme-layouts meta box on attachment and bbPress post type.
+ */
+function velove_remove_theme_layout_metabox() {
+	remove_post_type_support( 'attachment', 'theme-layouts' );
+
+	// bbPress
+	remove_post_type_support( 'forum', 'theme-layouts' );
+	remove_post_type_support( 'topic', 'theme-layouts' );
+	remove_post_type_support( 'reply', 'theme-layouts' );
+}
+add_action( 'init', 'velove_remove_theme_layout_metabox', 11 );

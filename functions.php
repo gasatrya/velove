@@ -19,18 +19,20 @@ function velove_content_width() {
 }
 add_action( 'after_setup_theme', 'velove_content_width', 0 );
 
-// if ( ! function_exists( 'velove_fullwidth_content_width' ) ) :
+if ( ! function_exists( 'velove_fullwidth_content_width' ) ) :
 
-// 	function velove_fullwidth_content_width() {
-// 		global $content_width;
+	function velove_fullwidth_content_width() {
+		global $content_width;
 
-// 		if ( is_page_template( 'page-templates/front-page.php' ) ) {
-// 			$content_width = 1070;
-// 		}
-// 	}
+		if ( velove_is_beautimour_kit_activated() && current_theme_supports( 'theme-layouts' ) ) {
+			if ( in_array( get_theme_mod( 'theme_layout' ), array( 'full-width' ) ) ) {
+				$content_width = 1015;
+			}
+		}
+	}
 
-// endif;
-// add_action( 'template_redirect', 'velove_fullwidth_content_width' );
+endif;
+add_action( 'template_redirect', 'velove_fullwidth_content_width' );
 
 if ( ! function_exists( 'velove_theme_setup' ) ) :
 /**
@@ -158,9 +160,9 @@ function velove_sidebars_init() {
 			'id'            => 'primary',
 			'description'   => esc_html__( 'Main sidebar that appears on the right.', 'velove' ),
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</div></aside>',
+			'after_widget'  => '</aside>',
 			'before_title'  => '<h3 class="widget-title">',
-			'after_title'   => '</h3><div class="widget-wrapper">',
+			'after_title'   => '</h3>',
 		)
 	);
 

@@ -209,7 +209,9 @@
 	padding: 28px 28px 24px 28px;
 	margin-bottom: 90px;
 
-	.widget-wrapper {
+	> ul,
+	> div,
+	> form {
 		position: relative;
 		z-index: 1;
 	}

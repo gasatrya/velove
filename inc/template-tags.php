@@ -358,6 +358,8 @@ function velove_next_prev_post() {
 	// Get the next and previous post id.
 	$next = get_adjacent_post( false, '', false );
 	$prev = get_adjacent_post( false, '', true );
+
+	if ( $next || $prev ) :
 ?>
 	<div class="post-pagination">
 
@@ -391,6 +393,7 @@ function velove_next_prev_post() {
 
 	</div>
 <?php
+	endif;
 }
 endif;
 

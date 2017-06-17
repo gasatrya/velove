@@ -101,6 +101,7 @@
 
 	a {
 		color: $black;
+		font-weight: 700;
 	}
 
 }
@@ -126,7 +127,7 @@
 		font-size: 14px;
 		margin-bottom: 20px;
 
-		a {
+		.date a {
 			color: $grey-darker;
 			font-weight: 400;
 		}

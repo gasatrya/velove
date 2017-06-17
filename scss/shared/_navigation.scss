@@ -50,9 +50,19 @@
 		}
 
 		&:hover {
-			> .sub-menu {
-				display: block;
-				animation: submenuShow 200ms ease-in-out both;
+			@include susy-media( 769px ) {
+				> .sub-menu {
+					display: block;
+					animation: submenuShow 200ms ease-in-out;
+				}
+			}
+		}
+
+		&.menu-item-has-children {
+			&:hover {
+				a {
+					border-bottom: 0;
+				}
 			}
 		}
 
@@ -67,6 +77,9 @@
 		transition: none;
 		display: block;
 		color: $white;
+		@include susy-media( 769px ) {
+			line-height: 1.5;
+		}
 
 		@include susy-media(801px) {
 			color: $black;
@@ -74,8 +87,12 @@
 		}
 
 		&:hover {
-			border-bottom: 2px solid $palm_dark;
+			color: $palm_dark;
+			@include susy-media( 769px ) {
+				border-bottom: 2px solid $palm_dark;
+			}
 		}
+
 	}
 
 	.sub-menu {
