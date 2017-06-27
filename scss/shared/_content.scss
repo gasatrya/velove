@@ -240,6 +240,13 @@
 .content {
 	overflow: hidden;
 
+	.single &,
+	.page & {
+		.entry-thumbnail {
+			margin-bottom: 24px;
+		}
+	}
+
 	.thumbnail-link {
 		position: relative;
 		margin-bottom: 24px;

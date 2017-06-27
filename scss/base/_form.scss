@@ -27,6 +27,8 @@ textarea {
 	border: none;
 	background-color: $palm;
 	font-size: 14px;
+	border-radius: 0;
+	-webkit-appearance: none;
 
 	&::-webkit-input-placeholder {
 		font-family: $source;

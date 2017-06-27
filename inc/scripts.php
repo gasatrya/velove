@@ -8,9 +8,6 @@
  */
 function velove_enqueue() {
 
-	// Load plugins stylesheet
-	// wp_enqueue_style( 'velove-plugins-style', trailingslashit( get_template_directory_uri() ) . 'assets/css/plugins.min.css' );
-
 	// Fonts
 	wp_enqueue_style( 'velove-fonts', velove_fonts_url() );
 
@@ -53,7 +50,10 @@ function velove_enqueue() {
 			'site_url'      => trailingslashit( get_template_directory_uri() ),
 			'ajaxurl'       => admin_url( 'admin-ajax.php' ),
 			'rated'         => esc_html__( 'You already like this', 'velove' ),
-			'isMasonryFour' => ( $layout == 'masonry-four' ) ? true : false
+			'isMasonryTwoColumns'   => ( $layout == 'masonry-two-right-sidebar' || $layout == 'masonry-two-left-sidebar' ) ? true : false,
+			'isMasonryThreeColumns' => ( $layout == 'masonry-three' ) ? true : false,
+			'isMasonryFourColumns'  => ( $layout == 'masonry-four' ) ? true : false,
+			'isArchivePage'         => ( is_archive() ) ? true : false,
 		)
 	);
 

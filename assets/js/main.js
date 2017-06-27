@@ -35,24 +35,74 @@
 				return false;
 			} );
 
-		// Masonry layout for archive page
-		$( '.grid' ).masonry( {
-			itemSelector: '.entry',
-			columnWidth: 350,
-			gutter: 30
-		} );
+		// Masonry layout
+		var $wrapper = $( '.masonry-wrapper' ),
+			windowWidth = $( window ).width(),
+			gutter,
+			columns;
 
-		// Masonry layout for home page
-		var colWidth = 350;
-		if ( velove.isMasonryFour ) {
-			colWidth = 255;
+		// Two columns
+		if ( velove.isMasonryTwoColumns ) {
+
+			gutter  = 30;
+			columns = 2;
+
+			// Re-set columns based on window width
+			if ( windowWidth < 768 ) {
+				columns = 1;
+			}
+
 		}
-		$( '.masonry-wrapper' ).masonry( {
-			itemSelector: '.entry',
-			columnWidth: colWidth,
-			gutter: 30
+
+		// Three columns
+		if ( velove.isArchivePage || velove.isMasonryThreeColumns ) {
+
+			gutter  = 30;
+			columns = 3;
+
+			// Re-set columns based on window width
+			if ( windowWidth < 768 ) {
+				columns = 1;
+			} else if ( windowWidth < 900 ) {
+				columns = 2;
+			}
+
+		}
+
+		// Four columns
+		if ( velove.isMasonryFourColumns ) {
+
+			gutter  = 30;
+			columns = 4;
+
+			// Re-set columns based on window width
+			if ( windowWidth < 768 ) {
+				columns = 1;
+			} else if ( windowWidth < 900 ) {
+				columns = 2;
+			} else if ( windowWidth < 1110 ) {
+				columns = 3;
+			}
+
+		}
+
+		// calculate item width
+		var itemWidth = ( $wrapper.width() - gutter * ( columns - 1 ) ) / columns;
+		// Inject custom css
+		$( '.masonry-wrapper .entry' ).css( {
+			width: itemWidth,
+			marginBottom: gutter
 		} );
 
+		// Initialize masonry
+		$wrapper.imagesLoaded( function() {
+			$wrapper.masonry( {
+				itemSelector: '.entry',
+				columnWidth: itemWidth,
+				gutter: gutter,
+				isFitWidth: true
+			} );
+		} );
 
 	} );
 

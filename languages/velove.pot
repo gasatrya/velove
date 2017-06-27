@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Velove 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-17 15:42:55+00:00\n"
+"POT-Creation-Date: 2017-06-27 07:49:05+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -788,16 +788,16 @@ msgstr ""
 msgid "Like this"
 msgstr ""
 
-#: inc/like.php:93 inc/scripts.php:55
+#: inc/like.php:93 inc/scripts.php:52
 msgid "You already like this"
 msgstr ""
 
 #: inc/template-tags.php:133 partials/content-archive.php:26
-#: partials/content-single.php:37
+#: partials/content-single.php:35
 msgid "by %s"
 msgstr ""
 
-#: inc/template-tags.php:137 partials/content-single.php:39
+#: inc/template-tags.php:137 partials/content-single.php:37
 msgid "Read"
 msgstr ""
 
@@ -953,7 +953,7 @@ msgid ""
 "searching can help."
 msgstr ""
 
-#: partials/content-page.php:18 partials/content-single.php:61
+#: partials/content-page.php:18 partials/content-single.php:59
 msgid "Pages:"
 msgstr ""
 
@@ -961,12 +961,12 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: partials/content-single.php:44
+#: partials/content-single.php:42
 #. translators: used between list items, there is a space after the comma
 msgid ", "
 msgstr ""
 
-#: partials/content-single.php:48
+#: partials/content-single.php:46
 msgid "Posted on %s"
 msgstr ""
 

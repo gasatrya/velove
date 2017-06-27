@@ -20,7 +20,8 @@
 				'font-size': '9px',
 				'letter-spacing': '1px',
 				'line-height': '1.5',
-				'clear': 'both'
+				'clear': 'both',
+				'text-decoration': 'none'
 			} );
 
 		setTimeout( function () {

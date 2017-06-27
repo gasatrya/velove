@@ -18,15 +18,13 @@ if ( velove_is_beautimour_kit_activated() && current_theme_supports( 'theme-layo
 	<div class="content">
 
 		<?php if ( $enable_post_thumbnail && has_post_thumbnail() ) : ?>
-			<a class="thumbnail-link" href="<?php the_permalink(); ?>">
-				<?php
-					if ( $layout == 'full-width' ) {
-						the_post_thumbnail( 'velove-post-full', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title() ) ) );
-					} else {
-						the_post_thumbnail( 'velove-post', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title() ) ) );
-					}
-				?>
-			</a>
+			<?php
+				if ( $layout == 'full-width' ) {
+					the_post_thumbnail( 'velove-post-full', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title() ) ) );
+				} else {
+					the_post_thumbnail( 'velove-post', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title() ) ) );
+				}
+			?>
 		<?php endif; ?>
 
 		<div class="content-text">

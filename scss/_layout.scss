@@ -84,6 +84,7 @@
 .layout-masonry-four {
 
 	.content-area {
+		@extend %clearfix;
 
 		.content {
 
@@ -133,14 +134,16 @@
 	.content-area {
 
 		.entry {
-			@include span( 4 of 8 );
+			@include susy-media(768px) {
+				@include span( 4 of 8 );
 
-			&:nth-child( 2n ) {
-				@include last;
-			}
+				&:nth-child( 2n ) {
+					@include last;
+				}
 
-			&:nth-child( 2n+1 ) {
-				clear: left;
+				&:nth-child( 2n+1 ) {
+					clear: left;
+				}
 			}
 		}
 
@@ -154,15 +157,40 @@
 	.content-area {
 
 		.entry {
-			@include span( 4 of 12 );
 
-			&:nth-child( 3n ) {
-				@include last;
+			@include susy-media(768px) {
+				@include span( 6 of 12 );
+
+				&:nth-child( 2n ) {
+					@include last;
+				}
+
+				&:nth-child( 2n+1 ) {
+					clear: left;
+				}
 			}
 
-			&:nth-child( 3n+1 ) {
-				clear: left;
+			@include susy-media(900px) {
+				@include span( 4 of 12 );
+
+				&:nth-child( 2n ) {
+					float: left;
+					margin-right: gutter();
+				}
+
+				&:nth-child( 2n+1 ) {
+					clear: none;
+				}
+
+				&:nth-child( 3n ) {
+					@include last;
+				}
+
+				&:nth-child( 3n+1 ) {
+					clear: left;
+				}
 			}
+
 		}
 
 	}
@@ -174,15 +202,61 @@
 	.content-area {
 
 		.entry {
-			@include span( 3 of 12 );
 
-			&:nth-child( 4n ) {
-				@include last;
+			@include susy-media(768px) {
+				@include span( 6 of 12 );
+
+				&:nth-child( 2n ) {
+					@include last;
+				}
+
+				&:nth-child( 2n+1 ) {
+					clear: left;
+				}
 			}
 
-			&:nth-child( 4n+1 ) {
-				clear: left;
+			@include susy-media(900px) {
+				@include span( 4 of 12 );
+
+				&:nth-child( 2n ) {
+					float: left;
+					margin-right: gutter();
+				}
+
+				&:nth-child( 2n+1 ) {
+					clear: none;
+				}
+
+				&:nth-child( 3n ) {
+					@include last;
+				}
+
+				&:nth-child( 3n+1 ) {
+					clear: left;
+				}
 			}
+
+			@include susy-media(1110px) {
+				@include span( 3 of 12 );
+
+				&:nth-child( 3n ) {
+					float: left;
+					margin-right: gutter();
+				}
+
+				&:nth-child( 3n+1 ) {
+					clear: none;
+				}
+
+				&:nth-child( 4n ) {
+					@include last;
+				}
+
+				&:nth-child( 4n+1 ) {
+					clear: left;
+				}
+			}
+
 		}
 
 	}

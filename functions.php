@@ -10,15 +10,15 @@
  * Sets the content width in pixels, based on the theme's design and stylesheet.
  *
  * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
- * @since  1.0.0
  */
 function velove_content_width() {
 	$GLOBALS['content_width'] = apply_filters( 'velove_content_width', 704 );
 }
 add_action( 'after_setup_theme', 'velove_content_width', 0 );
 
+/**
+ * Sets custom content width when current layout is full-width
+ */
 if ( ! function_exists( 'velove_fullwidth_content_width' ) ) :
 
 	function velove_fullwidth_content_width() {
@@ -63,10 +63,10 @@ function velove_theme_setup() {
 	// Declare image sizes.
 	add_image_size( 'velove-featured', 600, 480, true );
 	add_image_size( 'velove-post', 698, 479, true );
-	add_image_size( 'velove-post-small', 350, 250, true );
+	add_image_size( 'velove-post-small', 700, 500, true );
 	add_image_size( 'velove-post-full', 1078, 479, true );
 	add_image_size( 'velove-most', 318, 350, true );
-	add_image_size( 'velove-archive', 350, 9999 );
+	add_image_size( 'velove-archive', 700, 9999 );
 
 	// Register custom navigation menu.
 	register_nav_menus(

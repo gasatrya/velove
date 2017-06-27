@@ -1,9 +1,9 @@
 a:hover,
 a:visited:hover,
-.archive .grid .entry-category a,
-.search .grid .entry-category a,
-.archive .grid .entry-meta a:hover,
-.search .grid .entry-meta a:hover,
+.archive .masonry-wrapper .entry-category a,
+.search .masonry-wrapper .entry-category a,
+.archive .masonry-wrapper .entry-meta a:hover,
+.search .masonry-wrapper .entry-meta a:hover,
 .social-links a:hover {
   color: #8ce1f3;
 }
