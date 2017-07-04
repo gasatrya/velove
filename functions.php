@@ -65,7 +65,7 @@ function velove_theme_setup() {
 	add_image_size( 'velove-post', 698, 479, true );
 	add_image_size( 'velove-post-small', 700, 500, true );
 	add_image_size( 'velove-post-full', 1078, 479, true );
-	add_image_size( 'velove-most', 318, 350, true );
+	add_image_size( 'velove-most', 318, 360, true );
 	add_image_size( 'velove-archive', 700, 9999 );
 
 	// Register custom navigation menu.
@@ -93,7 +93,7 @@ function velove_theme_setup() {
 	add_theme_support( 'custom-logo', array(
 		'height'      => 26,
 		'width'       => 200,
-		'flex-width' => true,
+		'flex-width'  => true,
 	) );
 
 	// This theme uses its own gallery styles.
@@ -193,8 +193,14 @@ function velove_fonts_url() {
 	// Important variable
 	$fonts_url = '';
 	$fonts     = array();
-	$fonts[]   = esc_attr( str_replace( '+', ' ', $heading_font ) );
-	$fonts[]   = esc_attr( str_replace( '+', ' ', $body_font ) );
+
+	if ( $heading_font ) {
+		$fonts[]   = esc_attr( str_replace( '+', ' ', $heading_font ) );
+	}
+
+	if ( $body_font ) {
+		$fonts[]   = esc_attr( str_replace( '+', ' ', $body_font ) );
+	}
 
 	if ( $fonts ) {
 		$fonts_url = add_query_arg( array(

@@ -42,11 +42,11 @@ $featured = new WP_Query( $query );
 	<div class="featured">
 		<div class="container">
 
-			<article id="post-<?php the_ID(); ?>" data-file="<?php the_permalink(); ?>" data-target="article" <?php post_class(); ?>>
+			<?php while ( $featured->have_posts() ) : $featured->the_post(); ?>
+
+				<article data-file="<?php the_permalink(); ?>" data-target="article" <?php post_class(); ?>>
 
 					<h3 class="featured-title"><?php echo wp_kses_post( $title ); ?></h3>
-
-					<?php while ( $featured->have_posts() ) : $featured->the_post(); ?>
 
 						<div class="featured-details">
 
@@ -74,9 +74,9 @@ $featured = new WP_Query( $query );
 
 						</div>
 
-					<?php endwhile; ?>
+				</article>
 
-			</article>
+			<?php endwhile; ?>
 
 		</div>
 	</div>

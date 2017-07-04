@@ -844,13 +844,12 @@ body {
 /**
  * Selection Color.
  */
-::selection {
+::-moz-selection {
 	color: #000;
 	background: #fbf1eb;
 	text-shadow: none;
 }
-
-::-moz-selection {
+::selection {
 	color: #000;
 	background: #fbf1eb;
 	text-shadow: none;
@@ -1124,7 +1123,8 @@ table tr td:last-child {
 
 .show-img {
 	opacity: 1;
-	transition: all .4s ease-in-out;
+	-webkit-transition: all .4s ease-in-out;
+	        transition: all .4s ease-in-out;
 }
 
 .layout-grid-two-right-sidebar .content-area,
@@ -1250,7 +1250,8 @@ table tr td:last-child {
  * Set link colors.
  */
 a {
-	transition: all 200ms ease-in-out 0s;
+	-webkit-transition: all 200ms ease-in-out 0s;
+	        transition: all 200ms ease-in-out 0s;
 	text-decoration: none;
 	color: #000;
 	font-weight: 700;
@@ -1537,9 +1538,7 @@ input[type='color'],
 select,
 textarea {
 	display: inline-block;
-	-webkit-box-sizing: border-box;
-	   -moz-box-sizing: border-box;
-	        box-sizing: border-box;
+	box-sizing: border-box;
 	height: 2.5em;
 	padding: .5em .6em;
 	vertical-align: middle;
@@ -1637,9 +1636,7 @@ since IE8 won't execute CSS that contains a CSS3 selector.
 */
 input:not([type]) {
 	display: inline-block;
-	-webkit-box-sizing: border-box;
-	   -moz-box-sizing: border-box;
-	        box-sizing: border-box;
+	box-sizing: border-box;
 	padding: .5em .6em;
 	border: 1px solid #ccc;
 	border-radius: 4px;
@@ -1833,8 +1830,6 @@ input[type='submit']:focus,
 	color: #fff;
 	background-image: -webkit-gradient(linear, 0 0, 0 100%, left, color-stop(40%, rgba(0, 0, 0, .05)), right);
 	background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, .05) 40%, rgba(0, 0, 0, .1));
-	background-image:    -moz-linear-gradient(top, rgba(0, 0, 0, .05) 0%, rgba(0, 0, 0, .1));
-	background-image:      -o-linear-gradient(transparent, rgba(0, 0, 0, .05) 40%, rgba(0, 0, 0, .1));
 	background-image:         linear-gradient(transparent, rgba(0, 0, 0, .05) 40%, rgba(0, 0, 0, .1));
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#1a000000',GradientType=0);
 }
@@ -2255,7 +2250,8 @@ input[type='submit']::-moz-focus-inner {
 @media (min-width: 769px) {
 	.menu-primary-items li:hover > .sub-menu {
 		display: block;
-		animation: submenuShow 200ms ease-in-out;
+		-webkit-animation: submenuShow 200ms ease-in-out;
+		        animation: submenuShow 200ms ease-in-out;
 	}
 }
 
@@ -2270,7 +2266,8 @@ input[type='submit']::-moz-focus-inner {
 .menu-primary-items a {
 	font-size: 14px;
 	text-transform: uppercase;
-	transition: none;
+	-webkit-transition: none;
+	        transition: none;
 	display: block;
 	color: #fff;
 }
@@ -2302,7 +2299,8 @@ input[type='submit']::-moz-focus-inner {
 	padding: 5px 0;
 	text-align: left;
 	border-top: 0;
-	transition: opacity ease-in-out 1s;
+	-webkit-transition: opacity ease-in-out 1s;
+	        transition: opacity ease-in-out 1s;
 }
 
 @media (min-width: 769px) {
@@ -2447,6 +2445,15 @@ input[type='submit']::-moz-focus-inner {
 	}
 	.main-navigation ul {
 		display: block;
+	}
+}
+
+@-webkit-keyframes submenuShow {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
 	}
 }
 
@@ -2691,7 +2698,9 @@ input[type='submit']::-moz-focus-inner {
 .vertical-text-wrapper .vertical-text-inner {
 	display: inline-block;
 	white-space: nowrap;
-	transform: rotate(-90deg);
+	-webkit-transform: rotate(-90deg);
+	    -ms-transform: rotate(-90deg);
+	        transform: rotate(-90deg);
 }
 
 .vertical-text-wrapper .vertical-text-inner::before {
@@ -2734,7 +2743,8 @@ input[type='submit']::-moz-focus-inner {
 
 .content .thumbnail-link:hover .entry-title span {
 	background-color: #fbf1eb;
-	transition: all 200ms ease-in-out 0s;
+	-webkit-transition: all 200ms ease-in-out 0s;
+	        transition: all 200ms ease-in-out 0s;
 }
 
 .content .thumbnail-link img {
@@ -2774,7 +2784,8 @@ input[type='submit']::-moz-focus-inner {
 	background-color: #fff;
 	padding: 10px 0 10px 0;
 	display: block;
-	transition: all 200ms ease-in-out 0s;
+	-webkit-transition: all 200ms ease-in-out 0s;
+	        transition: all 200ms ease-in-out 0s;
 }
 
 @media (min-width: 600px) {
@@ -3283,6 +3294,10 @@ input[type='submit']::-moz-focus-inner {
 /**
  * Most Content
  */
+.site .most-content .most.entry {
+	margin-bottom: 80px;
+}
+
 .most-content .most-content-title {
 	text-align: center;
 	position: relative;
@@ -3390,6 +3405,7 @@ input[type='submit']::-moz-focus-inner {
 
 .most .content .thumbnail-link img {
 	width: 100%;
+	margin-bottom: 0;
 }
 
 @media (min-width: 600px) {
@@ -3444,7 +3460,9 @@ input[type='submit']::-moz-focus-inner {
 		position: relative;
 		top: auto;
 		right: auto;
-		transform: none;
+		-webkit-transform: none;
+		    -ms-transform: none;
+		        transform: none;
 		clear: both;
 		padding-left: 33px;
 	}
@@ -3460,7 +3478,9 @@ input[type='submit']::-moz-focus-inner {
 	.most .center-align {
 		position: absolute;
 		top: 50%;
-		transform: translateY(-50%);
+		-webkit-transform: translateY(-50%);
+		    -ms-transform: translateY(-50%);
+		        transform: translateY(-50%);
 		right: 0;
 	}
 }
@@ -3681,7 +3701,8 @@ input[type='submit']::-moz-focus-inner {
 	position: absolute;
 	height: 100%;
 	width: 100%;
-	transition: background-color 400ms ease;
+	-webkit-transition: background-color 400ms ease;
+	        transition: background-color 400ms ease;
 }
 
 .instagram-widget a:hover::before {
@@ -3779,7 +3800,9 @@ input[type='submit']::-moz-focus-inner {
 	display: inline-block;
 	position: absolute;
 	top: 50%;
-	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	    -ms-transform: translateY(-50%);
+	        transform: translateY(-50%);
 	left: 0;
 	right: 0;
 	text-align: center;
@@ -4015,7 +4038,8 @@ input[type='submit']::-moz-focus-inner {
 	top: 0;
 	right: 0;
 	display: inline-block;
-	transition: color .2s ease-in-out;
+	-webkit-transition: color .2s ease-in-out;
+	        transition: color .2s ease-in-out;
 	color: #858585;
 	background-color: #fbf1eb;
 	padding: 0 10px;
@@ -4148,7 +4172,8 @@ form.comment-form input[type='submit'] {
 /*------------------------------------*
 	$404
 *------------------------------------*/
-.error404 .site-content {
+.error404 .site-content,
+.search-no-results .site-content {
 	margin-bottom: 142px;
 }
 
@@ -4304,5 +4329,4 @@ form.comment-form input[type='submit'] {
 	font-style: italic;
 	margin-bottom: 0;
 }
-
 /*# sourceMappingURL=style.css.map */

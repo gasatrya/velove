@@ -505,6 +505,16 @@
  */
 .most-content {
 
+	.site & {
+
+		.most {
+			&.entry {
+				margin-bottom: 80px;
+			}
+		}
+
+	}
+
 	.most-content-title {
 		text-align: center;
 		position: relative;
@@ -599,6 +609,7 @@
 
 			img {
 				width: 100%;
+				margin-bottom: 0;
 
 				@include susy-media(600px) {
 					width: auto;

@@ -33,9 +33,3 @@ body {
 	background: $selection-bg-color;
 	text-shadow: none;
 }
-
-::-moz-selection {
-	color: $selection-font-color;
-	background: $selection-bg-color;
-	text-shadow: none;
-}

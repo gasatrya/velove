@@ -7,7 +7,9 @@ a:visited:hover,
 .search .masonry-wrapper .entry-category a,
 .archive .masonry-wrapper .entry-meta a:hover,
 .search .masonry-wrapper .entry-meta a:hover,
-.social-links a:hover {
+.social-links a:hover,
+.menu-primary-items a:hover,
+.posts_with_thumbnail .post-detail a:hover {
 	color: $darken_color;
 }
 
@@ -36,7 +38,8 @@ textarea,
 .tag-links a,
 .comment-reply-link,
 .author-badge,
-.attachment .after-header {
+.attachment .after-header,
+::selection {
 	background-color: $color;
 }
 

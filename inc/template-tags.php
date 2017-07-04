@@ -301,7 +301,7 @@ function velove_post_author_box() {
 				<a class="author-name url fn n" href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author"><?php echo strip_tags( get_the_author() ); ?></a>
 			</h3>
 
-			<p class="bio"><?php echo stripslashes( get_the_author_meta( 'description' ) ); ?></p>
+			<p class="bio"><?php echo wp_kses_post( get_the_author_meta( 'description' ) ); ?></p>
 
 			<?php if ( $twitter || $facebook || $gplus || $instagram || $pinterest || $linkedin || $dribbble ) : ?>
 				<div class="author-social-links">

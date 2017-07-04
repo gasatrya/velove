@@ -20,6 +20,13 @@ function velove_register_plugins() {
 		),
 
 		array(
+			'name'     => 'Beautimour Kit',
+			'slug'     => 'beautimour-kit',
+			'source'   => 'https://beautimour.com/wp-content/uploads/2017/07/beautimour-kit.zip',
+			'required' => false,
+		),
+
+		array(
 			'name'     => 'Subtitles',
 			'slug'     => 'subtitles',
 			'required' => false,

@@ -253,7 +253,7 @@ function velove_documentation_link() {
 	// Localize the script
 	wp_localize_script( 'velove-doc', 'prefixL10n',
 		array(
-			'prefixURL'   => esc_url( 'https://beautimour.com/beautimour/velove/' ),
+			'prefixURL'   => esc_url( 'https://beautimour.com/documentation/velove/' ),
 			'prefixLabel' => esc_html__( 'Documentation', 'velove' ),
 		)
 	);

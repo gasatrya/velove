@@ -53,7 +53,7 @@ function velove_enqueue() {
 			'isMasonryTwoColumns'   => ( $layout == 'masonry-two-right-sidebar' || $layout == 'masonry-two-left-sidebar' ) ? true : false,
 			'isMasonryThreeColumns' => ( $layout == 'masonry-three' ) ? true : false,
 			'isMasonryFourColumns'  => ( $layout == 'masonry-four' ) ? true : false,
-			'isArchivePage'         => ( is_archive() ) ? true : false,
+			'isArchivePage'         => ( is_archive() || is_search() ) ? true : false,
 		)
 	);
 

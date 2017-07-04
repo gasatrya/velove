@@ -62,5 +62,5 @@ Image used in demo: https://unsplash.com/, licensed under Creative Commons Zero(
 
 == Changelog ==
 
-1.0.0 - June 30, 2017
+1.0.0 - July 05, 2017
 * Initial release
