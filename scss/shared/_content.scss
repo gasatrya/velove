@@ -59,10 +59,13 @@
 	margin-bottom: 20px;
 	text-transform: uppercase;
 	color: $grey-dark-2;
-	text-align: center;
 
-	@include susy-media(400px) {
-		text-align: inherit;
+	.single & {
+		text-align: center;
+
+		@include susy-media(400px) {
+			text-align: inherit;
+		}
 	}
 
 	.seperator {

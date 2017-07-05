@@ -2535,11 +2535,14 @@ input[type='submit']::-moz-focus-inner {
 	margin-bottom: 20px;
 	text-transform: uppercase;
 	color: #a3a3a3;
+}
+
+.single .entry-meta {
 	text-align: center;
 }
 
 @media (min-width: 400px) {
-	.entry-meta {
+	.single .entry-meta {
 		text-align: inherit;
 	}
 }
