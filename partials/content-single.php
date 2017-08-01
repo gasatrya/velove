@@ -80,7 +80,7 @@ if ( velove_is_beautimour_kit_activated() && current_theme_supports( 'theme-layo
 			</span>
 		<?php endif; ?>
 
-		<?php velove_post_share(); ?>
+		<?php if ( velove_is_beautimour_kit_activated() ) velove_post_share(); ?>
 
 	</footer>
 

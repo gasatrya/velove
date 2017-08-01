@@ -53,18 +53,6 @@ function velove_post_customize_register( $wp_customize ) {
 		'type'              => 'checkbox'
 	) );
 
-	// Register social share setting
-	$wp_customize->add_setting( 'velove_post_share', array(
-		'default'           => 1,
-		'sanitize_callback' => 'velove_sanitize_checkbox',
-	) );
-	$wp_customize->add_control( 'velove_post_share', array(
-		'label'             => esc_html__( 'Show social share', 'velove' ),
-		'section'           => 'velove_post',
-		'priority'          => 7,
-		'type'              => 'checkbox'
-	) );
-
 	// Register author box setting
 	$wp_customize->add_setting( 'velove_author_box', array(
 		'default'           => 1,
@@ -73,7 +61,7 @@ function velove_post_customize_register( $wp_customize ) {
 	$wp_customize->add_control( 'velove_author_box', array(
 		'label'             => esc_html__( 'Show author box', 'velove' ),
 		'section'           => 'velove_post',
-		'priority'          => 9,
+		'priority'          => 7,
 		'type'              => 'checkbox'
 	) );
 
@@ -85,7 +73,7 @@ function velove_post_customize_register( $wp_customize ) {
 	$wp_customize->add_control( 'velove_next_prev_post', array(
 		'label'             => esc_html__( 'Show next & prev post', 'velove' ),
 		'section'           => 'velove_post',
-		'priority'          => 11,
+		'priority'          => 9,
 		'type'              => 'checkbox'
 	) );
 
@@ -97,7 +85,7 @@ function velove_post_customize_register( $wp_customize ) {
 	$wp_customize->add_control( 'velove_post_comment', array(
 		'label'             => esc_html__( 'Enable comment on Posts', 'velove' ),
 		'section'           => 'velove_post',
-		'priority'          => 13,
+		'priority'          => 11,
 		'type'              => 'checkbox'
 	) );
 

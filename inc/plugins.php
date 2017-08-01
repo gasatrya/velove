@@ -44,6 +44,13 @@ function velove_register_plugins() {
 			'required' => false,
 		),
 
+		array(
+			'name'     => 'Zilla Likes',
+			'slug'     => 'zilla-likes',
+			'source'   => 'https://beautimour.com/wp-content/uploads/2017/07/zilla-likes.zip',
+			'required' => false,
+		),
+
 	);
 
 	$config = array(

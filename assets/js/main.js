@@ -17,24 +17,6 @@
 
 		} );
 
-		// Post like
-		$( '.entry-like a' ).on( 'click',
-			function() {
-				var link = $( this );
-				if ( link.hasClass( 'active' ) ) return false;
-
-				var id = $( this ).attr( 'id' );
-
-				$.post( velove.ajaxurl, {
-					action: 'velove-likes',
-					likes_id: id
-				}, function( data ) {
-					link.html( data ).addClass( 'active' ).attr( 'title', velove.rated );
-				} );
-
-				return false;
-			} );
-
 		// Masonry layout
 		var $wrapper = $( '.masonry-wrapper' ),
 			windowWidth = $( window ).width(),

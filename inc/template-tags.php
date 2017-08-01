@@ -138,7 +138,7 @@ function velove_entry_meta() {
 
 	<span class="seperator"></span>
 
-	<?php echo velove_do_likes(); ?>
+	<?php if ( function_exists( 'zilla_likes' ) ) zilla_likes(); ?>
 
 	<?php
 }
@@ -200,7 +200,7 @@ function velove_before_footer_content() {
 				);
 
 				if ( $query == 'loved' ) {
-					$args['meta_key'] = '_velove_likes';
+					$args['meta_key'] = '_zilla_likes';
 					$args['orderby']  = 'meta_value_num';
 				} elseif ( $query == 'popular' ) {
 					$args['orderby']  = 'comment_count';
@@ -229,34 +229,6 @@ function velove_before_footer_content() {
 		</div>
 	</div>
 
-	<?php
-}
-endif;
-
-if ( ! function_exists( 'velove_post_share' ) ) :
-/**
- * Social share.
- *
- * @since 1.0.0
- */
-function velove_post_share() {
-
-	// Get the data from Customizer
-	$enable = get_theme_mod( 'velove_post_share', 1 );
-	if ( !$enable ) {
-		return;
-	}
-
-	?>
-		<div class="entry-share">
-			<?php echo velove_do_likes(); ?>
-			<ul>
-				<li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode( get_permalink( get_the_ID() ) ); ?>" target="_blank"><i class="icon-facebook"></i><span class="screen-reader-text">Facebook</span></a></li>
-				<li class="twitter"><a href="https://twitter.com/intent/tweet?text=<?php echo urlencode( esc_attr( get_the_title( get_the_ID() ) ) ); ?>&amp;url=<?php echo urlencode( get_permalink( get_the_ID() ) ); ?>" target="_blank"><i class="icon-twitter"></i><span class="screen-reader-text">Twitter</span></a></li>
-				<li class="gplus"><a href="https://plus.google.com/share?url=<?php echo urlencode( get_permalink( get_the_ID() ) ); ?>" target="_blank"><i class="icon-gplus"></i><span class="screen-reader-text">Google+</span></a></li>
-				<li class="linkedin"><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo urlencode( get_permalink( get_the_ID() ) ); ?>&amp;title=<?php echo urlencode( esc_attr( get_the_title( get_the_ID() ) ) ); ?>" target="_blank"><i class="icon-linkedin"></i><span class="screen-reader-text">Linkedin</span></a></li>
-			</ul>
-		</div>
 	<?php
 }
 endif;

@@ -47,9 +47,6 @@ function velove_enqueue() {
 	$layout = get_theme_mod( 'velove_blog_layouts', 'default' );
 	wp_localize_script( $script_handle, 'velove',
 		array(
-			'site_url'      => trailingslashit( get_template_directory_uri() ),
-			'ajaxurl'       => admin_url( 'admin-ajax.php' ),
-			'rated'         => esc_html__( 'You already like this', 'velove' ),
 			'isMasonryTwoColumns'   => ( $layout == 'masonry-two-right-sidebar' || $layout == 'masonry-two-left-sidebar' ) ? true : false,
 			'isMasonryThreeColumns' => ( $layout == 'masonry-three' ) ? true : false,
 			'isMasonryFourColumns'  => ( $layout == 'masonry-four' ) ? true : false,
@@ -81,6 +78,9 @@ function velove_enqueue() {
 	// Fontello for IE7
 	wp_enqueue_style( 'velove-fontello', trailingslashit( get_template_directory_uri() ) . 'assets/css/fontello-ie7.css' );
 	wp_style_add_data( 'velove-fontello', 'conditional', 'IE 7' );
+
+	// Remove Zilla Likes style
+	wp_dequeue_style( 'zilla-likes' );
 
 
 }

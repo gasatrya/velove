@@ -251,11 +251,6 @@ require trailingslashit( get_template_directory() ) . 'inc/customizer.php';
 require trailingslashit( get_template_directory() ) . 'inc/jetpack.php';
 
 /**
- * Custom like function
- */
-require trailingslashit( get_template_directory() ) . 'inc/like.php';
-
-/**
  * Custom color adjuster function
  */
 require trailingslashit( get_template_directory() ) . 'inc/extensions/simple-color-adjuster.php';
