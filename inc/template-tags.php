@@ -85,39 +85,37 @@ if ( ! function_exists( 'velove_post_thumbnail' ) ) :
  * Display an optional post thumbnail.
  */
 function velove_post_thumbnail() {
-
 	// Get the customizer data.
 	$layout = get_theme_mod( 'velove_blog_layouts', 'default' );
-
-	if ( post_password_required() || is_attachment() || ! has_post_thumbnail() || has_post_format() ) {
-		return;
-	}
 ?>
-
-	<a class="thumbnail-link" href="<?php the_permalink(); ?>">
-		<?php
-			if ( $layout == 'full-width' ) {
-				the_post_thumbnail( 'velove-post-full', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title() ) ) );
-			} elseif (
-				$layout == 'grid-two-right-sidebar' ||
-				$layout == 'grid-two-left-sidebar' ||
-				$layout == 'grid-three' ||
-				$layout == 'grid-four'
-			) {
-				the_post_thumbnail( 'velove-post-small', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title() ) ) );
-			} elseif (
-				$layout == 'masonry-two-right-sidebar' ||
-				$layout == 'masonry-two-left-sidebar' ||
-				$layout == 'masonry-three' ||
-				$layout == 'masonry-four'
-			) {
-				the_post_thumbnail( 'velove-archive', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title() ) ) );
-			} else {
-				the_post_thumbnail( 'velove-post', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title() ) ) );
-			}
-		?>
-		<?php the_title( '<h2 class="entry-title"><span>', '</span></h2>' ); ?>
-	</a>
+	<?php if ( has_post_thumbnail() ) : ?>
+		<a class="thumbnail-link" href="<?php the_permalink(); ?>">
+			<?php
+				if ( $layout == 'full-width' ) {
+					the_post_thumbnail( 'velove-post-full', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title() ) ) );
+				} elseif (
+					$layout == 'grid-two-right-sidebar' ||
+					$layout == 'grid-two-left-sidebar' ||
+					$layout == 'grid-three' ||
+					$layout == 'grid-four'
+				) {
+					the_post_thumbnail( 'velove-post-small', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title() ) ) );
+				} elseif (
+					$layout == 'masonry-two-right-sidebar' ||
+					$layout == 'masonry-two-left-sidebar' ||
+					$layout == 'masonry-three' ||
+					$layout == 'masonry-four'
+				) {
+					the_post_thumbnail( 'velove-archive', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title() ) ) );
+				} else {
+					the_post_thumbnail( 'velove-post', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title() ) ) );
+				}
+			?>
+			<?php the_title( '<h2 class="entry-title"><span>', '</span></h2>' ); ?>
+		</a>
+	<?php else : ?>
+		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+	<?php endif; ?>
 
 <?php
 }
@@ -342,8 +340,10 @@ function velove_next_prev_post() {
 				<?php if ( has_post_thumbnail( $prev->ID ) ) : ?>
 					<a class="thumbnail-link" href="<?php echo esc_url( get_permalink( $prev->ID ) ); ?>">
 						<?php echo get_the_post_thumbnail( $prev->ID, 'velove-post-small', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title( $prev->ID ) ) ) ) ?>
-						<?php the_title( '<div class="post-title"><span>', '</span></div>' ); ?>
+						<div class="post-title"><span><?php echo get_the_title( $prev->ID ); ?></span></div>
 					</a>
+				<?php else : ?>
+					<div class="post-title"><span><a href="<?php echo esc_url( get_permalink( $prev->ID ) ); ?>"><?php echo get_the_title( $prev->ID ); ?></a></span></div>
 				<?php endif; ?>
 
 			</div>
@@ -356,8 +356,10 @@ function velove_next_prev_post() {
 				<?php if ( has_post_thumbnail( $next->ID ) ) : ?>
 					<a class="thumbnail-link" href="<?php echo esc_url( get_permalink( $next->ID ) ); ?>">
 						<?php echo get_the_post_thumbnail( $next->ID, 'velove-post-small', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title( $next->ID ) ) ) ) ?>
-						<?php the_title( '<div class="post-title"><span>', '</span></div>' ); ?>
+						<div class="post-title"><span><?php echo get_the_title( $next->ID ); ?></span></div>
 					</a>
+				<?php else : ?>
+					<div class="post-title"><span><a href="<?php echo esc_url( get_permalink( $next->ID ) ); ?>"><?php echo get_the_title( $next->ID ); ?></a></span></div>
 				<?php endif; ?>
 
 			</div>

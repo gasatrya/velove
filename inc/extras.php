@@ -92,6 +92,13 @@ function velove_post_classes( $classes ) {
 	// Replace hentry class with entry.
 	$classes[] = 'entry';
 
+	// Adds a class if the post author box disable
+	if ( is_single() ) {
+		if ( ! get_the_author_meta( 'description' ) ) {
+			$classes[] = 'post-author-box-disabled';
+		}
+	}
+
 	return $classes;
 }
 add_filter( 'post_class', 'velove_post_classes' );
@@ -193,3 +200,44 @@ function velove_remove_theme_layout_metabox() {
 	remove_post_type_support( 'reply', 'theme-layouts' );
 }
 add_action( 'init', 'velove_remove_theme_layout_metabox', 11 );
+
+/**
+ * Exclude featured post from the main query
+ */
+function velove_exclude_feature_posts( $query ) {
+
+	// Get the tag id
+	$name = get_theme_mod( 'velove_featured_posts_tag', 'featured' );
+
+	// Set empty variable
+	$term = '';
+
+	if ( $name ) {
+		$term = get_term_by( 'name', $name, 'post_tag' );
+	}
+
+	if ( !is_admin() && $query->is_home() && $query->is_main_query() ) {
+
+		if ( $term != '' ) {
+			$taxquery = array(
+				array(
+					'taxonomy' => 'post_tag',
+					'field'    => 'id',
+					'terms'    => array( $term->term_id ),
+					'operator' => 'IN'
+				)
+			);
+
+			$posts = get_posts( array(
+				'tax_query' => $taxquery
+			) );
+
+			$query->set( 'post__not_in', array( $posts[0]->ID ) );
+		} else {
+			$query->set( 'ignore_sticky_posts', 1 );
+		}
+
+	}
+
+}
+add_action( 'pre_get_posts', 'velove_exclude_feature_posts' );

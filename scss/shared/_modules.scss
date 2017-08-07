@@ -96,7 +96,10 @@
 	}
 
 	.home & {
-		margin-bottom: 142px;
+		margin-bottom: 90px;
+		@include susy-media( 480px ) {
+			margin-bottom: 142px;
+		}
 	}
 
 	.page &,
@@ -142,6 +145,11 @@
 		text-transform: uppercase;
 		position: relative;
 		top: -21px;
+		text-align: center;
+
+		@include susy-media(800px) {
+			text-align: left;
+		}
 	}
 
 	.featured-details {
@@ -252,6 +260,18 @@
 		margin: 0;
 		list-style: none;
 		padding: 0;
+
+		ul {
+			padding: 10px 0;
+
+			ul {
+				padding: 7px 0px 0px;
+
+				li {
+					padding-left: 0;
+				}
+			}
+		}
 	}
 
 	li {
@@ -582,6 +602,13 @@
 		}
 	}
 
+	.entry {
+		@include susy-media(800px) {
+			display: flex;
+			align-items: center;
+		}
+	}
+
 }
 
 .most {
@@ -589,6 +616,7 @@
 
 	.vertical-text-wrapper {
 		display: none;
+		align-self: baseline;
 
 		@include susy-media(601px) {
 			display: block;
@@ -632,11 +660,12 @@
 		}
 
 		.thumbnail-link {
-			margin-bottom: 0;
+			margin-bottom: 12px;
 
 			@include susy-media(600px) {
 				width: span( 4 of 7.5 );
 				float: left;
+				margin-bottom: 0;
 			}
 
 			img {
@@ -728,10 +757,11 @@
 		display: inline-block;
 		padding: 0;
 		margin-right: 20px;
-		margin-bottom: 20px;
+		margin-bottom: 0;
 
 		@include susy-media( 600px ) {
 			margin-right: 60px;
+			margin-bottom: 20px;
 		}
 
 		@include susy-media( 801px ) {
@@ -950,6 +980,12 @@
 /**
  * Author Box
  */
+.single {
+	.post-author-box-disabled {
+		margin-bottom: 100px;
+	}
+}
+
 .author-bio {
 	background-color: $palm;
 	padding: 30px;
@@ -1036,6 +1072,18 @@
 			width: 80%;
 			margin: 0 auto;
 		}
+	}
+
+	.next-post {
+		.thumbnail-link {
+			.post-title {
+				text-align: center;
+			}
+		}
+	}
+
+	.next-post .post-title {
+		text-align: right
 	}
 
 }

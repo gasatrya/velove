@@ -52,15 +52,17 @@
 		&:hover {
 			@include susy-media( 769px ) {
 				> .sub-menu {
-					display: block;
-					animation: submenuShow 200ms ease-in-out;
+					opacity: 1;
+					visibility: visible;
+					transition: all 200ms linear;
+					top: 100%;
 				}
 			}
 		}
 
 		&.menu-item-has-children {
 			&:hover {
-				a {
+				> a {
 					border-bottom: 0;
 				}
 			}
@@ -68,6 +70,10 @@
 
 		&:last-child {
 			margin-right: 0;
+		}
+
+		> a {
+			padding: 10px 0;
 		}
 	}
 
@@ -100,17 +106,16 @@
 		padding: 5px 0;
 		text-align: left;
 		border-top: 0;
-		transition: opacity ease-in-out 1s;
 
 		@include susy-media( 769px ) {
 			position: absolute;
 			z-index: 9999;
-			top: 100%;
+			top: 50px;
 			left: 0;
-			display: none;
+			opacity: 0;
+			visibility: hidden;
 			min-width: 180px;
-			background-color: $white;
-			box-shadow: 0 0 7px rgba( $black, .1 );
+			background-color: $black;
 		}
 
 		ul {
@@ -124,27 +129,11 @@
 			border-bottom: 0;
 
 			@include susy-media( 769px ) {
-				border-bottom: 1px solid rgba( $black, .05 );
 				margin-right: 0;
 			}
 
-			&:last-child {
+			&:last-child a {
 				border-bottom: 0;
-			}
-
-			&.menu-item-has-children {
-				@include susy-media( 769px ) {
-					&::after {
-						top: 14px;
-						right: 10px;
-						content: "\e80b";
-					}
-					&:hover {
-						&::after {
-							content: "\e80c";
-						}
-					}
-				}
 			}
 
 			a {
@@ -152,18 +141,40 @@
 				margin-right: 0;
 			}
 
+			&.menu-item-has-children {
+				&:hover {
+					> a {
+						border-bottom: 1px solid rgba( $white, .2 );
+					}
+				}
+			}
+
+			&:hover {
+				@include susy-media( 769px ) {
+					> .sub-menu {
+						top: 0;
+					}
+				}
+			}
+
+			&.edge ul {
+				left: auto;
+				right: 100%;
+			}
+
 		}
 
 		a {
 			font-size: 14px;
 			line-height: 1.5;
-			font-weight: 400;
 			display: block;
-			padding: 6px 0;
+			padding: 10px 0;
 			text-transform: capitalize;
+			color: $white;
+			border-bottom: 1px solid rgba( $white, .2 );
 
 			&:hover {
-				border-bottom: 0;
+				color: $palm_dark;
 			}
 		}
 

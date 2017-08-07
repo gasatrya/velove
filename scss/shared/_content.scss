@@ -9,6 +9,10 @@
 	.page & {
 		margin-bottom: 40px;
 	}
+
+	.content {
+		min-height: 150px;
+	}
 }
 
 .page-header {
@@ -217,74 +221,95 @@
 	}
 }
 
-.content {
-	overflow: hidden;
+.has-post-thumbnail {
 
-	.single &,
-	.page & {
-		.entry-thumbnail {
-			margin-bottom: 24px;
-		}
-	}
+	.content {
+		overflow: hidden;
 
-	.thumbnail-link {
-		position: relative;
-		margin-bottom: 24px;
-
-		@include susy-media(600px) {
-			margin-bottom: 35px;
+		.single &,
+		.page & {
+			.entry-thumbnail {
+				margin-bottom: 24px;
+			}
 		}
 
-		&:hover {
-			.entry-title {
-				span {
-					background-color: $palm;
-					transition: all 200ms ease-in-out 0s;
+		.thumbnail-link {
+			position: relative;
+			margin-bottom: 12px;
+
+			@include susy-media(600px) {
+				margin-bottom: 35px;
+			}
+
+			&:hover {
+				.entry-title {
+					span {
+						background-color: $palm;
+						transition: all 200ms ease-in-out 0s;
+					}
+				}
+			}
+
+			img {
+				margin-bottom: 24px;
+
+				@include susy-media(600px) {
+					margin-bottom: 0;
 				}
 			}
 		}
 
-		img {
-			margin-bottom: 24px;
+		.entry-title {
+			font-size: 30px;
+			line-height: 1.1;
+			margin: 0;
+			padding-left: 0;
 
 			@include susy-media(600px) {
-				margin-bottom: 0;
+				position: absolute;
+				bottom: 32px;
+				left: 0;
+				width: 80%;
+				font-size: 40px;
+			}
+
+			@include susy-media(801px) {
+				font-size: 48px;
+				line-height: 1.2;
+			}
+
+			span {
+				background-color: $white;
+				padding: 10px 0 10px 0;
+				display: block;
+				transition: all 200ms ease-in-out 0s;
+
+				@include susy-media(600px) {
+					padding-left: 33px;
+					padding-right: 10px;
+				}
+
+				@include susy-media(801px) {
+					padding-left: 63px;
+				}
 			}
 		}
 	}
 
-	.entry-title {
-		font-size: 30px;
-		line-height: 1.1;
-		margin: 0;
+}
+
+.content {
+	h2.entry-title {
+		padding-left: 0;
+		margin-top: 0;
+		margin-bottom: 24px;
 
 		@include susy-media(600px) {
-			position: absolute;
-			bottom: 32px;
-			left: 0;
-			width: 80%;
-			font-size: 40px;
+			padding-left: 33px;
 		}
 
 		@include susy-media(801px) {
-			font-size: 48px;
-			line-height: 1.2;
-		}
-
-		span {
-			background-color: $white;
-			padding: 10px 0 10px 0;
-			display: block;
-			transition: all 200ms ease-in-out 0s;
-
-			@include susy-media(600px) {
-				padding-left: 33px;
-				padding-right: 10px;
-			}
-
-			@include susy-media(801px) {
-				padding-left: 63px;
-			}
+			padding-left: 63px;
 		}
 	}
 }
@@ -316,8 +341,12 @@
 
 	.page &,
 	.single & {
-		font-size: 18px;
-		line-height: 1.4;
+		font-size: 16px;
+
+		@include susy-media(800px) {
+			font-size: 18px;
+			line-height: 1.5;
+		}
 	}
 
 }

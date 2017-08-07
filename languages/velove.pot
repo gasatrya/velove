@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Velove 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-30 03:35:45+00:00\n"
+"POT-Creation-Date: 2017-08-06 07:39:48+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -339,7 +339,7 @@ msgstr ""
 msgid "Show most posts"
 msgstr ""
 
-#: inc/customizer/most-posts.php:33 inc/template-tags.php:175
+#: inc/customizer/most-posts.php:33 inc/template-tags.php:173
 msgid "Most Loved Posts"
 msgstr ""
 
@@ -780,16 +780,16 @@ msgstr ""
 msgid "Installing Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
-#: inc/template-tags.php:133 partials/content-archive.php:26
+#: inc/template-tags.php:131 partials/content-archive.php:26
 #: partials/content-single.php:35
 msgid "by %s"
 msgstr ""
 
-#: inc/template-tags.php:137 partials/content-single.php:37
+#: inc/template-tags.php:135 partials/content-single.php:37
 msgid "Read"
 msgstr ""
 
-#: inc/template-tags.php:341
+#: inc/template-tags.php:339
 msgid "Previous Post"
 msgstr ""
 
@@ -797,36 +797,36 @@ msgstr ""
 msgid "Next Post"
 msgstr ""
 
-#: inc/template-tags.php:387
+#: inc/template-tags.php:389
 msgid "Pingback:"
 msgstr ""
 
-#: inc/template-tags.php:387
+#: inc/template-tags.php:389
 msgid "(Edit)"
 msgstr ""
 
-#: inc/template-tags.php:410
+#: inc/template-tags.php:412
 msgid "&middot; %1$sEdit%2$s"
 msgstr ""
 
-#: inc/template-tags.php:410
+#: inc/template-tags.php:412
 msgid "Edit Comment"
 msgstr ""
 
-#: inc/template-tags.php:416
+#: inc/template-tags.php:418
 #. translators: 1: date, 2: time
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: inc/template-tags.php:424
+#: inc/template-tags.php:426
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: inc/template-tags.php:429
+#: inc/template-tags.php:431
 msgid "<i class=\"fa fa-reply\"></i> Reply"
 msgstr ""
 
-#: inc/template-tags.php:456
+#: inc/template-tags.php:458
 msgid "Author"
 msgstr ""
 
@@ -915,7 +915,7 @@ msgstr ""
 msgid "Browsing Attachment:"
 msgstr ""
 
-#: partials/content-featured.php:70 partials/content-grid.php:16
+#: partials/content-featured.php:74 partials/content-grid.php:16
 #: partials/content-list.php:22 partials/content-most.php:27
 #: partials/content.php:18
 msgid "Read More"

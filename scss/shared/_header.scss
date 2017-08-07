@@ -22,7 +22,7 @@
 .site-branding {
 	text-align: center;
 
-	@include susy-media(601px) {
+	@include susy-media(800px) {
 		@include span( 4 of 12 );
 		text-align: left;
 	}

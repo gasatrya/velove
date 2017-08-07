@@ -8,12 +8,6 @@ if ( !$enable ) {
 	return;
 }
 
-// Get the tag id
-$name = get_theme_mod( 'velove_featured_posts_tag', 'featured' );
-if ( $name ) {
-	$term = get_term_by( 'name', $name, 'post_tag' );
-}
-
 // Main post query
 $query = array(
 	'post_type'           => 'post',
@@ -24,8 +18,18 @@ $query = array(
 // Get the sticky post ids
 $sticky = get_option( 'sticky_posts' );
 
+// Get the tag id
+$name = get_theme_mod( 'velove_featured_posts_tag', 'featured' );
+
+// Set empty variable
+$term = '';
+
+if ( $name ) {
+	$term = get_term_by( 'name', $name, 'post_tag' );
+}
+
 // Adds the custom arguments to the main query
-if ( $term ) {
+if ( $term != '' ) {
 	$query['tag_id'] = $term->term_id;
 } else {
 	$query['post__in'] = $sticky;

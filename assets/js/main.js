@@ -17,6 +17,26 @@
 
 		} );
 
+		// Detect if drop down menu go off screen
+		$( '.main-navigation li' ).on( 'mouseenter mouseleave', function() {
+			if ( $( 'ul', this ).length ) {
+				var elm = $( 'ul:first', this ),
+					off = elm.offset(),
+					l = off.left,
+					w = elm.width(),
+					docH = $( '.site-navigation' ).height(),
+					docW = $( '.site-navigation' ).width();
+
+				var isEntirelyVisible = ( l + w <= docW );
+
+				if ( !isEntirelyVisible ) {
+					$( this ).addClass( 'edge' );
+				} else {
+					$( this ).removeClass( 'edge' );
+				}
+			}
+		});
+
 		// Masonry layout
 		var $wrapper = $( '.masonry-wrapper' ),
 			windowWidth = $( window ).width(),
