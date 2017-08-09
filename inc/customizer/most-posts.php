@@ -54,6 +54,7 @@ function velove_most_posts_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'velove_most_posts_query', array(
 		'default'           => 'loved',
 		'sanitize_callback' => 'velove_sanitize_most_posts_query',
+		'validate_callback' => 'velove_validate_most_posts_query'
 	) );
 	$wp_customize->add_control( 'velove_most_posts_query', array(
 		'label'             => esc_html__( 'Query', 'velove' ),

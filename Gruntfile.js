@@ -242,6 +242,7 @@ module.exports = function ( grunt ) {
 					'!.gitignore',
 					'!.jshintrc',
 					'!.DS_Store',
+					'!.ds_store',
 					'!*.map',
 					'!**/*.map',
 					'!**/Gruntfile.js',

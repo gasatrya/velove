@@ -363,3 +363,15 @@ function velove_sanitize_blog_layouts( $layout ) {
 	}
 	return $layout;
 }
+
+/**
+ * Validate velove_validate_most_posts_query
+ */
+function velove_validate_most_posts_query( $validity, $query ) {
+	if ( $query == 'loved' ) {
+		if ( !velove_is_zilla_likes_activated() ) {
+			$validity->add( 'required', esc_html__( 'You must install Zilla Likes plugin to use this option!', 'velove' ) );
+		}
+	}
+	return $validity;
+}

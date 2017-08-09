@@ -5,7 +5,7 @@ if ( ! is_active_sidebar( 'primary' ) ) {
 }
 
 // Hide on full-width layout ( single post and page )
-if ( velove_is_beautimour_kit_activated() && current_theme_supports( 'theme-layouts' ) ) {
+if ( current_theme_supports( 'theme-layouts' ) ) {
 	if ( in_array( get_theme_mod( 'theme_layout' ), array( 'full-width', 'full-width-narrow' ) ) ) {
 		return;
 	}

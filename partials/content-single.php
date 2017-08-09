@@ -5,7 +5,7 @@ $enable_post_meta      = get_theme_mod( 'velove_post_meta', 1 );
 $enable_post_tags      = get_theme_mod( 'velove_post_tags', 1 );
 
 // Get the layout.
-if ( velove_is_beautimour_kit_activated() && current_theme_supports( 'theme-layouts' ) ) {
+if ( current_theme_supports( 'theme-layouts' ) ) {
 	$layout = get_theme_mod( 'theme_layout', 'default' );
 } else {
 	$layout = 'default';

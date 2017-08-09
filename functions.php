@@ -24,7 +24,7 @@ if ( ! function_exists( 'velove_fullwidth_content_width' ) ) :
 	function velove_fullwidth_content_width() {
 		global $content_width;
 
-		if ( velove_is_beautimour_kit_activated() && current_theme_supports( 'theme-layouts' ) ) {
+		if ( current_theme_supports( 'theme-layouts' ) ) {
 			if ( in_array( get_theme_mod( 'theme_layout' ), array( 'full-width' ) ) ) {
 				$content_width = 1015;
 			}
@@ -220,6 +220,15 @@ function velove_is_beautimour_kit_activated() {
 }
 endif;
 
+if ( ! function_exists( 'velove_is_zilla_likes_activated' ) ) :
+/**
+ * Beautimour Kit plugin activatin checker.
+ */
+function velove_is_zilla_likes_activated() {
+	return class_exists( 'ZillaLikes' ) ? true : false;
+}
+endif;
+
 /**
  * Custom template tags for this theme.
  */
@@ -259,3 +268,10 @@ require trailingslashit( get_template_directory() ) . 'inc/extensions/simple-col
  * Demo importer
  */
 require trailingslashit( get_template_directory() ) . 'inc/demo/demo-importer.php';
+
+/**
+ * We use some part of Hybrid Core to extends our themes.
+ *
+ * @link  http://themehybrid.com/hybrid-core Hybrid Core site.
+ */
+require trailingslashit( get_template_directory() ) . 'inc/extensions/layouts.php';

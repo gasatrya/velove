@@ -75,6 +75,7 @@ function velove_body_classes( $classes ) {
 		}
 	}
 
+
 	return $classes;
 }
 add_filter( 'body_class', 'velove_body_classes' );
@@ -172,15 +173,20 @@ add_filter( 'subtitle_view_supported', 'velove_subtitles_mod_supported_views' );
  */
 function velove_mod_theme_layout( $layout ) {
 
-	if ( !velove_is_beautimour_kit_activated() ) {
-		return;
-	}
-
 	// Change the layout to Full Width.
 	if ( is_404() || is_archive() || is_search() || is_attachment() ) {
 		$post_layout = get_post_layout( get_queried_object_id() );
 		if ( 'default' == $post_layout ) {
 			$layout = 'full-width';
+		}
+	}
+
+	if ( ! is_active_sidebar( 'primary' ) ) {
+		if ( is_single() || is_page() || is_home() ) {
+			$post_layout = get_post_layout( get_queried_object_id() );
+			if ( 'default' == $post_layout ) {
+				$layout = 'full-width-narrow';
+			}
 		}
 	}
 

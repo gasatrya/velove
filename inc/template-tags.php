@@ -197,7 +197,7 @@ function velove_before_footer_content() {
 					'ignore_sticky_posts' => 1
 				);
 
-				if ( $query == 'loved' ) {
+				if ( $query == 'loved' && velove_is_zilla_likes_activated() ) {
 					$args['meta_key'] = '_zilla_likes';
 					$args['orderby']  = 'meta_value_num';
 				} elseif ( $query == 'popular' ) {

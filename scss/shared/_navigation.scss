@@ -121,6 +121,7 @@
 		ul {
 			top: 0;
 			left: 100%;
+			display: none;
 		}
 
 		li {
@@ -153,6 +154,7 @@
 				@include susy-media( 769px ) {
 					> .sub-menu {
 						top: 0;
+						display: block;
 					}
 				}
 			}
