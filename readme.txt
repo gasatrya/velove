@@ -1,7 +1,7 @@
 === Velove ===
 Contributors: Beautimour
 Requires at least: WordPress 4.6
-Tested up to: WordPress 4.8
+Tested up to: WordPress 4.8.1
 Version: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -61,6 +61,12 @@ Source: https://github.com/davatron5000/FitVids.js/
 Image used in demo: https://unsplash.com/, licensed under Creative Commons Zero(http://creativecommons.org/publicdomain/zero/1.0/)
 
 == Changelog ==
+
+1.1.0 - August 30, 2017
+* New: Smooth scroll top
+* New: Related posts
+* New: 3 predefined colors
+* Fixed: Post layout issue
 
 1.0.0 - July 05, 2017
 * Initial release

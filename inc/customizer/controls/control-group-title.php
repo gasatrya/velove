@@ -10,12 +10,12 @@ if ( ! class_exists( 'WP_Customize_Control' ) ) {
 /**
  * Group Title customize control class.
  */
-class Velove_Custom_Text extends WP_Customize_Control {
+class Velove_Group_Title_Control extends WP_Customize_Control {
 
 	/**
 	 * The type of customize control being rendered.
 	 */
-	public $type = 'custom-text';
+	public $type = 'group-title';
 
 	/**
 	 * Displays the group-title on the customize screen.

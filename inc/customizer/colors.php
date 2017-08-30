@@ -19,11 +19,14 @@ function velove_colors_customize_register( $wp_customize ) {
 		'priority'          => 1,
 		'type'              => 'radio',
 		'choices'           => array(
-			'default' => esc_html__( 'Default', 'velove' ),
-			'pink'    => esc_html__( 'Pink Lava', 'velove' ),
-			'purple'  => esc_html__( 'Purple Tart', 'velove' ),
-			'blue'    => esc_html__( 'Baby Blue', 'velove' ),
-			'green'   => esc_html__( 'Fresh Green', 'velove' ),
+			'default'       => esc_html__( 'Default', 'velove' ),
+			'pink'          => esc_html__( 'Pink Lava', 'velove' ),
+			'purple'        => esc_html__( 'Purple Tart', 'velove' ),
+			'blue'          => esc_html__( 'Baby Blue', 'velove' ),
+			'green'         => esc_html__( 'Fresh Green', 'velove' ),
+			'yellow'        => esc_html__( 'Yellow Banana', 'velove' ),
+			'natural'       => esc_html__( 'Natural', 'velove' ),
+			'classic-green' => esc_html__( 'Classic Green', 'velove' ),
 		)
 	) );
 

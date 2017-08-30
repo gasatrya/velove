@@ -4,7 +4,7 @@
  */
 
 // Loads custom control
-require trailingslashit( get_template_directory() ) . 'inc/customizer/controls/custom-text-control.php';
+require trailingslashit( get_template_directory() ) . 'inc/customizer/controls/control-group-title.php';
 
 // Loads the customizer settings
 require trailingslashit( get_template_directory() ) . 'inc/customizer/colors.php';
@@ -318,7 +318,19 @@ function velove_sanitize_most_posts_query( $query ) {
  * Sanitize predefined color value.
  */
 function velove_sanitize_predefined_colors( $color ) {
-	if ( ! in_array( $color, array( 'default', 'pink', 'purple', 'blue', 'green' ) ) ) {
+	if ( ! in_array( $color,
+			array(
+				'default',
+				'pink',
+				'purple',
+				'blue',
+				'green',
+				'yellow',
+				'natural',
+				'classic-green',
+			)
+		)
+	) {
 		$color = 'default';
 	}
 	return $color;

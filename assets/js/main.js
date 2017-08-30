@@ -35,7 +35,7 @@
 					$( this ).removeClass( 'edge' );
 				}
 			}
-		});
+		} );
 
 		// Masonry layout
 		var $wrapper = $( '.masonry-wrapper' ),
@@ -46,7 +46,7 @@
 		// Two columns
 		if ( velove.isMasonryTwoColumns ) {
 
-			gutter  = 30;
+			gutter = 30;
 			columns = 2;
 
 			// Re-set columns based on window width
@@ -59,7 +59,7 @@
 		// Three columns
 		if ( velove.isArchivePage || velove.isMasonryThreeColumns ) {
 
-			gutter  = 30;
+			gutter = 30;
 			columns = 3;
 
 			// Re-set columns based on window width
@@ -74,7 +74,7 @@
 		// Four columns
 		if ( velove.isMasonryFourColumns ) {
 
-			gutter  = 30;
+			gutter = 30;
 			columns = 4;
 
 			// Re-set columns based on window width
@@ -104,6 +104,14 @@
 				gutter: gutter,
 				isFitWidth: true
 			} );
+		} );
+
+		// Scroll top
+		$( '.to-top' ).on( 'click', function( e ) {
+			e.preventDefault();
+			$( 'html, body' ).animate( {
+				scrollTop: $( '#page' ).offset().top
+			}, 1500 );
 		} );
 
 	} );

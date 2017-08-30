@@ -1,5 +1,7 @@
 		</div><!-- #content -->
 
+		<?php velove_related_posts(); ?>
+
 		<?php velove_before_footer_content(); ?>
 
 		<footer id="colophon" class="site-footer">

@@ -6,7 +6,9 @@ a:visited:hover,
 .search .masonry-wrapper .entry-meta a:hover,
 .social-links a:hover,
 .menu-primary-items a:hover,
-.posts_with_thumbnail .post-detail a:hover {
+.posts_with_thumbnail .post-detail a:hover,
+.menu-primary-items .sub-menu a:hover,
+.related-posts .entry-meta a:hover {
   color: #f6adcb;
 }
 
@@ -36,7 +38,8 @@ textarea,
 .comment-reply-link,
 .author-badge,
 .attachment .after-header,
-::selection {
+::selection,
+.has-post-thumbnail .content .thumbnail-link:hover .entry-title span {
   background-color: #fbdbe8;
 }
 
@@ -70,4 +73,8 @@ select:focus,
 textarea:focus,
 .bypostauthor .comment-body .comment-wrapper {
   border-color: #fbdbe8;
+}
+
+.menu-primary-items .sub-menu a:hover {
+  border-color: rgba(255, 255, 255, 0.2);
 }

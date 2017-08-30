@@ -20,7 +20,7 @@ function velove_fonts_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'velove_heading_font_title', array(
 		'sanitize_callback' => 'esc_attr'
 	) );
-	$wp_customize->add_control( new Velove_Custom_Text( $wp_customize, 'velove_heading_font_title', array(
+	$wp_customize->add_control( new Velove_Group_Title_Control( $wp_customize, 'velove_heading_font_title', array(
 		'label'             => esc_html__( 'Heading', 'velove' ),
 		'section'           => 'velove_fonts',
 		'priority'          => 2
@@ -54,7 +54,7 @@ function velove_fonts_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'velove_body_font_title', array(
 		'sanitize_callback' => 'esc_attr'
 	) );
-	$wp_customize->add_control( new Velove_Custom_Text( $wp_customize, 'velove_body_font_title', array(
+	$wp_customize->add_control( new Velove_Group_Title_Control( $wp_customize, 'velove_body_font_title', array(
 		'label'             => esc_html__( 'Body', 'velove' ),
 		'section'           => 'velove_fonts',
 		'priority'          => 5

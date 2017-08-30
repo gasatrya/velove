@@ -471,6 +471,7 @@
 			display: block;
 			margin-top: -4px;
 			color: $black-light;
+			word-break: break-word;
 
 			&:hover {
 				color: $palm-dark;
@@ -1100,4 +1101,50 @@
 	@include susy-media(500px) {
 		@include span( 4 of 8 last );
 	}
+}
+
+/**
+ * Related posts
+ */
+.related-posts {
+
+	.related-title {
+		margin-bottom: 30px;
+		text-transform: uppercase;
+		font-family: $source;
+		font-weight: 700;
+		font-size: 25px;
+	}
+
+	.entry {
+		@include span(3 of 12);
+
+		&:nth-child(4n) {
+			@include last;
+		}
+	}
+
+	.entry-title {
+		font-size: 22px;
+		line-height: 1.3;
+		margin-top: 18px;
+		margin-bottom: 8px;
+	}
+
+	.entry-meta {
+		text-transform: lowercase;
+		font-style: italic;
+		font-size: 14px;
+
+		a {
+			text-transform: uppercase;
+			font-style: normal;
+			color: $grey-dark-2;
+
+			&:hover {
+				color: $palm-dark;
+			}
+		}
+	}
+
 }

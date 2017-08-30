@@ -1,6 +1,3 @@
-$color        : #f5edfd;
-$darken_color : darken( $color, 10% );
-
 a:hover,
 a:visited:hover,
 .archive .masonry-wrapper .entry-category a,
@@ -12,7 +9,7 @@ a:visited:hover,
 .posts_with_thumbnail .post-detail a:hover,
 .menu-primary-items .sub-menu a:hover,
 .related-posts .entry-meta a:hover {
-	color: $darken_color;
+  color: #e5de96;
 }
 
 .after-header,
@@ -43,17 +40,17 @@ textarea,
 .attachment .after-header,
 ::selection,
 .has-post-thumbnail .content .thumbnail-link:hover .entry-title span {
-	background-color: $color;
+  background-color: #F4F1D3;
 }
 
 .widget_tag_cloud a:hover,
 .tag-links a:hover {
-	background-color: $darken_color;
-	color: #000;
+  background-color: #e5de96;
+  color: #000;
 }
 
 .menu-primary-items a:hover {
-	border-color: $darken_color;
+  border-color: #e5de96;
 }
 
 .widget::before,
@@ -75,9 +72,9 @@ input[type="color"]:focus,
 select:focus,
 textarea:focus,
 .bypostauthor .comment-body .comment-wrapper {
-	border-color: $color;
+  border-color: #F4F1D3;
 }
 
 .menu-primary-items .sub-menu a:hover {
-	border-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.2);
 }

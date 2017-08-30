@@ -478,3 +478,93 @@ function velove_footer_text() {
 
 }
 endif;
+
+if ( ! function_exists( 'velove_related_posts' ) ) :
+/**
+ * Related posts.
+ * @since  1.1.0
+ */
+function velove_related_posts() {
+
+	// Get the data set in customizer
+	$enable  = get_theme_mod( 'velove_related_enable', 1 );
+	$number  = get_theme_mod( 'velove_related_number', 4 );
+
+	// Display on post.
+	if ( !is_single() ) {
+		return;
+	}
+
+	// Disable if user choose it.
+	if ( $enable == 0 ) {
+		return;
+	}
+
+	// Get the taxonomy terms of the current page for the specified taxonomy.
+	$terms = wp_get_post_terms( get_the_ID(), 'category', array( 'fields' => 'ids' ) );
+
+	// Bail if the term empty.
+	if ( empty( $terms ) ) {
+		return;
+	}
+
+	// Posts query arguments.
+	$query = array(
+		'post__not_in' => array( get_the_ID() ),
+		'tax_query'    => array(
+			array(
+				'taxonomy' => 'category',
+				'field'    => 'id',
+				'terms'    => $terms,
+				'operator' => 'IN'
+			)
+		),
+		'posts_per_page' => absint( $number ),
+		'post_type'      => 'post',
+	);
+
+	// Allow dev to filter the query.
+	$args = apply_filters( 'velove_related_posts_args', $query );
+
+	// The post query
+	$related = new WP_Query( $args );
+
+	if ( $related->have_posts() ) : ?>
+
+		<div class="related-posts">
+			<div class="container">
+				<h3 class="related-title"><?php esc_html_e( 'You might also like:', 'velove' ); ?></h3>
+
+				<?php while ( $related->have_posts() ) : $related->the_post(); ?>
+
+					<article <?php post_class(); ?>>
+
+						<div class="related-thumbnail">
+
+							<?php if ( has_post_thumbnail() ) : ?>
+								<a class="thumbnail-link" href="<?php the_permalink(); ?>">
+									<?php the_post_thumbnail( 'velove-post-small', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title() ) ) ); ?>
+								</a>
+							<?php endif; ?>
+
+						</div>
+
+						<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+
+						<div class="entry-meta">
+							<span class="author vcard"><?php printf( esc_html__( 'by %s', 'velove' ), '<a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a>' ); ?></span>
+						</div>
+
+					</article><!-- #post-## -->
+
+				<?php endwhile; ?>
+			</div>
+		</div>
+
+	<?php endif;
+
+	// Restore original Post Data.
+	wp_reset_postdata();
+
+}
+endif;
