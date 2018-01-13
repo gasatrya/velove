@@ -76,10 +76,6 @@ function velove_customize_functions( $wp_customize ) {
 	$wp_customize->get_section( 'background_image' )->panel    = 'velove_appearance';
 	$wp_customize->get_section( 'background_image' )->priority = 7;
 
-	// Move the Static Front Page section.
-	$wp_customize->get_section( 'static_front_page' )->panel    = 'velove_appearance';
-	$wp_customize->get_section( 'static_front_page' )->priority = 9;
-
 	// Move the Additional CSS section.
 	$wp_customize->get_section( 'custom_css' )->panel    = 'velove_appearance';
 	$wp_customize->get_section( 'custom_css' )->priority = 11;

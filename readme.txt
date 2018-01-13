@@ -1,8 +1,8 @@
 === Velove ===
 Contributors: Beautimour
 Requires at least: WordPress 4.6
-Tested up to: WordPress 4.8.1
-Version: 1.0.0
+Tested up to: WordPress 4.9.1
+Version: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -62,7 +62,12 @@ Image used in demo: https://unsplash.com/, licensed under Creative Commons Zero(
 
 == Changelog ==
 
-1.1.0 - August 30, 2017
+1.2.0 - 12 Jan, 2017
+* Support WordPress 4.9.1
+* Fixed: Related posts columns when only have 3 posts
+* Fixed: Documentation link was not clickable
+
+1.1.0 - 30 August, 2017
 * New: Smooth scroll top
 * New: Related posts
 * New: 3 predefined colors

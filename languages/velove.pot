@@ -1,17 +1,17 @@
-# <!=Copyright (C) 2017 Beautimour
+# <!=Copyright (C) 2018 Beautimour
 # This file is distributed under the GNU General Public License v2.0 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Velove 1.1.0\n"
+"Project-Id-Version: Velove 1.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 03:15:40+00:00\n"
+"POT-Creation-Date: 2018-01-13 12:50:35+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"X-Generator: grunt-wp-i18n1.0.0\n"
+"X-Generator: grunt-wp-i18n1.0.1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Language: English\n"
@@ -451,21 +451,21 @@ msgstr ""
 msgid "This panel is used for customizing the Velove theme."
 msgstr ""
 
-#: inc/customizer.php:88
+#: inc/customizer.php:84
 msgid "Background"
 msgstr ""
 
-#: inc/customizer.php:92
+#: inc/customizer.php:88
 msgid ""
 "If you don't like the predefined colors, you can choose the color you want "
 "from the color picker."
 msgstr ""
 
-#: inc/customizer.php:257
+#: inc/customizer.php:253
 msgid "Documentation"
 msgstr ""
 
-#: inc/customizer.php:385
+#: inc/customizer.php:381
 msgid "You must install Zilla Likes plugin to use this option!"
 msgstr ""
 
