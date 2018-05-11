@@ -1,8 +1,8 @@
 === Velove ===
 Contributors: Beautimour
 Requires at least: WordPress 4.6
-Tested up to: WordPress 4.9.1
-Version: 1.2.0
+Tested up to: WordPress 4.9.2
+Version: 1.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -61,6 +61,9 @@ Source: https://github.com/davatron5000/FitVids.js/
 Image used in demo: https://unsplash.com/, licensed under Creative Commons Zero(http://creativecommons.org/publicdomain/zero/1.0/)
 
 == Changelog ==
+
+1.3.0 - 28 Jan, 2017
+* Fixed: Related posts responsive issue
 
 1.2.0 - 12 Jan, 2017
 * Support WordPress 4.9.1
