@@ -1,8 +1,8 @@
 === Velove ===
 Contributors: Beautimour
 Requires at least: WordPress 4.6
-Tested up to: WordPress 4.9.2
-Version: 1.3.0
+Tested up to: WordPress 4.9.6
+Version: 1.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -42,11 +42,11 @@ GNU General Public License for more details.
 
 == Credits ==
 
-normalize.css v4.1.1, Copyright © Nicolas Gallagher and Jonathan Neal
+normalize.css v8.0.0, Copyright © Nicolas Gallagher and Jonathan Neal
 Licenses: MIT
 Source: https://github.com/necolas/normalize.css
 
-Susy v2.2.12, Copyright (c) 2015, Miriam Eric Suzanne
+Susy v2.2.14, Copyright (c) 2015, Miriam Eric Suzanne
 Licenses:
 Source: http://susy.oddbird.net/
 
@@ -61,6 +61,9 @@ Source: https://github.com/davatron5000/FitVids.js/
 Image used in demo: https://unsplash.com/, licensed under Creative Commons Zero(http://creativecommons.org/publicdomain/zero/1.0/)
 
 == Changelog ==
+
+1.4.0 - June 21, 2018
+* Added: Retina logo
 
 1.3.0 - 28 Jan, 2017
 * Fixed: Related posts responsive issue

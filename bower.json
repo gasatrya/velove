@@ -1,6 +1,6 @@
 {
   "name": "velove",
-  "version": "1.0.0",
+  "version": "1.4.0",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -9,8 +9,9 @@
   "dependencies": {
     "html5shiv": "~3.7.3",
     "fitvids": "~1.2.0",
-    "normalize.css": "~7.0.0",
-    "susy": "~2.2.12"
+    "normalize.css": "^8.0.0",
+    "susy": "2.2.14",
+    "retinajs": "^2.1.2"
   },
   "devDependencies": {
     "reading-time": "^1.0.0"

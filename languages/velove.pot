@@ -2,16 +2,16 @@
 # This file is distributed under the GNU General Public License v2.0 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Velove 1.3.0\n"
+"Project-Id-Version: Velove 1.4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-28 12:00:07+00:00\n"
+"POT-Creation-Date: 2018-06-21 00:52:01+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"X-Generator: grunt-wp-i18n1.0.1\n"
+"X-Generator: grunt-wp-i18n1.0.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Language: English\n"
@@ -71,35 +71,35 @@ msgstr ""
 msgid "Social Links"
 msgstr ""
 
-#: functions.php:114
+#: functions.php:115
 msgid "Full width"
 msgstr ""
 
-#: functions.php:115
+#: functions.php:116
 msgid "Full width narrow"
 msgstr ""
 
-#: functions.php:116
+#: functions.php:117
 msgid "Right sidebar"
 msgstr ""
 
-#: functions.php:117
+#: functions.php:118
 msgid "Left sidebar"
 msgstr ""
 
-#: functions.php:159
+#: functions.php:160
 msgid "Primary"
 msgstr ""
 
-#: functions.php:161
+#: functions.php:162
 msgid "Main sidebar that appears on the right."
 msgstr ""
 
-#: functions.php:171
+#: functions.php:172
 msgid "Instagram"
 msgstr ""
 
-#: functions.php:173
+#: functions.php:174
 msgid "Instagram section that appears on footer."
 msgstr ""
 
@@ -351,7 +351,7 @@ msgstr ""
 msgid "Show most posts"
 msgstr ""
 
-#: inc/customizer/most-posts.php:33 inc/template-tags.php:173
+#: inc/customizer/most-posts.php:33 inc/template-tags.php:182
 msgid "Most Loved Posts"
 msgstr ""
 
@@ -439,33 +439,37 @@ msgstr ""
 msgid "Number of posts"
 msgstr ""
 
-#: inc/customizer.php:27
+#: inc/customizer/retina-logo.php:17
+msgid "Retina Logo"
+msgstr ""
+
+#: inc/customizer.php:28
 msgid "Appearance"
 msgstr ""
 
-#: inc/customizer.php:33
+#: inc/customizer.php:34
 msgid "Theme Options"
 msgstr ""
 
-#: inc/customizer.php:34
+#: inc/customizer.php:35
 msgid "This panel is used for customizing the Velove theme."
 msgstr ""
 
-#: inc/customizer.php:84
+#: inc/customizer.php:85
 msgid "Background"
 msgstr ""
 
-#: inc/customizer.php:88
+#: inc/customizer.php:89
 msgid ""
 "If you don't like the predefined colors, you can choose the color you want "
 "from the color picker."
 msgstr ""
 
-#: inc/customizer.php:253
+#: inc/customizer.php:254
 msgid "Documentation"
 msgstr ""
 
-#: inc/customizer.php:381
+#: inc/customizer.php:382
 msgid "You must install Zilla Likes plugin to use this option!"
 msgstr ""
 
@@ -820,57 +824,57 @@ msgstr ""
 msgid "Installing Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
-#: inc/template-tags.php:131 inc/template-tags.php:555
+#: inc/template-tags.php:140 inc/template-tags.php:564
 #: partials/content-archive.php:26 partials/content-single.php:35
 msgid "by %s"
 msgstr ""
 
-#: inc/template-tags.php:135 partials/content-single.php:37
+#: inc/template-tags.php:144 partials/content-single.php:37
 msgid "Read"
 msgstr ""
 
-#: inc/template-tags.php:339
+#: inc/template-tags.php:348
 msgid "Previous Post"
 msgstr ""
 
-#: inc/template-tags.php:355
+#: inc/template-tags.php:364
 msgid "Next Post"
 msgstr ""
 
-#: inc/template-tags.php:389
+#: inc/template-tags.php:398
 msgid "Pingback:"
 msgstr ""
 
-#: inc/template-tags.php:389
+#: inc/template-tags.php:398
 msgid "(Edit)"
 msgstr ""
 
-#: inc/template-tags.php:412
+#: inc/template-tags.php:421
 msgid "&middot; %1$sEdit%2$s"
 msgstr ""
 
-#: inc/template-tags.php:412
+#: inc/template-tags.php:421
 msgid "Edit Comment"
 msgstr ""
 
-#: inc/template-tags.php:418
+#: inc/template-tags.php:427
 #. translators: 1: date, 2: time
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: inc/template-tags.php:426
+#: inc/template-tags.php:435
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: inc/template-tags.php:431
+#: inc/template-tags.php:440
 msgid "<i class=\"fa fa-reply\"></i> Reply"
 msgstr ""
 
-#: inc/template-tags.php:458
+#: inc/template-tags.php:467
 msgid "Author"
 msgstr ""
 
-#: inc/template-tags.php:536
+#: inc/template-tags.php:545
 msgid "You might also like:"
 msgstr ""
 

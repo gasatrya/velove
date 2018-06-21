@@ -91,9 +91,10 @@ function velove_theme_setup() {
 
 	// Enable support for Custom Logo
 	add_theme_support( 'custom-logo', array(
-		'height'      => 26,
-		'width'       => 200,
+		'height'      => 150,
+		'width'       => 300,
 		'flex-width'  => true,
+		'flex-height' => true,
 	) );
 
 	// This theme uses its own gallery styles.

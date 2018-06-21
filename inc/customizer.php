@@ -16,6 +16,7 @@ require trailingslashit( get_template_directory() ) . 'inc/customizer/post.php';
 require trailingslashit( get_template_directory() ) . 'inc/customizer/page.php';
 require trailingslashit( get_template_directory() ) . 'inc/customizer/most-posts.php';
 require trailingslashit( get_template_directory() ) . 'inc/customizer/featured-posts.php';
+require trailingslashit( get_template_directory() ) . 'inc/customizer/retina-logo.php';
 
 /**
  * Custom customizer functions.

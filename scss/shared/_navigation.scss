@@ -92,6 +92,10 @@
 			font-size: 12px;
 		}
 
+		.header-style-three & {
+			border-bottom: 2px solid transparent;
+		}
+
 		&:hover {
 			color: $palm_dark;
 			@include susy-media( 769px ) {

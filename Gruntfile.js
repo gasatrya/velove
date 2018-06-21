@@ -23,6 +23,7 @@ module.exports = function ( grunt ) {
 				files: {
 					'jquery.fitvids.js': 'fitvids/jquery.fitvids.js',
 					'readingTime.js': 'reading-time/src/readingTime.js',
+					'retina.js': 'retinajs/dist/retina.js',
 				}
 			},
 			js: {
@@ -186,9 +187,6 @@ module.exports = function ( grunt ) {
 			},
 			js: {
 				files: [ 'assets/js/**/*.js' ],
-			},
-			php: {
-				files: [ '**/*.php' ],
 			}
 		},
 

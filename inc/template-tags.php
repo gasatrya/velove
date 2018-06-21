@@ -17,12 +17,21 @@ function velove_site_branding() {
 	$logo_id  = get_theme_mod( 'custom_logo' );
 	$logo_url = wp_get_attachment_image_src( $logo_id , 'full' );
 
+	// Retina logo.
+	$retina_id  = get_theme_mod( 'velove_retina_logo' );
+	$retina_url = wp_get_attachment_image_src( $retina_id , 'full' );
+	$retina = '';
+
+	if ( $retina_id ) {
+		$retina = 'data-rjs=' . esc_url( $retina_url[0] ) . '';
+	}
+
 	// Check if logo available, then display it.
 	if ( $logo_id ) :
 		echo '<div class="site-branding">'. "\n";
 			echo '<div class="logo">';
 				echo '<a href="' . esc_url( get_home_url() ) . '" rel="home">' . "\n";
-					echo '<img src="' . esc_url( $logo_url[0] ) . '" alt="' . esc_attr( get_bloginfo( 'name' ) ) . '" />' . "\n";
+					echo '<img src="' . esc_url( $logo_url[0] ) . '" alt="' . esc_attr( get_bloginfo( 'name' ) ) . '" ' . $retina . ' />' . "\n";
 				echo '</a>' . "\n";
 			echo '</div>' . "\n";
 		echo '</div>' . "\n";
