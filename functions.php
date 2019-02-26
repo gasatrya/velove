@@ -86,7 +86,7 @@ function velove_theme_setup() {
 
 	// Setup the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'velove_custom_background_args', array(
-		'default-color' => 'f5f5f5'
+		'default-color' => 'f9f9f9'
 	) ) );
 
 	// Enable support for Custom Logo

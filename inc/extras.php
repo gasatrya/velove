@@ -157,18 +157,6 @@ function velove_customize_tag_cloud( $args ) {
 add_filter( 'widget_tag_cloud_args', 'velove_customize_tag_cloud' );
 
 /**
- * Disable Subtitles in home and archive views.
- */
-function velove_subtitles_mod_supported_views() {
-
-	if ( is_home() || is_front_page() || is_archive() ) {
-		return false;
-	}
-
-}
-add_filter( 'subtitle_view_supported', 'velove_subtitles_mod_supported_views' );
-
-/**
  * Modifies the theme layout.
  */
 function velove_mod_theme_layout( $layout ) {

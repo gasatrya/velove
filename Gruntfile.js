@@ -5,8 +5,11 @@ module.exports = function ( grunt ) {
 
 	// Load all Grunt tasks
 	require( 'jit-grunt' )( grunt, {
-		makepot: 'grunt-wp-i18n'
+		makepot: 'grunt-wp-i18n',
+		uglify: 'grunt-contrib-uglify-es'
 	} );
+
+	const sass = require( 'node-sass' );
 
 	grunt.initConfig( {
 
@@ -88,6 +91,7 @@ module.exports = function ( grunt ) {
 		sass: {
 			dev: {
 				options: {
+					implementation: sass,
 					outputStyle: 'expanded',
 					sourceMap: true
 				},
@@ -97,6 +101,7 @@ module.exports = function ( grunt ) {
 			},
 			prod: {
 				options: {
+					implementation: sass,
 					outputStyle: 'compressed',
 					sourceMap: false
 				},
@@ -107,6 +112,7 @@ module.exports = function ( grunt ) {
 			},
 			color: {
 				options: {
+					implementation: sass,
 					outputStyle: 'expanded',
 					sourceMap: false
 				},
@@ -187,19 +193,6 @@ module.exports = function ( grunt ) {
 			},
 			js: {
 				files: [ 'assets/js/**/*.js' ],
-			}
-		},
-
-		// Sync cross devices
-		browserSync: {
-			dev: {
-				files: {
-					src: 'style.css'
-				},
-				options: {
-					proxy: "beautimour.dev/velove",
-					watchTask: true
-				}
 			}
 		},
 
@@ -307,44 +300,6 @@ module.exports = function ( grunt ) {
 			}
 		},
 
-		// SVG sprite generator
-		// svg_sprite: {
-		// 	basic: {
-
-		// 		// Target
-		// 		expand: true,
-		// 		cwd: 'assets/svg',
-		// 		src: ['**/*.svg'],
-		// 		dest: '.',
-
-		// 		// Target options
-		// 		options: {
-		// 			mode: {
-		// 				css: {
-		// 					dest: '.',
-		// 					prefix: ".%s",
-		// 					dimensions: true,
-		// 					sprite: 'assets/svg/icons-sprite.svg',
-		// 					render: {
-		// 						scss: true,
-		// 						scss: {
-		// 							dest: 'scss/base/_icons.scss'
-		// 						}
-		// 					}
-		// 				}
-		// 			},
-		// 			shape: {
-		// 				id: {
-		// 					generator: "icon-%s" // CSS classes will have this prefix
-		// 				}
-		// 			}
-
-		// 		}
-
-		// 	}
-
-		// }
-
 	} );
 
 	// Setup task
@@ -353,12 +308,6 @@ module.exports = function ( grunt ) {
 		'uglify:dev',
 		// 'cssmin:prod',
 		'sass:dev'
-	] );
-
-	// Watch and Cross device task
-	grunt.registerTask( 'sync', [
-		'browserSync',
-		'watch'
 	] );
 
 	// Production task

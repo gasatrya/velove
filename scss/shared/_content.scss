@@ -280,13 +280,13 @@
 
 			span {
 				background-color: $white;
-				padding: 10px 0 10px 0;
+				padding: 15px 0 15px 0;
 				display: block;
 				transition: all 200ms ease-in-out 0s;
 
 				@include susy-media(600px) {
 					padding-left: 33px;
-					padding-right: 10px;
+					padding-right: 33px;
 				}
 
 				@include susy-media(801px) {

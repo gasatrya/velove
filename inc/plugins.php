@@ -22,13 +22,12 @@ function velove_register_plugins() {
 		array(
 			'name'     => 'Beautimour Kit',
 			'slug'     => 'beautimour-kit',
-			'source'   => 'https://beautimour.com/wp-content/uploads/2017/07/beautimour-kit.zip',
 			'required' => false,
 		),
 
 		array(
-			'name'     => 'Subtitles',
-			'slug'     => 'subtitles',
+			'name'     => 'WP Subtitle',
+			'slug'     => 'wp-subtitle',
 			'required' => false,
 		),
 
@@ -47,7 +46,7 @@ function velove_register_plugins() {
 		array(
 			'name'     => 'Zilla Likes',
 			'slug'     => 'zilla-likes',
-			'source'   => 'https://beautimour.com/wp-content/uploads/2017/07/zilla-likes.zip',
+			'source'   => 'https://demowp.idenovasi.com/wp-content/uploads/2017/07/zilla-likes.zip',
 			'required' => false,
 		),
 

@@ -178,11 +178,15 @@
 
 		.entry-title {
 			font-size: 32px;
-			margin: 0 0 20px;
+			margin: 0 0 30px;
 
 			@include susy-media(600px) {
 				font-size: 48px;
 			}
+		}
+
+		.entry-meta {
+			margin-bottom: 30px;
 		}
 
 		.featured-summary {
