@@ -62,7 +62,7 @@ function velove_fonts_customize_register( $wp_customize ) {
 
 	// Register body font setting.
 	$wp_customize->add_setting( 'velove_body_font', array(
-		'default'           => 'Source+Sans+Pro:400,400i,700,700i,900',
+		'default'           => 'Source+Sans+Pro:400,400i,600,700,700i,900',
 		'sanitize_callback' => 'wp_kses_post',
 	) );
 	$wp_customize->add_control( 'velove_body_font', array(

@@ -44,9 +44,7 @@ function velove_most_posts_customize_register( $wp_customize ) {
 		$wp_customize->selective_refresh->add_partial( 'velove_most_posts_title', array(
 			'selector'         => '.most-content-title',
 			'settings'         => array( 'velove_most_posts_title' ),
-			'render_callback'  => function() {
-				return '<span>' . esc_attr( get_theme_mod( 'velove_most_posts_title' ) ) . '</span>';
-			}
+			'render_callback'  => 'velove_customize_partial_most_title'
 		) );
 	}
 
@@ -87,3 +85,10 @@ function velove_most_posts_customize_register( $wp_customize ) {
 
 }
 add_action( 'customize_register', 'velove_most_posts_customize_register' );
+
+/**
+ * Title callback
+ */
+function velove_customize_partial_most_title() {
+	return '<span>' . esc_attr( get_theme_mod( 'velove_most_posts_title' ) ) . '</span>';
+}

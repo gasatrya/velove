@@ -348,9 +348,14 @@ function velove_next_prev_post() {
 				<span class="prev-label"><?php esc_html_e( 'Previous Post', 'velove' ); ?></span>
 				<?php if ( has_post_thumbnail( $prev->ID ) ) : ?>
 					<a class="thumbnail-link" href="<?php echo esc_url( get_permalink( $prev->ID ) ); ?>">
-						<?php echo get_the_post_thumbnail( $prev->ID, 'velove-post-small', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title( $prev->ID ) ) ) ) ?>
-						<div class="post-title"><span><?php echo get_the_title( $prev->ID ); ?></span></div>
+						<?php echo get_the_post_thumbnail( $prev->ID, 'velove-post', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title( $prev->ID ) ) ) ) ?>
+						<span class="thumbnail-overlay"></span>
 					</a>
+					<div class="post-title">
+						<h2 class="entry-title"><a href="<?php echo esc_url( get_permalink( $prev->ID ) ); ?>"><?php echo get_the_title( $prev->ID ); ?></a></h2>
+						<span class="author vcard"><?php printf( esc_html__( 'by %s', 'velove' ), '<a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a>' ); ?></span>
+					</div>
+
 				<?php else : ?>
 					<div class="post-title"><span><a href="<?php echo esc_url( get_permalink( $prev->ID ) ); ?>"><?php echo get_the_title( $prev->ID ); ?></a></span></div>
 				<?php endif; ?>
@@ -364,9 +369,13 @@ function velove_next_prev_post() {
 				<span class="next-label"><?php esc_html_e( 'Next Post', 'velove' ); ?></span>
 				<?php if ( has_post_thumbnail( $next->ID ) ) : ?>
 					<a class="thumbnail-link" href="<?php echo esc_url( get_permalink( $next->ID ) ); ?>">
-						<?php echo get_the_post_thumbnail( $next->ID, 'velove-post-small', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title( $next->ID ) ) ) ) ?>
-						<div class="post-title"><span><?php echo get_the_title( $next->ID ); ?></span></div>
+						<?php echo get_the_post_thumbnail( $next->ID, 'velove-post', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title( $next->ID ) ) ) ) ?>
+						<span class="thumbnail-overlay"></span>
 					</a>
+					<div class="post-title">
+						<h2 class="entry-title"><a href="<?php echo esc_url( get_permalink( $next->ID ) ); ?>"><?php echo get_the_title( $next->ID ); ?></a></h2>
+						<span class="author vcard"><?php printf( esc_html__( 'by %s', 'velove' ), '<a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a>' ); ?></span>
+					</div>
 				<?php else : ?>
 					<div class="post-title"><span><a href="<?php echo esc_url( get_permalink( $next->ID ) ); ?>"><?php echo get_the_title( $next->ID ); ?></a></span></div>
 				<?php endif; ?>
@@ -387,7 +396,6 @@ if ( ! function_exists( 'velove_comment' ) ) :
  * Used as a callback by wp_list_comments() for displaying the comments.
  */
 function velove_comment( $comment, $args, $depth ) {
-	$GLOBALS['comment'] = $comment;
 	switch ( $comment->comment_type ) :
 		case 'pingback' :
 		case 'trackback' :
@@ -479,7 +487,7 @@ if ( ! function_exists( 'velove_footer_text' ) ) :
 function velove_footer_text() {
 
 	// Get the customizer data
-	$default = '&copy; Copyright ' . date( 'Y' ) . ' - <a href="' . esc_url( home_url() ) . '">' . esc_attr( get_bloginfo( 'name' ) ) . '</a>. All Rights Reserved. <br /> Designed & Developed by <a href="https://beautimour.com/">Beautimour</a>';
+	$default = '&copy; Copyright ' . date( 'Y' ) . ' - <a href="' . esc_url( home_url() ) . '">' . esc_attr( get_bloginfo( 'name' ) ) . '</a>. All Rights Reserved. <br /> Designed & Developed by <a href="https://wp.idenovasi.com/">Idenovasi</a>';
 	$footer_text = get_theme_mod( 'velove_footer_text', $default );
 
 	// Display the data

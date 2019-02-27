@@ -1,5 +1,5 @@
 .page-wrapper {
-	background-color: $body-bg-color;
+	background-color: $white;
 
 	.boxed-container & {
 		max-width: 1200px;
@@ -37,9 +37,11 @@
 	}
 
 	.layout-full-width-narrow & {
-		width: span( 8 of 12 );
-		margin: 0 auto;
-		float: none;
+		@media (min-width: 992px) {
+			width: span( 8 of 12 );
+			margin: 0 auto;
+			float: none;
+		}
 	}
 
 	.layout-left-sidebar & {

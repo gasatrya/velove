@@ -44,10 +44,7 @@ function velove_customize_functions( $wp_customize ) {
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial( 'blogname', array(
 			'selector'         => '.site-title a',
-			'settings'         => array( 'blogname' ),
-			'render_callback'  => function() {
-				return get_bloginfo( 'name', 'display' );
-			}
+			'render_callback' => 'velove_customize_partial_blogname',
 		) );
 	}
 
@@ -55,10 +52,7 @@ function velove_customize_functions( $wp_customize ) {
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial( 'blogdescription', array(
 			'selector'         => '.site-description',
-			'settings'         => array( 'blogdescription' ),
-			'render_callback'  => function() {
-				return get_bloginfo( 'description', 'display' );
-			}
+			'render_callback'  => 'velove_customize_partial_blogdescription',
 		) );
 	}
 
@@ -69,9 +63,7 @@ function velove_customize_functions( $wp_customize ) {
 	// Move the Theme Layout section.
 	$wp_customize->get_control( 'theme-layout-control' )->section    = 'velove_layouts';
 	$wp_customize->get_control( 'theme-layout-control' )->priority = 3;
-	$wp_customize->get_control( 'theme-layout-control' )->active_callback = function() {
-		return is_page() || is_single();
-	};
+	$wp_customize->get_control( 'theme-layout-control' )->active_callback = 'velove_customize_partial_layout';
 
 	// Move the Background Image section.
 	$wp_customize->get_section( 'background_image' )->panel    = 'velove_appearance';
@@ -94,6 +86,33 @@ function velove_customize_functions( $wp_customize ) {
 
 }
 add_action( 'customize_register', 'velove_customize_functions', 99 );
+
+/**
+ * Render the site title for the selective refresh partial.
+ *
+ * @return void
+ */
+function velove_customize_partial_blogname() {
+	bloginfo( 'name' );
+}
+
+/**
+ * Render the site tagline for the selective refresh partial.
+ *
+ * @return void
+ */
+function velove_customize_partial_blogdescription() {
+	bloginfo( 'description' );
+}
+
+/**
+ * Show option with conditional.
+ *
+ * @return void
+ */
+function velove_customize_partial_layout() {
+	return is_page() || is_single();
+}
 
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
@@ -250,7 +269,7 @@ function velove_documentation_link() {
 	// Localize the script
 	wp_localize_script( 'velove-doc', 'prefixL10n',
 		array(
-			'prefixURL'   => esc_url( 'https://beautimour.com/documentation/velove/' ),
+			'prefixURL'   => esc_url( 'https://wp.idenovasi.com/documentation/velove/' ),
 			'prefixLabel' => esc_html__( 'Documentation', 'velove' ),
 		)
 	);

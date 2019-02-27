@@ -80,7 +80,7 @@ if ( current_theme_supports( 'theme-layouts' ) ) {
 			</span>
 		<?php endif; ?>
 
-		<?php if ( velove_is_beautimour_kit_activated() ) velove_post_share(); ?>
+		<?php if ( velove_is_velove_kit_activated() ) velove_post_share(); ?>
 
 	</footer>
 

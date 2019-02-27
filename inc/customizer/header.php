@@ -17,7 +17,7 @@ function velove_header_customize_register( $wp_customize ) {
 
 	// Register Header Style setting
 	$wp_customize->add_setting( 'velove_header_style', array(
-		'default'           => 'default',
+		'default'           => 'style_3',
 		'sanitize_callback' => 'velove_sanitize_header_style',
 	) );
 	$wp_customize->add_control( 'velove_header_style', array(

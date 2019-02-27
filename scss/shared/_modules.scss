@@ -1054,6 +1054,7 @@
 		text-transform: uppercase;
 		color: $grey-darker;
 		display: block;
+		margin-bottom: 10px;
 	}
 
 	.next-label {
@@ -1063,20 +1064,36 @@
 	.thumbnail-link {
 		position: relative;
 
-		.post-title {
-			display: inline-block;
+		.thumbnail-overlay {
 			position: absolute;
-			top: 50%;
-			transform: translateY(-50%);
 			left: 0;
-			right: 0;
-			text-align: center;
-			font-size: 18px;
-			font-weight: 400;
-			background-color: $white;
-			padding: 15px 25px;
-			width: 80%;
-			margin: 0 auto;
+			bottom: 0;
+			height: 50%;
+			width: 100%;
+			background: linear-gradient(to top, rgba(0,0,0,1), transparent);
+		}
+	}
+
+	.post-title {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		padding: 20px;
+		color: $white;
+
+		.entry-title {
+			font-size: 20px;
+			line-height: normal;
+			margin-bottom: 0;
+		}
+
+		.author {
+			font-style: italic;
+		}
+
+		a {
+			color: $white;
 		}
 	}
 
@@ -1088,14 +1105,11 @@
 		}
 	}
 
-	.next-post .post-title {
-		text-align: right
-	}
-
 }
 
 .prev-post {
 	margin-bottom: 30px;
+	position: relative;
 	@include susy-media(500px) {
 		@include span( 4 of 8 );
 		margin-bottom: 0;
@@ -1103,6 +1117,7 @@
 }
 
 .next-post {
+	position: relative;
 	@include susy-media(500px) {
 		@include span( 4 of 8 last );
 	}

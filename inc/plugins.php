@@ -20,8 +20,16 @@ function velove_register_plugins() {
 		),
 
 		array(
-			'name'     => 'Beautimour Kit',
-			'slug'     => 'beautimour-kit',
+			'name'     => 'Velove Kit',
+			'slug'     => 'velove-kit',
+			'source'   => trailingslashit( get_template_directory() ) . 'inc/plugins/velove-kit.zip',
+			'required' => true,
+		),
+
+		array(
+			'name'     => 'Zilla Likes',
+			'slug'     => 'zilla-likes',
+			'source'   => trailingslashit( get_template_directory() ) . 'inc/plugins/zilla-likes.zip',
 			'required' => false,
 		),
 
@@ -40,13 +48,6 @@ function velove_register_plugins() {
 		array(
 			'name'     => 'WP Instagram widget',
 			'slug'     => 'wp-instagram-widget',
-			'required' => false,
-		),
-
-		array(
-			'name'     => 'Zilla Likes',
-			'slug'     => 'zilla-likes',
-			'source'   => 'https://demowp.idenovasi.com/wp-content/uploads/2017/07/zilla-likes.zip',
 			'required' => false,
 		),
 

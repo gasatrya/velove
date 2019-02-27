@@ -86,7 +86,7 @@ function velove_theme_setup() {
 
 	// Setup the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'velove_custom_background_args', array(
-		'default-color' => 'f9f9f9'
+		'default-color' => 'f5f5f5'
 	) ) );
 
 	// Enable support for Custom Logo
@@ -119,6 +119,63 @@ function velove_theme_setup() {
 		),
 		array( 'customize' => true, 'default' => 'right-sidebar' )
 	);
+
+	// Adding support for core block visual styles.
+	add_theme_support( 'wp-block-styles' );
+
+	// Add support for full and wide align images.
+	add_theme_support( 'align-wide' );
+
+	// Add support for custom color scheme.
+	add_theme_support( 'editor-color-palette', array(
+		array(
+			'name'  => esc_html__( 'Blue', 'velove' ),
+			'slug'  => 'blue',
+			'color' => '#417cd6',
+		),
+		array(
+			'name'  => esc_html__( 'Dark Gray', 'velove' ),
+			'slug'  => 'dark-gray',
+			'color' => '#383838',
+		),
+		array(
+			'name'  => esc_html__( 'Light Gray', 'velove' ),
+			'slug'  => 'light-gray',
+			'color' => '#f9f9f9',
+		),
+	) );
+
+	// Add support for custom font sizes.
+	add_theme_support( 'editor-font-sizes', array(
+		array(
+			'name' => esc_html__( 'Small', 'velove' ),
+			'size' => 14,
+			'slug' => 'small'
+		),
+		array(
+			'name' => esc_html__( 'Normal', 'velove' ),
+			'size' => 16,
+			'slug' => 'normal'
+		),
+		array(
+			'name' => esc_html__( 'Medium', 'velove' ),
+			'size' => 24,
+			'slug' => 'medium'
+		),
+		array(
+			'name' => esc_html__( 'Large', 'velove' ),
+			'size' => 36,
+			'slug' => 'large'
+		),
+		array(
+			'name' => esc_html__( 'Huge', 'velove' ),
+			'size' => 48,
+			'slug' => 'huge'
+		)
+	) );
+
+	// Add support for responsive embeds.
+	add_theme_support( 'responsive-embeds' );
 
 }
 endif; // velove_theme_setup
@@ -189,7 +246,7 @@ function velove_fonts_url() {
 
 	// Get the customizer data
 	$heading_font = get_theme_mod( 'velove_heading_font', 'Playfair+Display:700,900' );
-	$body_font    = get_theme_mod( 'velove_body_font', 'Source+Sans+Pro:400,400i,700,700i,900' );
+	$body_font    = get_theme_mod( 'velove_body_font', 'Source+Sans+Pro:400,400i,600,700,700i,900' );
 
 	// Important variable
 	$fonts_url = '';
@@ -212,11 +269,11 @@ function velove_fonts_url() {
 	return $fonts_url;
 }
 
-if ( ! function_exists( 'velove_is_beautimour_kit_activated' ) ) :
+if ( ! function_exists( 'velove_is_velove_kit_activated' ) ) :
 /**
  * Beautimour Kit plugin activatin checker.
  */
-function velove_is_beautimour_kit_activated() {
+function velove_is_velove_kit_activated() {
 	return class_exists( 'Beautimour_Kit' ) ? true : false;
 }
 endif;

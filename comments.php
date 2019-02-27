@@ -16,10 +16,33 @@ if ( post_password_required() ) {
 	<?php if ( have_comments() ) : ?>
 		<h2 class="comments-title">
 			<?php
-				printf( _nx( '1 Comments', '%1$s Comments', get_comments_number(), 'comments title', 'velove' ),
-					number_format_i18n( get_comments_number() ) );
+			if ( comments_open() ) {
+				if ( have_comments() ) {
+					esc_html_e( 'Join the Conversation', 'velove' );
+				} else {
+					esc_html_e( 'Leave a comment', 'velove' );
+				}
+			} else {
+				if ( '1' == $discussion->responses ) {
+					/* translators: %s: post title */
+					printf( _x( 'One reply on &ldquo;%s&rdquo;', 'comments title', 'velove' ), get_the_title() );
+				} else {
+					printf(
+						/* translators: 1: number of comments, 2: post title */
+						_nx(
+							'%1$s reply on &ldquo;%2$s&rdquo;',
+							'%1$s replies on &ldquo;%2$s&rdquo;',
+							$discussion->responses,
+							'comments title',
+							'velove'
+						),
+						number_format_i18n( $discussion->responses ),
+						get_the_title()
+					);
+				}
+			}
 			?>
-		</h2>
+			</h2><!-- .comments-title -->
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
 		<nav id="comment-nav-above" class="comment-navigation" role="navigation">

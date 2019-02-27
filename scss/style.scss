@@ -47,6 +47,7 @@
  * - MODULES
  * - FOOTER
  * - COMMENT
+ * - GUTENBERG
  *
  */
 
@@ -115,6 +116,11 @@
 	$COMMENT
 *------------------------------------*/
 @import "shared/comments";
+
+/*------------------------------------*
+	$GUTENBERG
+*------------------------------------*/
+@import "shared/gutenberg";
 
 /*------------------------------------*
 	$HOMEPAGE

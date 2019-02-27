@@ -64,7 +64,7 @@ function velove_general_customize_register( $wp_customize ) {
 	// Register footer text setting
 	$wp_customize->add_setting( 'velove_footer_text', array(
 		'sanitize_callback' => 'velove_sanitize_textarea',
-		'default'           => '&copy; Copyright ' . date( 'Y' ) . ' - <a href="' . esc_url( home_url() ) . '">' . esc_attr( get_bloginfo( 'name' ) ) . '</a>. All Rights Reserved. <br /> Designed & Developed by <a href="https://beautimour.com/">Beautimour</a>',
+		'default'           => '&copy; Copyright ' . date( 'Y' ) . ' - <a href="' . esc_url( home_url() ) . '">' . esc_attr( get_bloginfo( 'name' ) ) . '</a>. All Rights Reserved. <br /> Designed & Developed by <a href="https://wp.idenovasi.com/">Idenovasi</a>',
 		'transport'         => 'postMessage',
 	) );
 	$wp_customize->add_control( 'velove_footer_text', array(
@@ -77,11 +77,16 @@ function velove_general_customize_register( $wp_customize ) {
 		$wp_customize->selective_refresh->add_partial( 'velove_footer_text', array(
 			'selector'         => '.copyright',
 			'settings'         => array( 'velove_footer_text' ),
-			'render_callback'  => function() {
-				return velove_sanitize_textarea( get_theme_mod( 'velove_footer_text' ) );
-			}
+			'render_callback'  => 'velove_customize_partial_footer_text'
 		) );
 	}
 
 }
 add_action( 'customize_register', 'velove_general_customize_register' );
+
+/**
+ * Footer text callback
+ */
+function velove_customize_partial_footer_text() {
+	return velove_sanitize_textarea( get_theme_mod( 'velove_footer_text' ) );
+}

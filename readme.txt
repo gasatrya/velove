@@ -27,7 +27,7 @@ Velove is minimal yet elegant WordPress blog theme. Velove comes with great feat
 
 == Copyright ==
 
-Velove WordPress Theme, Copyright 2017 - 2019 https://beautimour.com/
+Velove WordPress Theme, Copyright 2017 - 2019 https://wp.idenovasi.com/
 Velove is distributed under the terms of the GNU GPL
 
 This program is free software: you can redistribute it and/or modify
@@ -62,11 +62,14 @@ Image used in demo: https://unsplash.com/, licensed under Creative Commons Zero(
 
 == Changelog ==
 
-1.5.0 - Feb 23, 2019
+1.5.0 - Feb 29, 2019
 * Support WordPress 5.1
 * Updated: Assets
-* Fixed: Demo content not found
 * Updated: Subtitles plugin not working anymore, use WP Substitles instead
+* Updated: Gutenberg support
+* Fixed: Responsive issue
+* Fixed: Demo content not found
+* Fixed: Oudated code
 
 1.4.0 - June 21, 2018
 * Added: Retina logo
