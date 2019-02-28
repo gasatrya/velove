@@ -3,7 +3,7 @@
  * Theme Name: Velove
  * Theme URI: https://wp.idenovasi.com/themes/velove-theme/
  * Description: Velove is minimal yet elegant WordPress blog theme.
- * Version: 1.5.0
+ * Version: 1.5.1
  * Author: Idenovasi
  * Author URI: https://idenovasi.com/
  * Tags: one-column, two-columns, left-sidebar, right-sidebar, grid-layout, custom-background, custom-colors, custom-logo, custom-menu, editor-style, featured-images, theme-options, threaded-comments, translation-ready, blog
@@ -767,11 +767,6 @@ body {
 /**
  * Selection Color.
  */
-::-moz-selection {
-	color: #000;
-	background: #fbf1eb;
-	text-shadow: none;
-}
 ::selection {
 	color: #000;
 	background: #fbf1eb;
@@ -933,42 +928,50 @@ table tr td:last-child {
 
 .gallery-columns-2 .gallery-item {
 	max-width: 48%;
-	max-width: calc(50% - 4px);
+	max-width: -webkit-calc(50% - 4px);
+	max-width:         calc(50% - 4px);
 }
 
 .gallery-columns-3 .gallery-item {
 	max-width: 32%;
-	max-width: calc(33.3% - 4px);
+	max-width: -webkit-calc(33.3% - 4px);
+	max-width:         calc(33.3% - 4px);
 }
 
 .gallery-columns-4 .gallery-item {
 	max-width: 23%;
-	max-width: calc(25% - 4px);
+	max-width: -webkit-calc(25% - 4px);
+	max-width:         calc(25% - 4px);
 }
 
 .gallery-columns-5 .gallery-item {
 	max-width: 19%;
-	max-width: calc(20% - 4px);
+	max-width: -webkit-calc(20% - 4px);
+	max-width:         calc(20% - 4px);
 }
 
 .gallery-columns-6 .gallery-item {
 	max-width: 15%;
-	max-width: calc(16.7% - 4px);
+	max-width: -webkit-calc(16.7% - 4px);
+	max-width:         calc(16.7% - 4px);
 }
 
 .gallery-columns-7 .gallery-item {
 	max-width: 13%;
-	max-width: calc(14.28% - 4px);
+	max-width: -webkit-calc(14.28% - 4px);
+	max-width:         calc(14.28% - 4px);
 }
 
 .gallery-columns-8 .gallery-item {
 	max-width: 11%;
-	max-width: calc(12.5% - 4px);
+	max-width: -webkit-calc(12.5% - 4px);
+	max-width:         calc(12.5% - 4px);
 }
 
 .gallery-columns-9 .gallery-item {
 	max-width: 9%;
-	max-width: calc(11.1% - 4px);
+	max-width: -webkit-calc(11.1% - 4px);
+	max-width:         calc(11.1% - 4px);
 }
 
 .gallery-columns-1 .gallery-item:nth-of-type(1n),
@@ -1451,7 +1454,9 @@ input[type='color'],
 select,
 textarea {
 	display: inline-block;
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
 	height: 2.5em;
 	padding: .5em .6em;
 	vertical-align: middle;
@@ -1549,7 +1554,9 @@ since IE8 won't execute CSS that contains a CSS3 selector.
 */
 input:not([type]) {
 	display: inline-block;
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
 	padding: .5em .6em;
 	border: 1px solid #ccc;
 	border-radius: 4px;
@@ -1741,7 +1748,11 @@ input[type='submit']:focus,
 .button:hover,
 .button-minimal:hover {
 	color: #fff;
-	background-image: linear-gradient(transparent, rgba(0, 0, 0, .05) 40%, rgba(0, 0, 0, .1));
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, left, color-stop(40%, rgba(0, 0, 0, .05)), right);
+	background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, .05) 40%, rgba(0, 0, 0, .1));
+	background-image:    -moz-linear-gradient(top, rgba(0, 0, 0, .05) 0%, rgba(0, 0, 0, .1));
+	background-image:      -o-linear-gradient(transparent, rgba(0, 0, 0, .05) 40%, rgba(0, 0, 0, .1));
+	background-image:         linear-gradient(transparent, rgba(0, 0, 0, .05) 40%, rgba(0, 0, 0, .1));
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#1a000000',GradientType=0);
 }
 
@@ -2375,15 +2386,6 @@ input[type='submit']::-moz-focus-inner {
 	}
 }
 
-@-webkit-keyframes submenuShow {
-	from {
-		opacity: 0;
-	}
-	to {
-		opacity: 1;
-	}
-}
-
 @keyframes submenuShow {
 	from {
 		opacity: 0;
@@ -2623,9 +2625,7 @@ input[type='submit']::-moz-focus-inner {
 .vertical-text-wrapper .vertical-text-inner {
 	display: inline-block;
 	white-space: nowrap;
-	-webkit-transform: rotate(-90deg);
-	    -ms-transform: rotate(-90deg);
-	        transform: rotate(-90deg);
+	transform: rotate(-90deg);
 }
 
 .vertical-text-wrapper .vertical-text-inner::before {
@@ -3325,12 +3325,8 @@ input[type='submit']::-moz-focus-inner {
 
 @media (min-width: 800px) {
 	.most-content .entry {
-		display: -webkit-flex;
-		display: -ms-flexbox;
-		display:         flex;
-		-webkit-align-items: center;
-		-ms-flex-align: center;
-		        align-items: center;
+		display: flex;
+		align-items: center;
 	}
 }
 
@@ -3340,9 +3336,7 @@ input[type='submit']::-moz-focus-inner {
 
 .most .vertical-text-wrapper {
 	display: none;
-	-webkit-align-self: baseline;
-	-ms-flex-item-align: baseline;
-	        align-self: baseline;
+	align-self: baseline;
 }
 
 @media (min-width: 601px) {
@@ -3463,9 +3457,7 @@ input[type='submit']::-moz-focus-inner {
 		position: relative;
 		top: auto;
 		right: auto;
-		-webkit-transform: none;
-		    -ms-transform: none;
-		        transform: none;
+		transform: none;
 		clear: both;
 		padding-left: 33px;
 	}
@@ -3481,9 +3473,7 @@ input[type='submit']::-moz-focus-inner {
 	.most .center-align {
 		position: absolute;
 		top: 50%;
-		-webkit-transform: translateY(-50%);
-		    -ms-transform: translateY(-50%);
-		        transform: translateY(-50%);
+		transform: translateY(-50%);
 		right: 0;
 	}
 }
@@ -4620,4 +4610,5 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 	font-style: italic;
 	margin-bottom: 0;
 }
+
 /*# sourceMappingURL=style.css.map */

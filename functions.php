@@ -274,7 +274,7 @@ if ( ! function_exists( 'velove_is_velove_kit_activated' ) ) :
  * Beautimour Kit plugin activatin checker.
  */
 function velove_is_velove_kit_activated() {
-	return class_exists( 'Beautimour_Kit' ) ? true : false;
+	return class_exists( 'Velove_Kit' ) ? true : false;
 }
 endif;
 

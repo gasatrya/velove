@@ -2,7 +2,7 @@
 Contributors: Beautimour
 Requires at least: WordPress 4.6
 Tested up to: WordPress 5.1
-Version: 1.5.0
+Version: 1.5.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -61,6 +61,9 @@ Source: https://github.com/davatron5000/FitVids.js/
 Image used in demo: https://unsplash.com/, licensed under Creative Commons Zero(http://creativecommons.org/publicdomain/zero/1.0/)
 
 == Changelog ==
+
+1.5.1 - Feb 29, 2019
+* Fixed: Built-in plugin not working
 
 1.5.0 - Feb 29, 2019
 * Support WordPress 5.1
