@@ -2,11 +2,11 @@
 /*!
  * Theme Name: Velove
  * Theme URI: https://wp.idenovasi.com/themes/velove-theme/
- * Description: Velove is minimal yet elegant WordPress blog theme.
- * Version: 1.5.1
+ * Description: Velove is a fresh, beautiful, responsive and modern WordPress blog theme perfect for creative bloggers who love fresh and unique layout. It features Gutenberg support, unlimited custom colors, custom typography, multiple blog layouts and support Retina logo. See demo: https://demowp.idenovasi.com/velove-lite/
+ * Version: 1.5.2
  * Author: Idenovasi
  * Author URI: https://idenovasi.com/
- * Tags: one-column, two-columns, left-sidebar, right-sidebar, grid-layout, custom-background, custom-colors, custom-logo, custom-menu, editor-style, featured-images, theme-options, threaded-comments, translation-ready, blog
+ * Tags: blog, grid-layout, one-column, two-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, sticky-post, theme-options, threaded-comments, translation-ready, block-styles, wide-blocks
  * Text Domain: velove
  *
  * License: GNU General Public License v2.0 or later
@@ -4275,7 +4275,7 @@ form.comment-form input[type='submit'] {
 .entry-content ul,
 .entry-content ol {
 	margin: 16px 0;
-	padding: 0 0 0 24px;
+	padding: 0 0 0 48px;
 }
 
 .entry-content blockquote {

@@ -1,13 +1,13 @@
 === Velove ===
-Contributors: Beautimour
+Contributors: Idenovasi
 Requires at least: WordPress 4.6
 Tested up to: WordPress 5.1
-Version: 1.5.1
+Version: 1.5.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
-Velove is minimal yet elegant WordPress blog theme. Velove comes with great features you will love:
+Velove is a fresh, beautiful, responsive and modern WordPress blog theme perfect for creative bloggers who love fresh and unique layout. It features Gutenberg support, unlimited custom colors, custom typography, multiple blog layouts and support Retina logo. See demo: https://demowp.idenovasi.com/velove-lite/. Velove comes with great features you will love:
 
 * Responsive layout.
 * Unique layout
@@ -62,10 +62,11 @@ Image used in demo: https://unsplash.com/, licensed under Creative Commons Zero(
 
 == Changelog ==
 
-1.5.1 - Feb 29, 2019
+1.5.2 - Feb 28, 2019
 * Fixed: Built-in plugin not working
+* Updated: Fully supported Gutenberg
 
-1.5.0 - Feb 29, 2019
+1.5.0 - Feb 28, 2019
 * Support WordPress 5.1
 * Updated: Assets
 * Updated: Subtitles plugin not working anymore, use WP Substitles instead

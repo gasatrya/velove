@@ -51,6 +51,24 @@ function velove_register_plugins() {
 			'required' => false,
 		),
 
+		array(
+			'name'     => 'Scroll Top',
+			'slug'     => 'scroll-top',
+			'required' => false,
+		),
+
+		array(
+			'name'     => 'Comments Widget Plus',
+			'slug'     => 'comments-widget-plus',
+			'required' => false,
+		),
+
+		array(
+			'name'     => 'Smart Recent Posts Widget',
+			'slug'     => 'smart-recent-posts-widget',
+			'required' => false,
+		),
+
 	);
 
 	$config = array(

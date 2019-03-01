@@ -1,28 +1,74 @@
-@import url( "../../style.min.css" );
+// Configuration
+@import "config";
+@import "helpers/mixins";
 
-body#tinymce {
-	margin: 40px;
-	color: #555;
-	border-top: 0;
-	background: #fff;
+/*------------------------------------*
+	$NORMALIZE
+*------------------------------------*/
+@import "base/normalize";
 
-	.alignleft {
-		margin-right: 1.5em;
+/*------------------------------------*
+	$LAYOUTS
+*------------------------------------*/
+@import "layout";
+
+/*------------------------------------*
+	$MAIN
+*------------------------------------*/
+$body-bg-color: #fff;
+@import "base/main";
+
+/*------------------------------------*
+	$SHARED
+*------------------------------------*/
+@import "base/shared";
+@import "helpers/placeholder";
+
+/*------------------------------------*
+	$TYPOGRAPHY
+*------------------------------------*/
+@import "base/typography";
+
+body {
+
+	.wp-block[data-align="full"] {
+		width: 100%;
 	}
 
-	.alignright {
-		margin-left: 1.5em;
+	@media (min-width: 576px) {
+
+		.wp-block[data-align="full"] {
+			width: calc( 100% + 90px );
+			max-width: calc( 100% + 90px );
+		}
 	}
 
-	.wp-caption-dt {
-		max-width: 100%;
-	}
+	@media (min-width: 768px) {
 
-	.wp-caption-dd {
-		font-size: 14px;
-		font-style: italic;
-		padding: 0;
-		text-align: left;
-		color: #999;
+		.wp-block[data-align="wide"] {
+			width: 100%;
+		}
+
+		.wp-block[data-align="full"] {
+			position: relative;
+			left: calc( -12.5% - 14px );
+			width: calc( 125% + 116px );
+			max-width: calc( 125% + 115px ); // Subtract 1px here to avoid the rounding errors that happen due to the usage of percentages.
+		}
+
+		.wp-block[data-align="right"] {
+			max-width: 125%;
+		}
+	}
+}
+
+/** === Content Width === */
+.wp-block {
+	width: span(8 of 12);
+	max-width: 100%;
+
+	// Only the top level blocks need specific widths, therefore override for every nested block.
+	.wp-block {
+		width: 100%;
 	}
 }

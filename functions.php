@@ -44,6 +44,7 @@ function velove_theme_setup() {
 	load_theme_textdomain( 'velove', trailingslashit( get_template_directory() ) . 'languages' );
 
 	// Add custom stylesheet file to the TinyMCE visual editor.
+	add_theme_support( 'editor-styles' );
 	add_editor_style( array( 'assets/css/editor-style.css', velove_fonts_url() ) );
 
 	// Add RSS feed links to <head> for posts and comments.
@@ -127,23 +128,7 @@ function velove_theme_setup() {
 	add_theme_support( 'align-wide' );
 
 	// Add support for custom color scheme.
-	add_theme_support( 'editor-color-palette', array(
-		array(
-			'name'  => esc_html__( 'Blue', 'velove' ),
-			'slug'  => 'blue',
-			'color' => '#417cd6',
-		),
-		array(
-			'name'  => esc_html__( 'Dark Gray', 'velove' ),
-			'slug'  => 'dark-gray',
-			'color' => '#383838',
-		),
-		array(
-			'name'  => esc_html__( 'Light Gray', 'velove' ),
-			'slug'  => 'light-gray',
-			'color' => '#f9f9f9',
-		),
-	) );
+	add_theme_support( 'editor-color-palette' );
 
 	// Add support for custom font sizes.
 	add_theme_support( 'editor-font-sizes', array(
@@ -271,7 +256,7 @@ function velove_fonts_url() {
 
 if ( ! function_exists( 'velove_is_velove_kit_activated' ) ) :
 /**
- * Beautimour Kit plugin activatin checker.
+ * Velove Kit plugin activatin checker.
  */
 function velove_is_velove_kit_activated() {
 	return class_exists( 'Velove_Kit' ) ? true : false;
@@ -280,7 +265,7 @@ endif;
 
 if ( ! function_exists( 'velove_is_zilla_likes_activated' ) ) :
 /**
- * Beautimour Kit plugin activatin checker.
+ * Velove Kit plugin activatin checker.
  */
 function velove_is_zilla_likes_activated() {
 	return class_exists( 'ZillaLikes' ) ? true : false;
