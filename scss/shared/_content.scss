@@ -185,14 +185,18 @@
 }
 
 .vertical-text-wrapper {
-	float: left;
-	margin-right: 8px;
-	text-transform: uppercase;
-	line-height: 1;
 	display: none;
 
-	@include susy-media(1025px) {
-		display: block;
+	.has-featured-image & {
+		float: left;
+		margin-right: 8px;
+		text-transform: uppercase;
+		line-height: 1;
+		display: none;
+
+		@include susy-media(1170px) {
+			display: block;
+		}
 	}
 
 	a {
@@ -314,7 +318,7 @@
 
 }
 
-.content {
+.has-post-thumbnail .content {
 	h2.entry-title {
 		padding-left: 0;
 		margin-top: 0;

@@ -12,7 +12,7 @@
  * Priority 0 to make it available to lower priority callbacks.
  */
 function velove_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'velove_content_width', 704 );
+	$GLOBALS['content_width'] = apply_filters( 'velove_content_width', 730 );
 }
 add_action( 'after_setup_theme', 'velove_content_width', 0 );
 

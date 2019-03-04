@@ -4,7 +4,7 @@
 	$( function() {
 
 		// Responsive video
-		$( '.entry, .widget' ).fitVids();
+		// $( '.entry, .widget' ).fitVids();
 
 		// Reading time
 		$( '.entry' ).each( function() {

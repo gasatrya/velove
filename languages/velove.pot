@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2.0 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Velove 1.5.2\n"
+"Project-Id-Version: Velove 1.5.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-01 08:54:20+00:00\n"
+"POT-Creation-Date: 2019-03-04 16:48:19+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1049,7 +1049,7 @@ msgid ""
 "perfect for creative bloggers who love fresh and unique layout. It features "
 "Gutenberg support, unlimited custom colors, custom typography, multiple "
 "blog layouts and support Retina logo. See demo: "
-"https://demowp.idenovasi.com/velove-lite/"
+"https://demowp.idenovasi.com/velove/"
 msgstr ""
 
 #. Author of the plugin/theme

@@ -86,8 +86,8 @@ add_filter( 'body_class', 'velove_body_classes' );
 function velove_post_classes( $classes ) {
 
 	// Adds a class if a post hasn't a thumbnail.
-	if ( ! has_post_thumbnail() ) {
-		$classes[] = 'no-post-thumbnail';
+	if ( has_post_thumbnail() ) {
+		$classes[] = 'has-post-thumbnail';
 	}
 
 	// Replace hentry class with entry.
