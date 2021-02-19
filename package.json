@@ -18,7 +18,7 @@
 	"license": "GPL-2.0-or-later",
 	"homepage": "https://bitbucket.org/tj_projects/outbuilt#readme",
 	"devDependencies": {
-		"autoprefixer": "^10.2.3",
+		"autoprefixer": "^10.2.4",
 		"browser-sync": "^2.26.14",
 		"del": "^6.0.0",
 		"fibers": "^5.0.0",
@@ -32,7 +32,7 @@
 		"gulp-sourcemaps": "^3.0.0",
 		"gulp-wp-pot": "^2.5.0",
 		"gulp-zip": "^5.0.2",
-		"postcss": "^8.2.4",
-		"sass": "^1.32.5"
+		"postcss": "^8.2.6",
+		"sass": "^1.32.8"
 	}
 }
