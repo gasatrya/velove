@@ -1,8 +1,9 @@
 === Velove ===
-Contributors: Idenovasi
-Requires at least: WordPress 4.6
-Tested up to: WordPress 5.1
-Version: 1.5.3
+Contributors: idenovasi, satrya
+Requires at least: 4.8
+Tested up to: 5.6
+Version: 2.0.0
+Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,7 +28,7 @@ Velove is a fresh, beautiful, responsive and modern WordPress blog theme perfect
 
 == Copyright ==
 
-Velove WordPress Theme, Copyright 2017 - 2019 https://wp.idenovasi.com/
+Velove WordPress Theme, Copyright 2017 - 2021 https://idenovasi.com/
 Velove is distributed under the terms of the GNU GPL
 
 This program is free software: you can redistribute it and/or modify
@@ -46,21 +47,12 @@ normalize.css v8.0.0, Copyright © Nicolas Gallagher and Jonathan Neal
 Licenses: MIT
 Source: https://github.com/necolas/normalize.css
 
-Susy v2.2.14, Copyright (c) 2015, Miriam Eric Suzanne
-Licenses:
-Source: http://susy.oddbird.net/
-
-HTML5 Shiv v3.7.0, Copyright 2014 Alexander Farkas
-Licenses: MIT/GPL2
-Source: https://github.com/aFarkas/html5shiv
-
-FitVids v1.1, Copyright 2013, Chris Coyier - http://css-tricks.com + Dave Rupert - http://daverupert.com
-Licenses: WTFPL
-Source: https://github.com/davatron5000/FitVids.js/
-
 Image used in demo: https://unsplash.com/, licensed under Creative Commons Zero(http://creativecommons.org/publicdomain/zero/1.0/)
 
 == Changelog ==
+
+2.0.0 - Feb 14, 2021
+* Completely new, fresh and modern code
 
 1.5.3 - March 03, 2019
 * Fixed: Gutenberg issue
