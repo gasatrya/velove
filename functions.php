@@ -180,6 +180,81 @@ endif;
 add_action('template_redirect', 'velove_fullwidth_content_width');
 
 /**
+ * Enqueue scripts and styles.
+ */
+function velove_enqueue() {
+
+    $theme_version = wp_get_theme()->get('Version');
+
+    // Google fonts
+    wp_enqueue_style('velove-fonts', velove_fonts_url(), array(), $theme_version);
+
+    // Main stylesheet
+    wp_enqueue_style('velove-style', get_stylesheet_uri(), array(), $theme_version);
+    wp_style_add_data('velove-style', 'rtl', 'replace');
+
+    // Skin
+    $color = get_theme_mod('velove_predefined_colors', 'default');
+    wp_enqueue_style('velove-color', get_template_directory_uri() . '/assets/css/color/' . $color . '.css', array(), $theme_version);
+
+    // Reading time js
+    wp_enqueue_script('velove-readingTime', get_theme_file_uri('/assets/js/plugins/readingTime.js'), array(), '1.0.0', true);
+
+    // FitVids js
+    wp_enqueue_script('velove-fitvids', get_theme_file_uri('/assets/js/plugins/fitvids.js'), array('jquery'), '1.1', true);
+
+    // Main js
+    wp_enqueue_script('velove-main-js', get_theme_file_uri('/assets/js/main.js'), array('jquery'), '1.0.0', true);
+
+    // Pass var to js
+    $layout = get_theme_mod('velove_blog_layouts', 'default');
+    wp_localize_script(
+        'velove-main-js',
+        'velove',
+        array(
+            'isMasonryTwoColumns'   => ($layout == 'masonry-two-right-sidebar' || $layout == 'masonry-two-left-sidebar') ? true : false,
+            'isMasonryThreeColumns' => ($layout == 'masonry-three') ? true : false,
+            'isMasonryFourColumns'  => ($layout == 'masonry-four') ? true : false,
+            'isArchivePage'         => (is_archive() || is_search()) ? true : false,
+        )
+    );
+
+    // js / no-js script.
+    wp_add_inline_script('velove-main-js', "document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/,'js');");
+
+    // If child theme is active, load the stylesheet.
+    if (is_child_theme()) {
+        wp_enqueue_style('velove-child-style', get_stylesheet_uri(), array(), $theme_version);
+    }
+
+    // Load comment-reply script.
+    if (is_singular() && comments_open() && get_option('thread_comments')) {
+        wp_enqueue_script('comment-reply');
+    }
+}
+add_action('wp_enqueue_scripts', 'velove_enqueue');
+
+/**
+ * Fix skip link focus in IE11.
+ *
+ * This does not enqueue the script because it is tiny and because it is only for IE11,
+ * thus it does not warrant having an entire dedicated blocking script being loaded.
+ *
+ * @link https://git.io/vWdr2
+ */
+function velove_skip_link_focus_fix() {
+?>
+    <script>
+        /(trident|msie)/i.test(navigator.userAgent) && document.getElementById && window.addEventListener && window.addEventListener("hashchange", function() {
+            var t, e = location.hash.substring(1);
+            /^[A-z0-9_-]+$/.test(e) && (t = document.getElementById(e)) && (/^(?:a|select|input|button|textarea)$/i.test(t.tagName) || (t.tabIndex = -1), t.focus())
+        }, !1);
+    </script>
+<?php
+}
+add_action('wp_print_footer_scripts', 'velove_skip_link_focus_fix');
+
+/**
  * Registers custom widgets.
  *
  * @since 1.0.0
@@ -267,9 +342,6 @@ function velove_fonts_url() {
 
 // Custom template tags for this theme.
 require get_template_directory() . '/inc/template-tags.php';
-
-// Enqueue scripts and styles.
-require get_template_directory() . '/inc/scripts.php';
 
 // Custom functions that act independently of the theme templates.
 require get_template_directory() . '/inc/extras.php';
