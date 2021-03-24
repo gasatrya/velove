@@ -4,21 +4,19 @@
  * Contains handlers to make Theme Customizer preview reload changes asynchronously.
  */
 
-( function( $ ) {
+(function ($) {
+  // Set up variable
+  api = wp.customize;
 
-	// Set up variable
-	api = wp.customize;
-
-	// Site title and description.
-	api( 'blogname', function( value ) {
-		value.bind( function( to ) {
-			$( '.site-title a' ).text( to );
-		} );
-	} );
-	api( 'blogdescription', function( value ) {
-		value.bind( function( to ) {
-			$( '.site-description' ).text( to );
-		} );
-	} );
-
-} )( jQuery );
+  // Site title and description.
+  api('blogname', function (value) {
+    value.bind(function (to) {
+      $('.site-title a').text(to);
+    });
+  });
+  api('blogdescription', function (value) {
+    value.bind(function (to) {
+      $('.site-description').text(to);
+    });
+  });
+})(jQuery);

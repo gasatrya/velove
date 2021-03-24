@@ -1,119 +1,110 @@
-( function( $ ) {
+(function ($) {
+  // Document ready
+  $(function () {
+    // Responsive video
+    // $( '.entry, .widget' ).fitVids();
 
-	// Document ready
-	$( function() {
+    // Reading time
+    $('.entry').each(function () {
+      $(this).readingTime({
+        readingTimeTarget: $(this).find('.reading-time'),
+        remotePath: $(this).attr('data-file'),
+        remoteTarget: $(this).attr('data-target'),
+      });
+    });
 
-		// Responsive video
-		// $( '.entry, .widget' ).fitVids();
+    // Detect if drop down menu go off screen
+    $('.main-navigation li').on('mouseenter mouseleave', function () {
+      if ($('ul', this).length) {
+        var elm = $('ul:first', this),
+          off = elm.offset(),
+          l = off.left,
+          w = elm.width(),
+          docH = $('.site-navigation').height(),
+          docW = $('.site-navigation').width();
 
-		// Reading time
-		$( '.entry' ).each( function() {
+        var isEntirelyVisible = l + w <= docW;
 
-			$( this ).readingTime( {
-				readingTimeTarget: $( this ).find( '.reading-time' ),
-				remotePath: $( this ).attr( 'data-file' ),
-				remoteTarget: $( this ).attr( 'data-target' ),
-			} );
+        if (!isEntirelyVisible) {
+          $(this).addClass('edge');
+        } else {
+          $(this).removeClass('edge');
+        }
+      }
+    });
 
-		} );
+    // Masonry layout
+    var $wrapper = $('.masonry-wrapper'),
+      windowWidth = $(window).width(),
+      gutter,
+      columns;
 
-		// Detect if drop down menu go off screen
-		$( '.main-navigation li' ).on( 'mouseenter mouseleave', function() {
-			if ( $( 'ul', this ).length ) {
-				var elm = $( 'ul:first', this ),
-					off = elm.offset(),
-					l = off.left,
-					w = elm.width(),
-					docH = $( '.site-navigation' ).height(),
-					docW = $( '.site-navigation' ).width();
+    // Two columns
+    if (velove.isMasonryTwoColumns) {
+      gutter = 30;
+      columns = 2;
 
-				var isEntirelyVisible = ( l + w <= docW );
+      // Re-set columns based on window width
+      if (windowWidth < 768) {
+        columns = 1;
+      }
+    }
 
-				if ( !isEntirelyVisible ) {
-					$( this ).addClass( 'edge' );
-				} else {
-					$( this ).removeClass( 'edge' );
-				}
-			}
-		} );
+    // Three columns
+    if (velove.isArchivePage || velove.isMasonryThreeColumns) {
+      gutter = 30;
+      columns = 3;
 
-		// Masonry layout
-		var $wrapper = $( '.masonry-wrapper' ),
-			windowWidth = $( window ).width(),
-			gutter,
-			columns;
+      // Re-set columns based on window width
+      if (windowWidth < 768) {
+        columns = 1;
+      } else if (windowWidth < 900) {
+        columns = 2;
+      }
+    }
 
-		// Two columns
-		if ( velove.isMasonryTwoColumns ) {
+    // Four columns
+    if (velove.isMasonryFourColumns) {
+      gutter = 30;
+      columns = 4;
 
-			gutter = 30;
-			columns = 2;
+      // Re-set columns based on window width
+      if (windowWidth < 768) {
+        columns = 1;
+      } else if (windowWidth < 900) {
+        columns = 2;
+      } else if (windowWidth < 1110) {
+        columns = 3;
+      }
+    }
 
-			// Re-set columns based on window width
-			if ( windowWidth < 768 ) {
-				columns = 1;
-			}
+    // calculate item width
+    var itemWidth = ($wrapper.width() - gutter * (columns - 1)) / columns;
+    // Inject custom css
+    $('.masonry-wrapper .entry').css({
+      width: itemWidth,
+      marginBottom: gutter,
+    });
 
-		}
+    // Initialize masonry
+    $wrapper.imagesLoaded(function () {
+      $wrapper.masonry({
+        itemSelector: '.entry',
+        columnWidth: itemWidth,
+        gutter: gutter,
+        isFitWidth: true,
+      });
+    });
 
-		// Three columns
-		if ( velove.isArchivePage || velove.isMasonryThreeColumns ) {
-
-			gutter = 30;
-			columns = 3;
-
-			// Re-set columns based on window width
-			if ( windowWidth < 768 ) {
-				columns = 1;
-			} else if ( windowWidth < 900 ) {
-				columns = 2;
-			}
-
-		}
-
-		// Four columns
-		if ( velove.isMasonryFourColumns ) {
-
-			gutter = 30;
-			columns = 4;
-
-			// Re-set columns based on window width
-			if ( windowWidth < 768 ) {
-				columns = 1;
-			} else if ( windowWidth < 900 ) {
-				columns = 2;
-			} else if ( windowWidth < 1110 ) {
-				columns = 3;
-			}
-
-		}
-
-		// calculate item width
-		var itemWidth = ( $wrapper.width() - gutter * ( columns - 1 ) ) / columns;
-		// Inject custom css
-		$( '.masonry-wrapper .entry' ).css( {
-			width: itemWidth,
-			marginBottom: gutter
-		} );
-
-		// Initialize masonry
-		$wrapper.imagesLoaded( function() {
-			$wrapper.masonry( {
-				itemSelector: '.entry',
-				columnWidth: itemWidth,
-				gutter: gutter,
-				isFitWidth: true
-			} );
-		} );
-
-		// Scroll top
-		$( '.to-top' ).on( 'click', function( e ) {
-			e.preventDefault();
-			$( 'html, body' ).animate( {
-				scrollTop: $( '#page' ).offset().top
-			}, 1500 );
-		} );
-
-	} );
-
-}( jQuery ) );
+    // Scroll top
+    $('.to-top').on('click', function (e) {
+      e.preventDefault();
+      $('html, body').animate(
+        {
+          scrollTop: $('#page').offset().top,
+        },
+        1500
+      );
+    });
+  });
+})(jQuery);

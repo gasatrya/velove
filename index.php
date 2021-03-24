@@ -1,73 +1,75 @@
 <?php
 // Get the customizer data.
-$layout = get_theme_mod( 'velove_blog_layouts', 'default' );
+$layout = get_theme_mod('velove_blog_layouts', 'default');
 
 get_header(); ?>
 
-	<div class="container">
+<div class="container">
 
-		<div id="primary" class="content-area">
-			<main id="main" class="site-main">
+    <div id="primary" class="content-area">
+        <main id="main" class="site-main">
 
-				<?php if ( have_posts() ) : ?>
+            <?php if (have_posts()) : ?>
 
-					<?php if (
-						$layout == 'masonry-two-right-sidebar' ||
-						$layout == 'masonry-two-left-sidebar' ||
-						$layout == 'masonry-three' ||
-						$layout == 'masonry-four'
-					) {
-						echo '<div class="masonry-wrapper">';
-					} ?>
+                <?php if (
+                    $layout == 'masonry-two-right-sidebar' ||
+                    $layout == 'masonry-two-left-sidebar' ||
+                    $layout == 'masonry-three' ||
+                    $layout == 'masonry-four'
+                ) {
+                    echo '<div class="masonry-wrapper">';
+                } ?>
 
-					<?php while ( have_posts() ) : the_post(); ?>
+                <?php while (have_posts()) : the_post(); ?>
 
-						<?php if (
-							$layout == 'grid-two-right-sidebar' ||
-							$layout == 'grid-two-left-sidebar' ||
-							$layout == 'grid-three' ||
-							$layout == 'grid-four' ||
-							$layout == 'masonry-two-right-sidebar' ||
-							$layout == 'masonry-two-left-sidebar' ||
-							$layout == 'masonry-three' ||
-							$layout == 'masonry-four'
-						) : ?>
-							<?php get_template_part( 'partials/content', 'grid' ); ?>
-						<?php elseif (
-							$layout == 'list-right-sidebar' ||
-							$layout == 'list-left-sidebar' ||
-							$layout == 'list-full-width' ||
-							$layout == 'list-full-width-narrow'
-						) : ?>
-							<?php get_template_part( 'partials/content', 'list' ); ?>
-						<?php else : ?>
-							<?php get_template_part( 'partials/content' ); ?>
-						<?php endif; ?>
+                    <?php if (
+                        $layout == 'grid-two-right-sidebar' ||
+                        $layout == 'grid-two-left-sidebar' ||
+                        $layout == 'grid-three' ||
+                        $layout == 'grid-four' ||
+                        $layout == 'masonry-two-right-sidebar' ||
+                        $layout == 'masonry-two-left-sidebar' ||
+                        $layout == 'masonry-three' ||
+                        $layout == 'masonry-four'
+                    ) : ?>
+                        <?php get_template_part('partials/content', 'grid'); ?>
+                    <?php elseif (
+                        $layout == 'list-right-sidebar' ||
+                        $layout == 'list-left-sidebar' ||
+                        $layout == 'list-full-width' ||
+                        $layout == 'list-full-width-narrow'
+                    ) : ?>
+                        <?php get_template_part('partials/content', 'list'); ?>
+                    <?php else : ?>
+                        <?php get_template_part('partials/content'); ?>
+                    <?php endif; ?>
 
-					<?php endwhile; ?>
+                <?php endwhile; ?>
 
-					<?php if (
-						$layout == 'masonry-two-right-sidebar' ||
-						$layout == 'masonry-two-left-sidebar' ||
-						$layout == 'masonry-three' ||
-						$layout == 'masonry-four'
-					) {
-						echo '</div>';
-					} ?>
+                <?php if (
+                    $layout == 'masonry-two-right-sidebar' ||
+                    $layout == 'masonry-two-left-sidebar' ||
+                    $layout == 'masonry-three' ||
+                    $layout == 'masonry-four'
+                ) {
+                    echo '</div>';
+                } ?>
 
-					<?php get_template_part( 'pagination' ); // Loads the pagination.php template  ?>
+                <?php get_template_part('pagination'); // Loads the pagination.php template
+                ?>
 
-				<?php else : ?>
+            <?php else : ?>
 
-					<?php get_template_part( 'partials/content', 'none' ); ?>
+                <?php get_template_part('partials/content', 'none'); ?>
 
-				<?php endif; ?>
+            <?php endif; ?>
 
-			</main><!-- #main -->
-		</div><!-- #primary -->
+        </main><!-- #main -->
+    </div><!-- #primary -->
 
-		<?php get_sidebar(); // Loads the sidebar.php template. ?>
+    <?php get_sidebar(); // Loads the sidebar.php template.
+    ?>
 
-	</div><!-- .container -->
+</div><!-- .container -->
 
 <?php get_footer(); ?>

@@ -1,8 +1,8 @@
 === Velove ===
 Contributors: idenovasi, satrya
 Requires at least: 4.8
-Tested up to: 5.6
-Version: 2.0.0
+Tested up to: 5.7
+Version: 1.0.0
 Requires PHP: 5.6
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -28,7 +28,7 @@ Velove is a fresh, beautiful, responsive and modern WordPress blog theme perfect
 
 == Copyright ==
 
-Velove WordPress Theme, Copyright 2017 - 2021 https://idenovasi.com/
+Velove WordPress Theme, Copyright 2021 https://idenovasi.com/
 Velove is distributed under the terms of the GNU GPL
 
 This program is free software: you can redistribute it and/or modify
@@ -51,6 +51,6 @@ Image used in demo: https://unsplash.com/, licensed under Creative Commons Zero(
 
 == Changelog ==
 
-2.0.0 - Feb 14, 2021
+1.0.0 - Feb 14, 2021
 * Completely new, fresh and modern code
 

@@ -1,10 +1,11 @@
 <?php
+
 /**
  * The 'group-title' customize control extends the WP_Customize_Control class.
  */
 
-if ( ! class_exists( 'WP_Customize_Control' ) ) {
-	return NULL;
+if (!class_exists('WP_Customize_Control')) {
+    return NULL;
 }
 
 /**
@@ -12,21 +13,20 @@ if ( ! class_exists( 'WP_Customize_Control' ) ) {
  */
 class Velove_Group_Title_Control extends WP_Customize_Control {
 
-	/**
-	 * The type of customize control being rendered.
-	 */
-	public $type = 'group-title';
+    /**
+     * The type of customize control being rendered.
+     */
+    public $type = 'group-title';
 
-	/**
-	 * Displays the group-title on the customize screen.
-	 */
-	public function render_content() { ?>
-		<?php if ( $this->label ) { ?>
-			<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
-		<?php }
-		if ( $this->description ) { ?>
-			<span class="description customize-control-description"><?php echo $this->description; ?></span>
-		<?php } ?>
-	<?php }
-
+    /**
+     * Displays the group-title on the customize screen.
+     */
+    public function render_content() { ?>
+        <?php if ($this->label) { ?>
+            <span class="customize-control-title"><?php echo esc_html($this->label); ?></span>
+        <?php }
+        if ($this->description) { ?>
+            <span class="description customize-control-description"><?php echo $this->description; ?></span>
+        <?php } ?>
+<?php }
 }

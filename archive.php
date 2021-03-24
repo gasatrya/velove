@@ -1,30 +1,31 @@
 <?php get_header(); ?>
 
-	<div class="container">
+<div class="container">
 
-		<div id="primary" class="content-area">
-			<main id="main" class="site-main">
+    <div id="primary" class="content-area">
+        <main id="main" class="site-main">
 
-				<?php if ( have_posts() ) : ?>
+            <?php if (have_posts()) : ?>
 
-					<div class="masonry-wrapper">
-						<?php /* Start the Loop */ ?>
-						<?php while ( have_posts() ) : the_post(); ?>
-							<?php get_template_part( 'partials/content', 'archive' ); ?>
-						<?php endwhile; ?>
-					</div>
+                <div class="masonry-wrapper">
+                    <?php /* Start the Loop */ ?>
+                    <?php while (have_posts()) : the_post(); ?>
+                        <?php get_template_part('partials/content', 'archive'); ?>
+                    <?php endwhile; ?>
+                </div>
 
-					<?php get_template_part( 'pagination' ); // Loads the pagination.php template  ?>
+                <?php get_template_part('pagination'); // Loads the pagination.php template
+                ?>
 
-				<?php else : ?>
+            <?php else : ?>
 
-					<?php get_template_part( 'partials/content', 'none' ); ?>
+                <?php get_template_part('partials/content', 'none'); ?>
 
-				<?php endif; ?>
+            <?php endif; ?>
 
-			</main><!-- #main -->
-		</div><!-- #primary -->
+        </main><!-- #main -->
+    </div><!-- #primary -->
 
-	</div><!-- .container -->
+</div><!-- .container -->
 
 <?php get_footer(); ?>

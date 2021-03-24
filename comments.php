@@ -4,81 +4,87 @@
  * the visitor has not yet entered the password we will
  * return early without loading the comments.
  */
-if ( post_password_required() ) {
-	return;
+if (post_password_required()) {
+    return;
 }
 ?>
 
 <div id="comments" class="comments-area">
 
-	<?php // You can start editing here -- including this comment! ?>
+    <?php // You can start editing here -- including this comment!
+    ?>
 
-	<?php if ( have_comments() ) : ?>
-		<h2 class="comments-title">
-			<?php
-			if ( comments_open() ) {
-				if ( have_comments() ) {
-					esc_html_e( 'Join the Conversation', 'velove' );
-				} else {
-					esc_html_e( 'Leave a comment', 'velove' );
-				}
-			} else {
-				if ( '1' == $discussion->responses ) {
-					/* translators: %s: post title */
-					printf( _x( 'One reply on &ldquo;%s&rdquo;', 'comments title', 'velove' ), get_the_title() );
-				} else {
-					printf(
-						/* translators: 1: number of comments, 2: post title */
-						_nx(
-							'%1$s reply on &ldquo;%2$s&rdquo;',
-							'%1$s replies on &ldquo;%2$s&rdquo;',
-							$discussion->responses,
-							'comments title',
-							'velove'
-						),
-						number_format_i18n( $discussion->responses ),
-						get_the_title()
-					);
-				}
-			}
-			?>
-			</h2><!-- .comments-title -->
+    <?php if (have_comments()) : ?>
+        <h2 class="comments-title">
+            <?php
+            if (comments_open()) {
+                if (have_comments()) {
+                    esc_html_e('Join the Conversation', 'velove');
+                } else {
+                    esc_html_e('Leave a comment', 'velove');
+                }
+            } else {
+                if ('1' == $discussion->responses) {
+                    /* translators: %s: post title */
+                    printf(_x('One reply on &ldquo;%s&rdquo;', 'comments title', 'velove'), get_the_title());
+                } else {
+                    printf(
+                        /* translators: 1: number of comments, 2: post title */
+                        _nx(
+                            '%1$s reply on &ldquo;%2$s&rdquo;',
+                            '%1$s replies on &ldquo;%2$s&rdquo;',
+                            $discussion->responses,
+                            'comments title',
+                            'velove'
+                        ),
+                        number_format_i18n($discussion->responses),
+                        get_the_title()
+                    );
+                }
+            }
+            ?>
+        </h2><!-- .comments-title -->
 
-		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
-		<nav id="comment-nav-above" class="comment-navigation" role="navigation">
-			<h1 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'velove' ); ?></h1>
-			<div class="nav-previous"><?php previous_comments_link( esc_html__( '&larr; Older Comments', 'velove' ) ); ?></div>
-			<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments &rarr;', 'velove' ) ); ?></div>
-		</nav><!-- #comment-nav-above -->
-		<?php endif; // check for comment navigation ?>
+        <?php if (get_comment_pages_count() > 1 && get_option('page_comments')) : // are there comments to navigate through
+        ?>
+            <nav id="comment-nav-above" class="comment-navigation" role="navigation">
+                <h1 class="screen-reader-text"><?php esc_html_e('Comment navigation', 'velove'); ?></h1>
+                <div class="nav-previous"><?php previous_comments_link(esc_html__('&larr; Older Comments', 'velove')); ?></div>
+                <div class="nav-next"><?php next_comments_link(esc_html__('Newer Comments &rarr;', 'velove')); ?></div>
+            </nav><!-- #comment-nav-above -->
+        <?php endif; // check for comment navigation
+        ?>
 
-		<ol class="commentlist">
-			<?php wp_list_comments( array( 'callback' => 'velove_comment', 'style' => 'ol' ) ); ?>
-		</ol><!-- .comment-list -->
+        <ol class="commentlist">
+            <?php wp_list_comments(array('callback' => 'velove_comment', 'style' => 'ol')); ?>
+        </ol><!-- .comment-list -->
 
-		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
-		<nav id="comment-nav-below" class="comment-navigation" role="navigation">
-			<h1 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'velove' ); ?></h1>
-			<div class="nav-previous"><?php previous_comments_link( esc_html__( '&larr; Older Comments', 'velove' ) ); ?></div>
-			<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments &rarr;', 'velove' ) ); ?></div>
-		</nav><!-- #comment-nav-below -->
-		<?php endif; // check for comment navigation ?>
+        <?php if (get_comment_pages_count() > 1 && get_option('page_comments')) : // are there comments to navigate through
+        ?>
+            <nav id="comment-nav-below" class="comment-navigation" role="navigation">
+                <h1 class="screen-reader-text"><?php esc_html_e('Comment navigation', 'velove'); ?></h1>
+                <div class="nav-previous"><?php previous_comments_link(esc_html__('&larr; Older Comments', 'velove')); ?></div>
+                <div class="nav-next"><?php next_comments_link(esc_html__('Newer Comments &rarr;', 'velove')); ?></div>
+            </nav><!-- #comment-nav-below -->
+        <?php endif; // check for comment navigation
+        ?>
 
-	<?php endif; // have_comments() ?>
+    <?php endif; // have_comments()
+    ?>
 
-	<?php
-		// If comments are closed and there are comments, let's leave a little note, shall we?
-		if ( ! comments_open() && '0' != get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
-	?>
-		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'velove' ); ?></p>
-	<?php endif; ?>
+    <?php
+    // If comments are closed and there are comments, let's leave a little note, shall we?
+    if (!comments_open() && '0' != get_comments_number() && post_type_supports(get_post_type(), 'comments')) :
+    ?>
+        <p class="no-comments"><?php esc_html_e('Comments are closed.', 'velove'); ?></p>
+    <?php endif; ?>
 
-	<?php comment_form(
-		array(
-			'comment_notes_after'  => false,
-			'comment_notes_before' => false,
-			'title_reply'          => esc_html__( 'Post Comment', 'velove' )
-		)
-	); ?>
+    <?php comment_form(
+        array(
+            'comment_notes_after'  => false,
+            'comment_notes_before' => false,
+            'title_reply'          => esc_html__('Post Comment', 'velove')
+        )
+    ); ?>
 
 </div><!-- #comments -->
