@@ -4,8 +4,8 @@ Requires at least: 4.8
 Tested up to: 5.6
 Version: 2.0.0
 Requires PHP: 5.6
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License: GPLv3 or later
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 == Description ==
 Velove is a fresh, beautiful, responsive and modern WordPress blog theme perfect for creative bloggers who love fresh and unique layout. It features Gutenberg support, unlimited custom colors, custom typography, multiple blog layouts and support Retina logo. See demo: https://demowp.idenovasi.com/velove-lite/. Velove comes with great features you will love:
@@ -54,38 +54,3 @@ Image used in demo: https://unsplash.com/, licensed under Creative Commons Zero(
 2.0.0 - Feb 14, 2021
 * Completely new, fresh and modern code
 
-1.5.3 - March 03, 2019
-* Fixed: Gutenberg issue
-
-1.5.2 - Feb 28, 2019
-* Fixed: Built-in plugin not working
-* Updated: Fully supported Gutenberg
-
-1.5.0 - Feb 28, 2019
-* Support WordPress 5.1
-* Updated: Assets
-* Updated: Subtitles plugin not working anymore, use WP Substitles instead
-* Updated: Gutenberg support
-* Fixed: Responsive issue
-* Fixed: Demo content not found
-* Fixed: Oudated code
-
-1.4.0 - June 21, 2018
-* Added: Retina logo
-
-1.3.0 - 28 Jan, 2017
-* Fixed: Related posts responsive issue
-
-1.2.0 - 12 Jan, 2017
-* Support WordPress 4.9.1
-* Fixed: Related posts columns when only have 3 posts
-* Fixed: Documentation link was not clickable
-
-1.1.0 - 30 August, 2017
-* New: Smooth scroll top
-* New: Related posts
-* New: 3 predefined colors
-* Fixed: Post layout issue
-
-1.0.0 - July 05, 2017
-* Initial release
